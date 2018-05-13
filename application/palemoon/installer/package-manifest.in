@@ -35,11 +35,13 @@
 #ifdef XP_MACOSX
 ; Mac bundle stuff
 @APPNAME@/Contents/Info.plist
-@APPNAME@/Contents/Library/LaunchServices
+; This directory not needed as it only houses org.mozilla.updater which is disabled anyway
+; @APPNAME@/Contents/Library/LaunchServices
 @APPNAME@/Contents/PkgInfo
 @RESPATH@/firefox.icns
 @RESPATH@/document.icns
-@RESPATH@/@LPROJ_ROOT@.lproj/*
+; Fixed path. It is no longer LPROJ_ROOT
+@RESPATH@/@AB@.lproj/*
 #endif
 
 [@AB_CD@]
@@ -52,6 +54,7 @@
 @RESPATH@/browser/defaults/profile/localstore.rdf
 @RESPATH@/browser/defaults/profile/mimeTypes.rdf
 @RESPATH@/dictionaries/*
+
 #if defined(XP_WIN) || defined(XP_LINUX)
 @RESPATH@/fonts/*
 #endif
