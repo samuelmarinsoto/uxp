@@ -1122,6 +1122,17 @@ var gBrowserInit = {
     var homeButton = document.getElementById("home-button");
     gHomeButton.updateTooltip(homeButton);
     gHomeButton.updatePersonalToolbarStyle(homeButton);
+	  
+    if (Services.appinfo.inSafeMode) {
+      var appmenuSafeModeItem = document.getElementById("appmenu_safeMode");
+      var helpSafeModeItem = document.getElementById("helpSafeMode");
+      if (appmenuSafeModeItem) {
+        appmenuSafeModeItem.label = appmenuSafeModeItem.getAttribute("labelToNormal");
+      }
+      if (helpSafeModeItem) {
+        helpSafeModeItem.label = helpSafeModeItem.getAttribute("labelToNormal");
+      }
+    }
 
     // BiDi UI
     gBidiUI = isBidiEnabled();
@@ -7049,6 +7060,9 @@ XPCOMUtils.defineLazyModuleGetter(this, "gDevTools",
 // Prompt user to restart the browser in safe mode or normally
 function restart(safeMode)
 {
+  if (Services.appinfo.inSafeMode) {
+    safeMode = false;
+  }
   let promptTitleString = null;
   let promptMessageString = null;
   let restartTextString = null;
