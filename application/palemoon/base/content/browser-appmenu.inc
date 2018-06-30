@@ -357,6 +357,7 @@
             <menuseparator/>
             <menuitem id="appmenu_safeMode"
                       label="&appMenuSafeMode.label;"
+                      labelToNormal="&appMenuNormalMode.label;"
                       oncommand="restart(true);"/>
             <menuseparator/>
             <menuitem id="appmenu_about"
