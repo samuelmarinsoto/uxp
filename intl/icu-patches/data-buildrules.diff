@@ -1,0 +1,288 @@
+diff --git a/intl/icu/source/data/BUILDRULES.py b/intl/icu/source/data/BUILDRULES.py
+--- a/intl/icu/source/data/BUILDRULES.py
++++ b/intl/icu/source/data/BUILDRULES.py
+@@ -37,92 +37,55 @@
+         print("Error: Cannot find data directory; please specify --src_dir", file=sys.stderr)
+         exit(1)
+ 
+     requests += generate_cnvalias(config, io, common_vars)
+     requests += generate_ulayout(config, io, common_vars)
+     requests += generate_uemoji(config, io, common_vars)
+     requests += generate_confusables(config, io, common_vars)
+     requests += generate_conversion_mappings(config, io, common_vars)
+-    requests += generate_brkitr_brk(config, io, common_vars)
+-    requests += generate_brkitr_lstm(config, io, common_vars)
+-    requests += generate_brkitr_adaboost(config, io, common_vars)
+     requests += generate_stringprep(config, io, common_vars)
+-    requests += generate_brkitr_dictionaries(config, io, common_vars)
+     requests += generate_normalization(config, io, common_vars)
+     requests += generate_coll_ucadata(config, io, common_vars)
+     requests += generate_full_unicore_data(config, io, common_vars)
+     requests += generate_unames(config, io, common_vars)
+     requests += generate_misc(config, io, common_vars)
+     requests += generate_curr_supplemental(config, io, common_vars)
+     requests += generate_zone_supplemental(config, io, common_vars)
+-    requests += generate_translit(config, io, common_vars)
+ 
+     # Res Tree Files
+     # (input dirname, output dirname, resfiles.mk path, mk version var, mk source var, use pool file, dep files)
+     requests += generate_tree(config, io, common_vars,
+         "locales",
+         None,
+         config.use_pool_bundle,
+         [DepTarget("cnvalias")])
+ 
+     requests += generate_tree(config, io, common_vars,
+         "curr",
+         "curr",
+         config.use_pool_bundle,
+         [DepTarget("cnvalias")])
+ 
+     requests += generate_tree(config, io, common_vars,
+-        "lang",
+-        "lang",
+-        config.use_pool_bundle,
+-        [DepTarget("cnvalias")])
+-
+-    requests += generate_tree(config, io, common_vars,
+-        "region",
+-        "region",
+-        config.use_pool_bundle,
+-        [DepTarget("cnvalias")])
+-
+-    requests += generate_tree(config, io, common_vars,
+         "zone",
+         "zone",
+         config.use_pool_bundle,
+         [DepTarget("cnvalias")])
+ 
+     requests += generate_tree(config, io, common_vars,
+-        "unit",
+-        "unit",
+-        config.use_pool_bundle,
+-        [DepTarget("cnvalias")])
+-
+-    requests += generate_tree(config, io, common_vars,
+         "coll",
+         "coll",
+         # Never use pool bundle for coll, brkitr, or rbnf
+         False,
+         # Depends on timezoneTypes.res and keyTypeData.res.
+         # TODO: We should not need this dependency to build collation.
+         # TODO: Bake keyTypeData.res into the common library?
+         [DepTarget("coll_ucadata"), DepTarget("misc_res"), InFile("unidata/UCARules.txt"), DepTarget("cnvalias")])
+ 
+-    requests += generate_tree(config, io, common_vars,
+-        "brkitr",
+-        "brkitr",
+-        # Never use pool bundle for coll, brkitr, or rbnf
+-        False,
+-        [DepTarget("brkitr_brk"), DepTarget("dictionaries"), DepTarget("cnvalias")])
+-
+-    requests += generate_tree(config, io, common_vars,
+-        "rbnf",
+-        "rbnf",
+-        # Never use pool bundle for coll, brkitr, or rbnf
+-        False,
+-        [DepTarget("cnvalias")])
+-
+     requests += [
+         ListRequest(
+             name = "icudata_list",
+             variable_name = "icudata_all_output_files",
+             output_file = TmpFile("icudata.lst"),
+             include_tmp = False
+         )
+     ]
+@@ -187,39 +150,16 @@
+             format_with = {},
+             repeat_with = {
+                 "INPUT_FILE_PLACEHOLDER": utils.SpaceSeparatedList(file.filename for file in input_files)
+             }
+         )
+     ]
+ 
+ 
+-def generate_brkitr_brk(config, io, common_vars):
+-    # BRK Files
+-    input_files = [InFile(filename) for filename in io.glob("brkitr/rules/*.txt")]
+-    output_files = [OutFile("brkitr/%s.brk" % v.filename[13:-4]) for v in input_files]
+-    return [
+-        RepeatedExecutionRequest(
+-            name = "brkitr_brk",
+-            category = "brkitr_rules",
+-            dep_targets =
+-                [DepTarget("cnvalias"),
+-                    DepTarget("ulayout"), DepTarget("uemoji"), DepTarget("lstm_res"), DepTarget("adaboost_res")],
+-            input_files = input_files,
+-            output_files = output_files,
+-            tool = IcuTool("genbrk"),
+-            args = "-d {OUT_DIR} -i {OUT_DIR} "
+-                "-c -r {IN_DIR}/{INPUT_FILE} "
+-                "-o {OUTPUT_FILE}",
+-            format_with = {},
+-            repeat_with = {}
+-        )
+-    ]
+-
+-
+ def generate_stringprep(config, io, common_vars):
+     # SPP FILES
+     input_files = [InFile(filename) for filename in io.glob("sprep/*.txt")]
+     output_files = [OutFile("%s.spp" % v.filename[6:-4]) for v in input_files]
+     bundle_names = [v.filename[6:-4] for v in input_files]
+     return [
+         RepeatedExecutionRequest(
+             name = "stringprep",
+@@ -233,47 +173,16 @@
+             format_with = {},
+             repeat_with = {
+                 "BUNDLE_NAME": bundle_names
+             }
+         )
+     ]
+ 
+ 
+-def generate_brkitr_dictionaries(config, io, common_vars):
+-    # Dict Files
+-    input_files = [InFile(filename) for filename in io.glob("brkitr/dictionaries/*.txt")]
+-    output_files = [OutFile("brkitr/%s.dict" % v.filename[20:-4]) for v in input_files]
+-    extra_options_map = {
+-        "brkitr/dictionaries/burmesedict.txt": "--bytes --transform offset-0x1000",
+-        "brkitr/dictionaries/cjdict.txt": "--uchars",
+-        "brkitr/dictionaries/khmerdict.txt": "--bytes --transform offset-0x1780",
+-        "brkitr/dictionaries/laodict.txt": "--bytes --transform offset-0x0e80",
+-        "brkitr/dictionaries/thaidict.txt": "--bytes --transform offset-0x0e00"
+-    }
+-    extra_optionses = [extra_options_map[v.filename] for v in input_files]
+-    return [
+-        RepeatedExecutionRequest(
+-            name = "dictionaries",
+-            category = "brkitr_dictionaries",
+-            dep_targets = [],
+-            input_files = input_files,
+-            output_files = output_files,
+-            tool = IcuTool("gendict"),
+-            args = "-i {OUT_DIR} "
+-                "-c {EXTRA_OPTIONS} "
+-                "{IN_DIR}/{INPUT_FILE} {OUT_DIR}/{OUTPUT_FILE}",
+-            format_with = {},
+-            repeat_with = {
+-                "EXTRA_OPTIONS": extra_optionses
+-            }
+-        )
+-    ]
+-
+-
+ def generate_normalization(config, io, common_vars):
+     # NRM Files
+     input_files = [InFile(filename) for filename in io.glob("in/*.nrm")]
+     # nfc.nrm is pre-compiled into C++; see generate_full_unicore_data
+     input_files.remove(InFile("in/nfc.nrm"))
+     output_files = [OutFile(v.filename[3:]) for v in input_files]
+     return [
+         RepeatedExecutionRequest(
+@@ -459,103 +368,16 @@
+                 "{INPUT_BASENAME}",
+             format_with = {
+                 "INPUT_BASENAME": input_basename
+             }
+         )
+     ]
+ 
+ 
+-def generate_translit(config, io, common_vars):
+-    input_files = [
+-        InFile("translit/root.txt"),
+-        InFile("translit/en.txt"),
+-        InFile("translit/el.txt")
+-    ]
+-    dep_files = set(InFile(filename) for filename in io.glob("translit/*.txt"))
+-    dep_files -= set(input_files)
+-    dep_files.add(DepTarget("cnvalias"))
+-    dep_files = list(sorted(dep_files))
+-    input_basenames = [v.filename[9:] for v in input_files]
+-    output_files = [
+-        OutFile("translit/%s.res" % v[:-4])
+-        for v in input_basenames
+-    ]
+-    return [
+-        RepeatedOrSingleExecutionRequest(
+-            name = "translit_res",
+-            category = "translit",
+-            dep_targets = dep_files,
+-            input_files = input_files,
+-            output_files = output_files,
+-            tool = IcuTool("genrb"),
+-            args = "-s {IN_DIR}/translit -d {OUT_DIR}/translit -i {OUT_DIR} "
+-                "-k "
+-                "{INPUT_BASENAME}",
+-            format_with = {
+-            },
+-            repeat_with = {
+-                "INPUT_BASENAME": utils.SpaceSeparatedList(input_basenames)
+-            }
+-        )
+-    ]
+-
+-
+-def generate_brkitr_lstm(config, io, common_vars):
+-    input_files = [InFile(filename) for filename in io.glob("brkitr/lstm/*.txt")]
+-    input_basenames = [v.filename[12:] for v in input_files]
+-    output_files = [
+-        OutFile("brkitr/%s.res" % v[:-4])
+-        for v in input_basenames
+-    ]
+-    return [
+-        RepeatedOrSingleExecutionRequest(
+-            name = "lstm_res",
+-            category = "brkitr_lstm",
+-            dep_targets = [DepTarget("cnvalias")],
+-            input_files = input_files,
+-            output_files = output_files,
+-            tool = IcuTool("genrb"),
+-            args = "-s {IN_DIR}/brkitr/lstm -d {OUT_DIR}/brkitr -i {OUT_DIR} "
+-                "-k "
+-                "{INPUT_BASENAME}",
+-            format_with = {
+-            },
+-            repeat_with = {
+-                "INPUT_BASENAME": utils.SpaceSeparatedList(input_basenames)
+-            }
+-        )
+-    ]
+-
+-def generate_brkitr_adaboost(config, io, common_vars):
+-    input_files = [InFile(filename) for filename in io.glob("brkitr/adaboost/*.txt")]
+-    input_basenames = [v.filename[16:] for v in input_files]
+-    output_files = [
+-        OutFile("brkitr/%s.res" % v[:-4])
+-        for v in input_basenames
+-    ]
+-    return [
+-        RepeatedOrSingleExecutionRequest(
+-            name = "adaboost_res",
+-            category = "brkitr_adaboost",
+-            dep_targets = [DepTarget("cnvalias")],
+-            input_files = input_files,
+-            output_files = output_files,
+-            tool = IcuTool("genrb"),
+-            args = "-s {IN_DIR}/brkitr/adaboost -d {OUT_DIR}/brkitr -i {OUT_DIR} "
+-                "-k "
+-                "{INPUT_BASENAME}",
+-            format_with = {
+-            },
+-            repeat_with = {
+-                "INPUT_BASENAME": utils.SpaceSeparatedList(input_basenames)
+-            }
+-        )
+-    ]
+-
+ def generate_tree(
+         config,
+         io,
+         common_vars,
+         sub_dir,
+         out_sub_dir,
+         use_pool_bundle,
+         dep_targets):
