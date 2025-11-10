@@ -133,18 +133,14 @@ def find_source_file(dir, filename):
     raise Exception("Couldn't find source file for: %s" % filename)
 
 
-def get_sources_from_makefile(makefile):
-    import pymake.parser
-    from pymake.parserdata import SetVariable
-    srcdir = os.path.dirname(makefile)
-    for statement in pymake.parser.parsefile(makefile):
-        if (isinstance(statement, SetVariable) and
-                statement.vnameexp.is_static_string and
-                statement.vnameexp.s == 'OBJECTS'):
-            return sorted((find_source_file(srcdir, s)
-                           for s in statement.value.split()),
-                          key=lambda x: x.lower())
-
+def get_sources_from_txtfile(sourcetxt):
+    srcdir = os.path.dirname(sourcetxt)
+    lines = []
+    with open(sourcetxt) as srcfile:
+      for ln in srcfile:
+        lines.append(find_source_file(srcdir, ln.rstrip()))
+    lines.sort(key=str.lower)
+    return lines
 
 def list_headers(path):
     result = []
@@ -175,11 +171,11 @@ def update_sources(topsrcdir):
     sys.path.append(mozpath.join(topsrcdir, 'build/pymake'))
     for d in ['common', 'i18n']:
         base_path = mozpath.join(topsrcdir, 'intl/icu/source/%s' % mozpath.basename(d))
-        makefile = mozpath.join(base_path, 'Makefile.in')
+        sourcetxt = mozpath.join(base_path, 'sources.txt')
         mozbuild = mozpath.join(topsrcdir,
                                 'config/external/icu/%s/sources.mozbuild' % d)
         sources = [mozpath.relpath(s, topsrcdir)
-                   for s in get_sources_from_makefile(makefile)]
+                   for s in get_sources_from_txtfile(sourcetxt)]
         unicode_dir = mozpath.join(base_path, 'unicode')
         if os.path.exists(unicode_dir):
             headers = [mozpath.normsep(os.path.relpath(s, topsrcdir))
