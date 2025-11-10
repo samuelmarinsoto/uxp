@@ -51,19 +51,19 @@ find ${icu_dir}/source/samples -name '*Makefile.in' -prune -or -type f -print | 
 
 # remove data that we currently don't need
 rm -rf ${icu_dir}/source/data/brkitr/*
-rm ${icu_dir}/source/data/lang/*.mk
-rm ${icu_dir}/source/data/lang/*.txt
-rm ${icu_dir}/source/data/mappings/*.mk
+rm -f ${icu_dir}/source/data/lang/*.mk
+rm -f ${icu_dir}/source/data/lang/*.txt
+rm -f ${icu_dir}/source/data/mappings/*.mk
 find ${icu_dir}/source/data/mappings \
     -name ibm-37_P100-1995.ucm -prune -or \
     -name ibm-1047_P100-1995.ucm -prune -or \
     -name '*.ucm' -print | xargs rm
 rm ${icu_dir}/source/data/rbnf/*
-rm ${icu_dir}/source/data/region/*.mk
-rm ${icu_dir}/source/data/region/*.txt
+rm -f ${icu_dir}/source/data/region/*.mk
+rm -f ${icu_dir}/source/data/region/*.txt
 rm ${icu_dir}/source/data/translit/*
-rm ${icu_dir}/source/data/unit/*.mk
-rm ${icu_dir}/source/data/unit/*.txt
+rm -f ${icu_dir}/source/data/unit/*.mk
+rm -f ${icu_dir}/source/data/unit/*.txt
 
 # Remove all exemplar cities 'ec'. (bug 1225401 and bug 1345336)
 find ${icu_dir}/source/data/zone \
