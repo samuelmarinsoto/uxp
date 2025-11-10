@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 hi{
-    Version{"2.1.43.50"}
     zoneStrings{
         "Etc:UTC"{
             ls{"समन्वित वैश्विक समय"}
@@ -25,9 +25,7 @@ hi{
             ls{"दक्षिण अफ़्रीका मानक समय"}
         }
         "meta:Africa_Western"{
-            ld{"पश्चिम अफ़्रीका ग्रीष्मकालीन समय"}
-            lg{"पश्चिम अफ़्रीका समय"}
-            ls{"पश्चिम अफ़्रीका मानक समय"}
+            ls{"पश्चिम अफ़्रीका समय"}
         }
         "meta:Alaska"{
             ld{"अलास्‍का डेलाइट समय"}
@@ -166,11 +164,6 @@ hi{
             lg{"चीन समय"}
             ls{"चीन मानक समय"}
         }
-        "meta:Choibalsan"{
-            ld{"कॉइबाल्सन ग्रीष्मकालीन समय"}
-            lg{"कॉइबाल्सन समय"}
-            ls{"कॉइबाल्सन मानक समय"}
-        }
         "meta:Christmas"{
             ls{"क्रिसमस द्वीप समय"}
         }
@@ -276,6 +269,9 @@ hi{
         "meta:Guyana"{
             ls{"गुयाना समय"}
         }
+        "meta:Hawaii"{
+            ls{"हवाई–आल्यूशन मानक समय"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"हवाई–आल्यूशन डेलाइट समय"}
             lg{"हवाई–आल्यूशन समय"}
@@ -335,6 +331,9 @@ hi{
             lg{"पेट्रोपेवलास्क-कैमचात्सकी समय"}
             ls{"पेट्रोपेवलास्क-कैमचात्सकी मानक समय"}
         }
+        "meta:Kazakhstan"{
+            ls{"कज़ाखस्तान समय"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"पूर्व कज़ाखस्तान समय"}
         }
@@ -365,9 +364,6 @@ hi{
             lg{"लॉर्ड होवे समय"}
             ls{"लॉर्ड होवे मानक समय"}
         }
-        "meta:Macquarie"{
-            ls{"मक्वारी द्वीप समय"}
-        }
         "meta:Magadan"{
             ld{"मागादान ग्रीष्मकालीन समय"}
             lg{"मागादान समय"}
@@ -392,11 +388,6 @@ hi{
         }
         "meta:Mawson"{
             ls{"माव्सन समय"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"उत्तर पश्चिमी मेक्सिको डेलाइट समय"}
-            lg{"उत्तर पश्चिमी मेक्सिको समय"}
-            ls{"उत्तर पश्चिमी मेक्सिको मानक समय"}
         }
         "meta:Mexico_Pacific"{
             ld{"मेक्सिकन प्रशांत डेलाइट समय"}
@@ -441,7 +432,9 @@ hi{
             ls{"नीयू समय"}
         }
         "meta:Norfolk"{
-            ls{"नॉरफ़ॉक द्वीप समय"}
+            ld{"नॉरफ़ॉक द्वीप डेलाइट समय"}
+            lg{"नॉरफ़ॉक द्वीप समय"}
+            ls{"नॉरफ़ॉक द्वीप मानक समय"}
         }
         "meta:Noronha"{
             ld{"फ़र्नांर्डो डे नोरोन्हा ग्रीष्मकालीन समय"}
@@ -617,10 +610,9 @@ hi{
             lg{"येकातेरिनबर्ग समय"}
             ls{"येकातेरिनबर्ग मानक समय"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"युकॉन समय"}
+        }
         regionFormat{"{0} समय"}
         regionFormatDaylight{"{0} डेलाइट समय"}
         regionFormatStandard{"{0} मानक समय"}

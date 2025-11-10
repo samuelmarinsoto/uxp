@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 fy{
-    Version{"2.1.41.34"}
     zoneStrings{
         "Europe:Dublin"{
             ld{"Ierse simmertiid"}
@@ -27,9 +27,7 @@ fy{
             ls{"Sûd-Afrikaanske tiid"}
         }
         "meta:Africa_Western"{
-            ld{"West-Afrikaanske simmertiid"}
-            lg{"West-Afrikaanske tiid"}
-            ls{"West-Afrikaanske standerttiid"}
+            ls{"West-Afrikaanske tiid"}
         }
         "meta:Alaska"{
             ld{"Alaska-simmertiid"}
@@ -178,11 +176,6 @@ fy{
             lg{"Sineeske tiid"}
             ls{"Sineeske standerttiid"}
         }
-        "meta:Choibalsan"{
-            ld{"Tsjojbalsan simmertiid"}
-            lg{"Tsjojbalsan tiid"}
-            ls{"Tsjojbalsan standerttiid"}
-        }
         "meta:Christmas"{
             ls{"Krysteilânske tiid"}
         }
@@ -297,6 +290,9 @@ fy{
         "meta:Guyana"{
             ls{"Guyaanske tiid"}
         }
+        "meta:Hawaii"{
+            ls{"Hawaii-Aleoetyske standerttiid"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Hawaii-Aleoetyske simmertiid"}
             lg{"Hawaii-Aleoetyske tiid"}
@@ -393,9 +389,6 @@ fy{
             lg{"Macause tiid"}
             ls{"Macause standerttiid"}
         }
-        "meta:Macquarie"{
-            ls{"Macquarie-eilânske tiid"}
-        }
         "meta:Magadan"{
             ld{"Magadan-simmertiid"}
             lg{"Magadan-tiid"}
@@ -459,7 +452,9 @@ fy{
             ls{"Niuese tiid"}
         }
         "meta:Norfolk"{
-            ls{"Norfolkeilânske tiid"}
+            ld{"Norfolkeilânske simmertiid"}
+            lg{"Norfolkeilânske tiid"}
+            ls{"Norfolkeilânske standerttiid"}
         }
         "meta:Noronha"{
             ld{"Fernando de Noronha-simmertiid"}
@@ -640,10 +635,6 @@ fy{
             lg{"Jekaterinenburg-tiid"}
             ls{"Jekaterinenburg-standerttiid"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
         regionFormat{"{0}-tiid"}
         regionFormatDaylight{"Zomertiid {0}"}
         regionFormatStandard{"Standaardtiid {0}"}

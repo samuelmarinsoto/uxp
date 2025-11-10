@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 et{
-    Version{"2.1.44.91"}
     zoneStrings{
         "Etc:UTC"{
             ls{"Koordineeritud maailmaaeg"}
@@ -30,9 +30,7 @@ et{
             ls{"Lõuna-Aafrika standardaeg"}
         }
         "meta:Africa_Western"{
-            ld{"Lääne-Aafrika suveaeg"}
-            lg{"Lääne-Aafrika aeg"}
-            ls{"Lääne-Aafrika standardaeg"}
+            ls{"Lääne-Aafrika aeg"}
         }
         "meta:Alaska"{
             ld{"Alaska suveaeg"}
@@ -189,11 +187,6 @@ et{
             lg{"Hiina aeg"}
             ls{"Hiina standardaeg"}
         }
-        "meta:Choibalsan"{
-            ld{"Tšojbalsani suveaeg"}
-            lg{"Tšojbalsani aeg"}
-            ls{"Tšojbalsani standardaeg"}
-        }
         "meta:Christmas"{
             ls{"Jõulusaare aeg"}
         }
@@ -219,7 +212,7 @@ et{
             ls{"Davise aeg"}
         }
         "meta:DumontDUrville"{
-            ls{"Dumont-d’Urville’i aeg"}
+            ls{"Dumont d’Urville’i aeg"}
         }
         "meta:East_Timor"{
             ls{"Ida-Timori aeg"}
@@ -283,6 +276,11 @@ et{
         "meta:Gilbert_Islands"{
             ls{"Gilberti saarte aeg"}
         }
+        "meta:Greenland"{
+            ld{"Gröönimaa suveaeg"}
+            lg{"Gröönimaa aeg"}
+            ls{"Gröönimaa standardaeg"}
+        }
         "meta:Greenland_Eastern"{
             ld{"Ida-Gröönimaa suveaeg"}
             lg{"Ida-Gröönimaa aeg"}
@@ -301,6 +299,9 @@ et{
         }
         "meta:Guyana"{
             ls{"Guyana aeg"}
+        }
+        "meta:Hawaii"{
+            ls{"Hawaii-Aleuudi standardaeg"}
         }
         "meta:Hawaii_Aleutian"{
             ld{"Hawaii-Aleuudi suveaeg"}
@@ -360,6 +361,9 @@ et{
             lg{"Petropavlovsk-Kamtšatski aeg"}
             ls{"Kamtšatka standardaeg"}
         }
+        "meta:Kazakhstan"{
+            ls{"Kasahstani aeg"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Ida-Kasahstani aeg"}
         }
@@ -398,16 +402,13 @@ et{
             lg{"Macau aeg"}
             ls{"Macau standardaeg"}
         }
-        "meta:Macquarie"{
-            ls{"Macquarie saare aeg"}
-        }
         "meta:Magadan"{
             ld{"Magadani suveaeg"}
             lg{"Magadani aeg"}
             ls{"Magadani standardaeg"}
         }
         "meta:Malaysia"{
-            ls{"Malaisia ​​aeg"}
+            ls{"Malaisia aeg"}
         }
         "meta:Maldives"{
             ls{"Maldiivi aeg"}
@@ -425,11 +426,6 @@ et{
         }
         "meta:Mawson"{
             ls{"Mawsoni aeg"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Loode-Mehhiko suveaeg"}
-            lg{"Loode-Mehhiko aeg"}
-            ls{"Loode-Mehhiko standardaeg"}
         }
         "meta:Mexico_Pacific"{
             ld{"Mehhiko Vaikse ookeani suveaeg"}
@@ -474,7 +470,9 @@ et{
             ls{"Niue aeg"}
         }
         "meta:Norfolk"{
-            ls{"Norfolki saarte aeg"}
+            ld{"Norfolki saare suveaeg"}
+            lg{"Norfolki saare aeg"}
+            ls{"Norfolki saare standardaeg"}
         }
         "meta:Noronha"{
             ld{"Fernando de Noronha suveaeg"}
@@ -603,6 +601,11 @@ et{
         "meta:Truk"{
             ls{"Chuuki aeg"}
         }
+        "meta:Turkey"{
+            ld{"Türgi suveaeg"}
+            lg{"Türgi aeg"}
+            ls{"Türgi standardaeg"}
+        }
         "meta:Turkmenistan"{
             ld{"Türkmenistani suveaeg"}
             lg{"Türkmenistani aeg"}
@@ -658,12 +661,11 @@ et{
             lg{"Jekaterinburgi aeg"}
             ls{"Jekaterinburgi standardaeg"}
         }
-        fallbackFormat{"{1} ({0})"}
+        "meta:Yukon"{
+            ls{"Yukoni aeg"}
+        }
         gmtFormat{"GMT {0}"}
-        gmtZeroFormat{"GMT"}
         hourFormat{"+HH:mm;−HH:mm"}
         regionFormat{"({0})"}
-        regionFormatDaylight{"{0} (+1)"}
-        regionFormatStandard{"{0} (+0)"}
     }
 }

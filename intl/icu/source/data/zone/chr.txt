@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 chr{
-    Version{"2.1.43.2"}
     zoneStrings{
         "Etc:UTC"{
             ls{"ᎢᎩᏠᏱ ᏂᎦᏓ ᎠᏟᎢᎵᏒ"}
@@ -11,11 +11,6 @@ chr{
         }
         "Europe:London"{
             ld{"ᏈᏗᏏ ᎪᎩ ᎠᏟᎢᎵᏒ"}
-        }
-        "Pacific:Honolulu"{
-            sd{"HDT"}
-            sg{"HST"}
-            ss{"HST"}
         }
         "meta:Afghanistan"{
             ls{"ᎠᏫᎨᏂᏍᏖᏂ ᎠᏟᎢᎵᏒ"}
@@ -30,9 +25,7 @@ chr{
             ls{"ᏧᎦᎾᏮ ᎬᎿᎨᏍᏛ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ"}
         }
         "meta:Africa_Western"{
-            ld{"ᏭᏕᎵᎬ ᎬᎿᎨᏍᏛ ᎪᎩ ᎠᏟᎢᎵᏒ"}
-            lg{"ᏭᏕᎵᎬ ᎬᎿᎨᏍᏛ ᎠᏟᎢᎵᏒ"}
-            ls{"ᏭᏕᎵᎬ ᎬᎿᎨᏍᏛ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ"}
+            ls{"ᏭᏕᎵᎬ ᎬᎿᎨᏍᏛ ᎠᏟᎢᎵᏒ"}
         }
         "meta:Alaska"{
             ld{"ᎠᎳᏍᎦ ᎪᎯ ᎢᎦ ᎠᏟᎢᎵᏒ"}
@@ -184,11 +177,6 @@ chr{
             lg{"ᏓᎶᏂᎨᏍᏛ ᎠᏟᎢᎵᏒ"}
             ls{"ᏓᎶᏂᎨᏍᏛ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ"}
         }
-        "meta:Choibalsan"{
-            ld{"ᏦᏱᏆᎵᏌᏂ ᎪᎩ ᎠᏟᎢᎵᏒ"}
-            lg{"ᏦᏱᏆᎵᏌᏂ ᎠᏟᎢᎵᏒ"}
-            ls{"ᏦᏱᏆᎵᏌᏂ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ"}
-        }
         "meta:Christmas"{
             ls{"ᏓᏂᏍᏓᏲᎯᎲ ᎤᎦᏚᏛᎢ ᎠᏟᎢᎵᏒ"}
         }
@@ -294,6 +282,10 @@ chr{
         "meta:Guyana"{
             ls{"ᎦᏯᎾ ᎠᏟᎢᎵᏒ"}
         }
+        "meta:Hawaii"{
+            ls{"ᎭᏩᏱ-ᎠᎵᏳᏏᎠᏂ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ"}
+            ss{"HAST"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"ᎭᏩᏱ-ᎠᎵᏳᏏᎠᏂ ᎪᎯ ᎢᎦ ᎠᏟᎢᎵᏒ"}
             lg{"ᎭᏩᏱ-ᎠᎵᏳᏏᎠᏂ ᎠᏟᎢᎵᏒ"}
@@ -350,6 +342,9 @@ chr{
             lg{"ᏣᏩᏂᏏ ᎠᏟᎢᎵᏒ"}
             ls{"ᏣᏩᏂᏏ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ"}
         }
+        "meta:Kazakhstan"{
+            ls{"ᎧᏎᎧᏍᏕᏂ ᎠᏟᎢᎵᏒ"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"ᏗᎧᎸᎬ ᎧᏎᎧᏍᏕᏂ ᎠᏟᎢᎵᏒ"}
         }
@@ -380,9 +375,6 @@ chr{
             lg{"ᎤᎬᏫᏳᎯ ᎭᏫ ᎠᏟᎢᎵᏒ"}
             ls{"ᎤᎬᏫᏳᎯ ᎭᏫ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ"}
         }
-        "meta:Macquarie"{
-            ls{"ᎹᏇᎵ ᎤᎦᏚᏛᎢ ᎠᏟᎢᎵᏒ"}
-        }
         "meta:Magadan"{
             ld{"ᎹᎦᏓᏂ ᎪᎩ ᎠᏟᎢᎵᏒ"}
             lg{"ᎹᎦᏓᏂ ᎠᏟᎢᎵᏒ"}
@@ -407,11 +399,6 @@ chr{
         }
         "meta:Mawson"{
             ls{"ᎹᏌᏂ ᎠᏟᎢᎵᏒ"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"ᏧᏴᏢ ᏭᏕᎵᎬ ᎠᏂᏍᏆᏂ ᎪᎯ ᎢᎦ ᎠᏟᎢᎵᏒ"}
-            lg{"ᏧᏴᏢ ᏭᏕᎵᎬ ᎠᏂᏍᏆᏂ ᎠᏟᎢᎵᏒ"}
-            ls{"ᏧᏴᏢ ᏭᏕᎵᎬ ᎠᏂᏍᏆᏂ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ"}
         }
         "meta:Mexico_Pacific"{
             ld{"ᎠᏂᏍᏆᏂ ᏭᏕᎵᎬ ᎪᎯ ᎢᎦ ᎠᏟᎢᎵᏒ"}
@@ -456,7 +443,9 @@ chr{
             ls{"ᏂᏳ ᎠᏟᎢᎵᏒ"}
         }
         "meta:Norfolk"{
-            ls{"ᏃᎵᏬᎵᎩ ᎤᎦᏚᏛᎢ ᎠᏟᎢᎵᏒ"}
+            ld{"ᏃᎵᏬᎵᎩ ᎤᎦᏚᏛᎢ ᎪᎩ ᎠᏟᎢᎵᏒ"}
+            lg{"ᏃᎵᏬᎵᎩ ᎤᎦᏚᏛᎢ ᎠᏟᎢᎵᏒ"}
+            ls{"ᏃᎵᏬᎵᎩ ᎤᎦᏚᏛᎢ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ"}
         }
         "meta:Noronha"{
             ld{"ᏪᎾᏅᏙ Ꮥ ᏃᎶᎾᎭ ᎪᎩ ᎠᏟᎢᎵᏒ"}
@@ -627,10 +616,9 @@ chr{
             lg{"ᏰᎧᏖᎵᏂᏊᎦ ᎠᏟᎢᎵᏒ"}
             ls{"ᏰᎧᏖᎵᏂᏊᎦ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"ᏳᎧᏂ ᎠᏟᎢᎵᏒ"}
+        }
         regionFormat{"{0} ᎠᏟᎢᎵᏒ"}
         regionFormatDaylight{"{0} ᎪᎯ ᎢᎦ ᎠᏟᎢᎵᏒ"}
         regionFormatStandard{"{0} ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ"}

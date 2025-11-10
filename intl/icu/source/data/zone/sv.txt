@@ -1,22 +1,16 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 sv{
-    Version{"2.1.43.94"}
     zoneStrings{
         "Etc:UTC"{
-            ls{"Koordinerad universell tid"}
-            ss{"UTC"}
+            ls{"koordinerad universell tid"}
         }
         "Europe:Dublin"{
             ld{"irländsk sommartid"}
         }
         "Europe:London"{
             ld{"brittisk sommartid"}
-        }
-        "Pacific:Honolulu"{
-            sd{"Honolulusommartid"}
-            sg{"Honolulutid"}
-            ss{"Honolulunormaltid"}
         }
         "meta:Acre"{
             ld{"västbrasiliansk sommartid"}
@@ -36,9 +30,7 @@ sv{
             ls{"sydafrikansk tid"}
         }
         "meta:Africa_Western"{
-            ld{"västafrikansk sommartid"}
-            lg{"västafrikansk tid"}
-            ls{"västafrikansk normaltid"}
+            ls{"västafrikansk tid"}
         }
         "meta:Alaska"{
             ld{"Alaska, sommartid"}
@@ -195,11 +187,6 @@ sv{
             lg{"kinesisk tid"}
             ls{"kinesisk normaltid"}
         }
-        "meta:Choibalsan"{
-            ld{"Tjojbalsan, sommartid"}
-            lg{"Tjojbalsantid"}
-            ls{"Tjojbalsan, normaltid"}
-        }
         "meta:Christmas"{
             ls{"Julöns tid"}
         }
@@ -318,10 +305,13 @@ sv{
         "meta:Guyana"{
             ls{"Guyanatid"}
         }
-        "meta:Hawaii_Aleutian"{
-            ld{"Honolulu, sommartid"}
-            lg{"Honolulutid"}
+        "meta:Hawaii"{
             ls{"Honolulu, normaltid"}
+        }
+        "meta:Hawaii_Aleutian"{
+            ld{"aleutisk sommartid"}
+            lg{"aleutisk tid"}
+            ls{"aleutisk normaltid"}
         }
         "meta:Hong_Kong"{
             ld{"Hongkong, sommartid"}
@@ -376,6 +366,9 @@ sv{
             lg{"Kamtjatkatid"}
             ls{"Kamtjatkanormaltid"}
         }
+        "meta:Kazakhstan"{
+            ls{"kazakstansk tid"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"östkazakstansk tid"}
         }
@@ -410,12 +403,9 @@ sv{
             ls{"Lord Howe, normaltid"}
         }
         "meta:Macau"{
-            ld{"Macausommartid"}
-            lg{"Macautid"}
-            ls{"Macaunormaltid"}
-        }
-        "meta:Macquarie"{
-            ls{"Macquarietid"}
+            ld{"Macaosommartid"}
+            lg{"Macaotid"}
+            ls{"Macaonormaltid"}
         }
         "meta:Magadan"{
             ld{"Magadan, sommartid"}
@@ -441,11 +431,6 @@ sv{
         }
         "meta:Mawson"{
             ls{"Mawsontid"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"nordvästmexikansk sommartid"}
-            lg{"nordvästmexikansk tid"}
-            ls{"nordvästmexikansk normaltid"}
         }
         "meta:Mexico_Pacific"{
             ld{"mexikansk stillahavstid, sommartid"}
@@ -490,7 +475,9 @@ sv{
             ls{"Niuetid"}
         }
         "meta:Norfolk"{
-            ls{"Norfolköns tid"}
+            ld{"Norfolköns sommartid"}
+            lg{"Norfolköns tid"}
+            ls{"Norfolköns normaltid"}
         }
         "meta:Noronha"{
             ld{"Fernando de Noronha, sommartid"}
@@ -540,9 +527,9 @@ sv{
             ls{"Enderburytid"}
         }
         "meta:Pierre_Miquelon"{
-            ld{"S:t Pierre och Miquelon, sommartid"}
-            lg{"S:t Pierre och Miquelontid"}
-            ls{"S:t Pierre och Miquelon, normaltid"}
+            ld{"Saint-Pierre-et-Miquelon, sommartid"}
+            lg{"Saint-Pierre-et-Miquelon-tid"}
+            ls{"Saint-Pierre-et-Miquelon, normaltid"}
         }
         "meta:Pitcairn"{
             ls{"Pitcairntid"}
@@ -619,6 +606,11 @@ sv{
         "meta:Truk"{
             ls{"Chuuktid"}
         }
+        "meta:Turkey"{
+            ld{"turkisk sommartid"}
+            lg{"turkisk tid"}
+            ls{"turkisk normaltid"}
+        }
         "meta:Turkmenistan"{
             ld{"turkmensk sommartid"}
             lg{"turkmensk tid"}
@@ -674,9 +666,9 @@ sv{
             lg{"Jekaterinburgtid"}
             ls{"Jekaterinburg, normaltid"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
+        "meta:Yukon"{
+            ls{"Yukontid"}
+        }
         hourFormat{"+HH:mm;−HH:mm"}
         regionFormat{"{0}tid"}
         regionFormatDaylight{"{0} (sommartid)"}

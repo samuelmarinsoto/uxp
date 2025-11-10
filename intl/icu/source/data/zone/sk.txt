@@ -1,22 +1,16 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 sk{
-    Version{"2.1.43.65"}
     zoneStrings{
         "Etc:UTC"{
             ls{"koordinovaný svetový čas"}
-            ss{"UTC"}
         }
         "Europe:Dublin"{
             ld{"írsky štandardný čas"}
         }
         "Europe:London"{
             ld{"britský letný čas"}
-        }
-        "Pacific:Honolulu"{
-            sd{"HDT"}
-            sg{"HST"}
-            ss{"HST"}
         }
         "meta:Acre"{
             ld{"acrejský letný čas"}
@@ -36,9 +30,7 @@ sk{
             ls{"juhoafrický čas"}
         }
         "meta:Africa_Western"{
-            ld{"západoafrický letný čas"}
-            lg{"západoafrický čas"}
-            ls{"západoafrický štandardný čas"}
+            ls{"západoafrický čas"}
         }
         "meta:Alaska"{
             ld{"aljašský letný čas"}
@@ -195,11 +187,6 @@ sk{
             lg{"čínsky čas"}
             ls{"čínsky štandardný čas"}
         }
-        "meta:Choibalsan"{
-            ld{"čojbalsanský letný čas"}
-            lg{"čojbalsanský čas"}
-            ls{"čojbalsanský štandardný čas"}
-        }
         "meta:Christmas"{
             ls{"čas Vianočného ostrova"}
         }
@@ -311,6 +298,9 @@ sk{
         "meta:Guyana"{
             ls{"guyanský čas"}
         }
+        "meta:Hawaii"{
+            ls{"havajsko-aleutský štandardný čas"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"havajsko-aleutský letný čas"}
             lg{"havajsko-aleutský čas"}
@@ -369,6 +359,9 @@ sk{
             lg{"Petropavlovsk-Kamčatský čas"}
             ls{"Petropavlovsk-Kamčatský štandardný čas"}
         }
+        "meta:Kazakhstan"{
+            ls{"kazachstanský čas"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"východokazachstanský čas"}
         }
@@ -407,9 +400,6 @@ sk{
             lg{"macajský čas"}
             ls{"macajský štandardný čas"}
         }
-        "meta:Macquarie"{
-            ls{"čas ostrova Macquarie"}
-        }
         "meta:Magadan"{
             ld{"magadanský letný čas"}
             lg{"magadanský čas"}
@@ -434,11 +424,6 @@ sk{
         }
         "meta:Mawson"{
             ls{"čas Mawsonovej stanice"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"severozápadný mexický letný čas"}
-            lg{"severozápadný mexický čas"}
-            ls{"severozápadný mexický štandardný čas"}
         }
         "meta:Mexico_Pacific"{
             ld{"mexický tichomorský letný čas"}
@@ -483,7 +468,9 @@ sk{
             ls{"niuejský čas"}
         }
         "meta:Norfolk"{
-            ls{"norfolský čas"}
+            ld{"norfolský letný čas"}
+            lg{"norfolský čas"}
+            ls{"norfolský štandardný čas"}
         }
         "meta:Noronha"{
             ld{"letný čas súostrovia Fernando de Noronha"}
@@ -667,12 +654,9 @@ sk{
             lg{"jekaterinburský čas"}
             ls{"jekaterinburský štandardný čas"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"yukonský čas"}
+        }
         regionFormat{"časové pásmo {0}"}
-        regionFormatDaylight{"{0} (+1)"}
-        regionFormatStandard{"{0} (+0)"}
     }
 }

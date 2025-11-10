@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 zh{
-    Version{"2.1.44.76"}
     zoneStrings{
         "Etc:UTC"{
             ls{"协调世界时"}
@@ -30,9 +30,7 @@ zh{
             ls{"南非标准时间"}
         }
         "meta:Africa_Western"{
-            ld{"西部非洲夏令时间"}
-            lg{"西部非洲时间"}
-            ls{"西部非洲标准时间"}
+            ls{"西部非洲时间"}
         }
         "meta:Alaska"{
             ld{"阿拉斯加夏令时间"}
@@ -175,9 +173,9 @@ zh{
             ls{"查莫罗时间"}
         }
         "meta:Chatham"{
-            ld{"查坦夏令时间"}
-            lg{"查坦时间"}
-            ls{"查坦标准时间"}
+            ld{"查塔姆夏令时间"}
+            lg{"查塔姆时间"}
+            ls{"查塔姆标准时间"}
         }
         "meta:Chile"{
             ld{"智利夏令时间"}
@@ -188,11 +186,6 @@ zh{
             ld{"中国夏令时间"}
             lg{"中国时间"}
             ls{"中国标准时间"}
-        }
-        "meta:Choibalsan"{
-            ld{"乔巴山夏令时间"}
-            lg{"乔巴山时间"}
-            ls{"乔巴山标准时间"}
         }
         "meta:Christmas"{
             ls{"圣诞岛时间"}
@@ -219,7 +212,7 @@ zh{
             ls{"戴维斯时间"}
         }
         "meta:DumontDUrville"{
-            ls{"迪蒙迪尔维尔时间"}
+            ls{"迪蒙·迪维尔时间"}
         }
         "meta:East_Timor"{
             ls{"东帝汶时间"}
@@ -243,7 +236,7 @@ zh{
             ls{"东欧标准时间"}
         }
         "meta:Europe_Further_Eastern"{
-            ls{"远东标准时间"}
+            ls{"欧洲极东时间"}
         }
         "meta:Europe_Western"{
             ld{"西欧夏令时间"}
@@ -270,7 +263,7 @@ zh{
             ls{"格林尼治标准时间"}
         }
         "meta:Galapagos"{
-            ls{"加拉帕戈斯时间"}
+            ls{"科隆群岛时间"}
         }
         "meta:Gambier"{
             ls{"甘比尔时间"}
@@ -302,6 +295,9 @@ zh{
         "meta:Guyana"{
             ls{"圭亚那时间"}
         }
+        "meta:Hawaii"{
+            ls{"夏威夷-阿留申标准时间"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"夏威夷-阿留申夏令时间"}
             lg{"夏威夷-阿留申时间"}
@@ -324,7 +320,7 @@ zh{
             ls{"印度洋时间"}
         }
         "meta:Indochina"{
-            ls{"印度支那时间"}
+            ls{"中南半岛时间"}
         }
         "meta:Indonesia_Central"{
             ls{"印度尼西亚中部时间"}
@@ -359,6 +355,9 @@ zh{
             ld{"彼得罗巴甫洛夫斯克-堪察加夏令时间"}
             lg{"彼得罗巴甫洛夫斯克-堪察加时间"}
             ls{"彼得罗巴甫洛夫斯克-堪察加标准时间"}
+        }
+        "meta:Kazakhstan"{
+            ls{"哈萨克斯坦时间"}
         }
         "meta:Kazakhstan_Eastern"{
             ls{"哈萨克斯坦东部时间"}
@@ -398,9 +397,6 @@ zh{
             lg{"澳门时间"}
             ls{"澳门标准时间"}
         }
-        "meta:Macquarie"{
-            ls{"麦夸里岛时间"}
-        }
         "meta:Magadan"{
             ld{"马加丹夏令时间"}
             lg{"马加丹时间"}
@@ -425,11 +421,6 @@ zh{
         }
         "meta:Mawson"{
             ls{"莫森时间"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"墨西哥西北部夏令时间"}
-            lg{"墨西哥西北部时间"}
-            ls{"墨西哥西北部标准时间"}
         }
         "meta:Mexico_Pacific"{
             ld{"墨西哥太平洋夏令时间"}
@@ -474,7 +465,9 @@ zh{
             ls{"纽埃时间"}
         }
         "meta:Norfolk"{
-            ls{"诺福克岛时间"}
+            ld{"诺福克岛夏令时间"}
+            lg{"诺福克岛时间"}
+            ls{"诺福克岛标准时间"}
         }
         "meta:Noronha"{
             ld{"费尔南多-迪诺罗尼亚岛夏令时间"}
@@ -603,6 +596,11 @@ zh{
         "meta:Truk"{
             ls{"楚克时间"}
         }
+        "meta:Turkey"{
+            ld{"土耳其夏令时间"}
+            lg{"土耳其时间"}
+            ls{"土耳其标准时间"}
+        }
         "meta:Turkmenistan"{
             ld{"土库曼斯坦夏令时间"}
             lg{"土库曼斯坦时间"}
@@ -658,10 +656,10 @@ zh{
             lg{"叶卡捷琳堡时间"}
             ls{"叶卡捷琳堡标准时间"}
         }
+        "meta:Yukon"{
+            ls{"育空时间"}
+        }
         fallbackFormat{"{1}（{0}）"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
         regionFormat{"{0}时间"}
         regionFormatDaylight{"{0}夏令时间"}
         regionFormatStandard{"{0}标准时间"}

@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 bs{
-    Version{"2.1.44.88"}
     zoneStrings{
         "Etc:UTC"{
             ls{"Koordinirano svjetsko vrijeme"}
@@ -30,9 +30,7 @@ bs{
             ls{"Južnoafričko standardno vrijeme"}
         }
         "meta:Africa_Western"{
-            ld{"Zapadnoafričko ljetno vrijeme"}
-            lg{"Zapadnoafričko vrijeme"}
-            ls{"Zapadnoafričko standardno vrijeme"}
+            ls{"Zapadnoafričko vrijeme"}
         }
         "meta:Alaska"{
             ld{"Aljaskansko ljetno vrijeme"}
@@ -186,11 +184,6 @@ bs{
             lg{"Kinesko vrijeme"}
             ls{"Kinesko standardno vrijeme"}
         }
-        "meta:Choibalsan"{
-            ld{"Čojbalsansko ljetno vrijeme"}
-            lg{"Čojbalsansko vrijeme"}
-            ls{"Čojbalsansko standardno vrijeme"}
-        }
         "meta:Christmas"{
             ls{"Vrijeme na Božićnom Ostrvu"}
         }
@@ -233,11 +226,17 @@ bs{
             ld{"Centralnoevropsko ljetno vrijeme"}
             lg{"Centralnoevropsko vrijeme"}
             ls{"Centralnoevropsko standardno vrijeme"}
+            sd{"CEST"}
+            sg{"CET"}
+            ss{"CET"}
         }
         "meta:Europe_Eastern"{
             ld{"Istočnoevropsko ljetno vrijeme"}
             lg{"Istočnoevropsko vrijeme"}
             ls{"Istočnoevropsko standardno vrijeme"}
+            sd{"EEST"}
+            sg{"EET"}
+            ss{"EET"}
         }
         "meta:Europe_Further_Eastern"{
             ls{"Dalekoistočnoevropsko vrijeme"}
@@ -246,6 +245,9 @@ bs{
             ld{"Zapadnoevropsko ljetno vrijeme"}
             lg{"Zapadnoevropsko vrijeme"}
             ls{"Zapadnoevropsko standardno vrijeme"}
+            sd{"WEST"}
+            sg{"WET"}
+            ss{"WET"}
         }
         "meta:Falkland"{
             ld{"Folklandsko ljetno vrijeme"}
@@ -265,6 +267,7 @@ bs{
         }
         "meta:GMT"{
             ls{"Griničko vrijeme"}
+            ss{"GMT"}
         }
         "meta:Galapagos"{
             ls{"Galapagosko vrijeme"}
@@ -298,6 +301,9 @@ bs{
         }
         "meta:Guyana"{
             ls{"Gvajansko vrijeme"}
+        }
+        "meta:Hawaii"{
+            ls{"Havajsko-aleućansko standardno vrijeme"}
         }
         "meta:Hawaii_Aleutian"{
             ld{"Havajsko-aleućansko ljetno vrijeme"}
@@ -357,11 +363,14 @@ bs{
             lg{"Petropavlovsk-Kamčatski vreme"}
             ls{"Petropavlovsk-Kamčatski standardno vreme"}
         }
+        "meta:Kazakhstan"{
+            ls{"kazahstansko vrijeme"}
+        }
         "meta:Kazakhstan_Eastern"{
-            ls{"Istočnokazahstansko vrijeme"}
+            ls{"istočnokazahstansko vrijeme"}
         }
         "meta:Kazakhstan_Western"{
-            ls{"Zapadnokazahstansko vrijeme"}
+            ls{"zapadnokazahstansko vrijeme"}
         }
         "meta:Korea"{
             ld{"Korejsko ljetno vrijeme"}
@@ -377,7 +386,7 @@ bs{
             ls{"Krasnojarsko standardno vrijeme"}
         }
         "meta:Kyrgystan"{
-            ls{"Kirgistansko vrijeme"}
+            ls{"kirgistansko vrijeme"}
         }
         "meta:Lanka"{
             ls{"Lanka vreme"}
@@ -394,9 +403,6 @@ bs{
             ld{"Makao letnje računanje vremena"}
             lg{"Makao vreme"}
             ls{"Makao standardno vreme"}
-        }
-        "meta:Macquarie"{
-            ls{"Vrijeme na Ostrvu Makvori"}
         }
         "meta:Magadan"{
             ld{"Magadansko ljetno vrijeme"}
@@ -422,11 +428,6 @@ bs{
         }
         "meta:Mawson"{
             ls{"Vrijeme stanice Mawson"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Sjeverozapadno meksičko ljetno vrijeme"}
-            lg{"Sjeverozapadno meksičko vrijeme"}
-            ls{"Sjeverozapadno meksičko standardno vrijeme"}
         }
         "meta:Mexico_Pacific"{
             ld{"Meksičko pacifičko ljetno vrijeme"}
@@ -471,7 +472,9 @@ bs{
             ls{"Vrijeme na Ostrvu Niue"}
         }
         "meta:Norfolk"{
-            ls{"Norfolško vrijeme"}
+            ld{"Norfolško ljetno vrijeme"}
+            lg{"Norfolško vrijeme"}
+            ls{"Norfolško standardno vrijeme"}
         }
         "meta:Noronha"{
             ld{"Ljetno vrijeme na ostrvu Fernando di Noronja"}
@@ -587,7 +590,7 @@ bs{
             ls{"Tajpejsko standardno vrijeme"}
         }
         "meta:Tajikistan"{
-            ls{"Tadžikistansko vrijeme"}
+            ls{"tadžikistansko vrijeme"}
         }
         "meta:Tokelau"{
             ls{"Vrijeme na Ostrvu Tokelau"}
@@ -600,10 +603,15 @@ bs{
         "meta:Truk"{
             ls{"Čučko vrijeme"}
         }
+        "meta:Turkey"{
+            ld{"Turska letnje računanje vremena"}
+            lg{"Turska vreme"}
+            ls{"Turska standardno vreme"}
+        }
         "meta:Turkmenistan"{
-            ld{"Turkmenistansko ljetno vrijeme"}
-            lg{"Turkmenistansko vrijeme"}
-            ls{"Turkmenistansko standardno vrijeme"}
+            ld{"turkmenistansko ljetno vrijeme"}
+            lg{"turkmenistansko vrijeme"}
+            ls{"turkmenistansko standardno vrijeme"}
         }
         "meta:Tuvalu"{
             ls{"Tuvaluansko vrijeme"}
@@ -614,9 +622,9 @@ bs{
             ls{"Urugvajsko standardno vrijeme"}
         }
         "meta:Uzbekistan"{
-            ld{"Uzbekistansko ljetno vrijeme"}
-            lg{"Uzbekistansko vrijeme"}
-            ls{"Uzbekistansko standardno vrijeme"}
+            ld{"uzbekistansko ljetno vrijeme"}
+            lg{"uzbekistansko vrijeme"}
+            ls{"uzbekistansko standardno vrijeme"}
         }
         "meta:Vanuatu"{
             ld{"Vanuatuansko ljetno vrijeme"}
@@ -655,11 +663,11 @@ bs{
             lg{"Jekaterinburško vrijeme"}
             ls{"Jekaterinburško standardno vrijeme"}
         }
-        fallbackFormat{"{1} ({0})"}
+        "meta:Yukon"{
+            ls{"Jukonsko vrijeme"}
+        }
         gmtFormat{"GMT {0}"}
-        gmtZeroFormat{"GMT"}
         hourFormat{"+HH:mm; -HH:mm"}
-        regionFormat{"{0}"}
         regionFormatDaylight{"{0}, ljetno vrijeme"}
         regionFormatStandard{"{0}, standardno vrijeme"}
     }

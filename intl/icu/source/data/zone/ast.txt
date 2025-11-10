@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 ast{
-    Version{"2.1.44.91"}
     zoneStrings{
         "Etc:UTC"{
             ls{"Hora coordinada universal"}
@@ -11,11 +11,6 @@ ast{
         }
         "Europe:London"{
             ld{"Hora braniega británica"}
-        }
-        "Pacific:Honolulu"{
-            sd{"HDT"}
-            sg{"HST"}
-            ss{"HST"}
         }
         "meta:Acre"{
             ld{"hora braniega d’Acre"}
@@ -35,9 +30,7 @@ ast{
             ls{"Hora de Sudáfrica"}
         }
         "meta:Africa_Western"{
-            ld{"Hora braniega d’África del oeste"}
-            lg{"Hora d’África del oeste"}
-            ls{"Hora estándar d’África del oeste"}
+            ls{"Hora d’África del oeste"}
         }
         "meta:Alaska"{
             ld{"Hora braniega d’Alaska"}
@@ -212,11 +205,6 @@ ast{
             lg{"Hora de China"}
             ls{"Hora estándar de China"}
         }
-        "meta:Choibalsan"{
-            ld{"Hora braniega de Choibalsan"}
-            lg{"Hora de Choibalsan"}
-            ls{"Hora estándar de Choibalsan"}
-        }
         "meta:Christmas"{
             ls{"Hora estándar de la Islla Christmas"}
         }
@@ -326,6 +314,9 @@ ast{
         "meta:Guyana"{
             ls{"Hora de La Guyana"}
         }
+        "meta:Hawaii"{
+            ls{"Hora estándar de Hawaii-Aleutianes"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Hora braniega de Hawaii-Aleutianes"}
             lg{"Hora de Hawaii-Aleutianes"}
@@ -425,9 +416,6 @@ ast{
             lg{"Hora de Macáu"}
             ls{"Hora estándar de Macáu"}
         }
-        "meta:Macquarie"{
-            ls{"Hora de la Islla Macquarie"}
-        }
         "meta:Magadan"{
             ld{"Hora braniega de Magadán"}
             lg{"Hora de Magadán"}
@@ -452,11 +440,6 @@ ast{
         }
         "meta:Mawson"{
             ls{"Hora de Mawson"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Hora braniega del noroeste de Méxicu"}
-            lg{"Hora del noroeste de Méxicu"}
-            ls{"Hora estándar del noroeste de Méxicu"}
         }
         "meta:Mexico_Pacific"{
             ld{"Hora braniega del Pacíficu de Méxicu"}
@@ -501,7 +484,9 @@ ast{
             ls{"Hora de Niue"}
         }
         "meta:Norfolk"{
-            ls{"Hora de la Islla Norfolk"}
+            ld{"Hora braniega de la Islla Norfolk"}
+            lg{"Hora de la Islla Norfolk"}
+            ls{"Hora estándar de la Islla Norfolk"}
         }
         "meta:Noronha"{
             ld{"Hora braniega de Fernando de Noronha"}
@@ -685,10 +670,6 @@ ast{
             lg{"Hora de Yekaterimburgu"}
             ls{"Hora estándar de Yekaterimburgu"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
         regionFormat{"Hora de {0}"}
         regionFormatDaylight{"Hora braniega de {0}"}
         regionFormatStandard{"Hora estándar de {0}"}

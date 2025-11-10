@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 az{
-    Version{"2.1.44.53"}
     zoneStrings{
         "Etc:UTC"{
             ls{"Koordinasiya edilmiş ümumdünya vaxtı"}
@@ -25,9 +25,7 @@ az{
             ls{"Cənubi Afrika Vaxtı"}
         }
         "meta:Africa_Western"{
-            ld{"Qərbi Afrika Yay Vaxtı"}
-            lg{"Qərbi Afrika Vaxtı"}
-            ls{"Qərbi Afrika Standart Vaxtı"}
+            ls{"Qərbi Afrika Vaxtı"}
         }
         "meta:Alaska"{
             ld{"Alyaska Yay Vaxtı"}
@@ -40,9 +38,9 @@ az{
             ls{"Amazon Standart Vaxtı"}
         }
         "meta:America_Central"{
-            ld{"Şimali Mərkəzi Amerika Yay Vaxtı"}
-            lg{"Şimali Mərkəzi Amerika Vaxtı"}
-            ls{"Şimali Mərkəzi Amerika Standart Vaxtı"}
+            ld{"Mərkəzi Amerika yay vaxtı"}
+            lg{"Mərkəzi Amerika saat qurşağı"}
+            ls{"Mərkəzi Amerika Standart Vaxtı"}
         }
         "meta:America_Eastern"{
             ld{"Şimali Şərqi Amerika Yay Vaxtı"}
@@ -86,7 +84,7 @@ az{
         }
         "meta:Atlantic"{
             ld{"Atlantik Yay Vaxtı"}
-            lg{"Atlantik Vaxt"}
+            lg{"Atlantik saat qurşağı"}
             ls{"Atlantik Standart Vaxt"}
         }
         "meta:Australia_Central"{
@@ -160,11 +158,6 @@ az{
             ld{"Çin Yay Vaxtı"}
             lg{"Çin Vaxtı"}
             ls{"Çin Standart Vaxtı"}
-        }
-        "meta:Choibalsan"{
-            ld{"Çoybalsan Yay Vaxtı"}
-            lg{"Çoybalsan Vaxtı"}
-            ls{"Çoybalsan Standart Vaxtı"}
         }
         "meta:Christmas"{
             ls{"Milad Adası Vaxtı"}
@@ -271,6 +264,9 @@ az{
         "meta:Guyana"{
             ls{"Qayana Vaxtı"}
         }
+        "meta:Hawaii"{
+            ls{"Havay-Aleut Standart Vaxtı"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Havay-Aleut Yay Vaxtı"}
             lg{"Havay-Aleut Vaxtı"}
@@ -324,6 +320,9 @@ az{
             lg{"Yaponiya Vaxtı"}
             ls{"Yaponiya Standart Vaxtı"}
         }
+        "meta:Kazakhstan"{
+            ls{"Qazaxıstan vaxtı"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Şərqi Qazaxıstan Vaxtı"}
         }
@@ -354,9 +353,6 @@ az{
             lg{"Lord Hau Vaxtı"}
             ls{"Lord Hau Standart Vaxtı"}
         }
-        "meta:Macquarie"{
-            ls{"Makari Adası Vaxtı"}
-        }
         "meta:Magadan"{
             ld{"Maqadan Yay Vaxtı"}
             lg{"Maqadan Vaxtı"}
@@ -381,11 +377,6 @@ az{
         }
         "meta:Mawson"{
             ls{"Mouson Vaxtı"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Şimal-Qərbi Meksika Yay Vaxtı"}
-            lg{"Şimal-Qərbi Meksika Vaxtı"}
-            ls{"Şimal-Qərbi Meksika Standart Vaxtı"}
         }
         "meta:Mexico_Pacific"{
             ld{"Meksika Sakit Okean Yay Vaxtı"}
@@ -430,7 +421,9 @@ az{
             ls{"Niue Vaxtı"}
         }
         "meta:Norfolk"{
-            ls{"Norfolk Adası Vaxtı"}
+            ld{"Norfolk Adası Yay Vaxtı"}
+            lg{"Norfolk Adası Vaxtı"}
+            ls{"Norfolk Adası Standart Vaxtı"}
         }
         "meta:Noronha"{
             ld{"Fernando de Noronya Yay Vaxtı"}
@@ -491,7 +484,7 @@ az{
             ls{"Pxenyan Vaxtı"}
         }
         "meta:Reunion"{
-            ls{"Reunion Vaxtı"}
+            ls{"Reyunyon"}
         }
         "meta:Rothera"{
             ls{"Rotera Vaxtı"}
@@ -551,6 +544,11 @@ az{
         "meta:Truk"{
             ls{"Çuuk Vaxtı"}
         }
+        "meta:Turkey"{
+            ld{"Türkiya yay vaxtı"}
+            lg{"Türkiya vaxtı"}
+            ls{"Türkiya standart vaxtı"}
+        }
         "meta:Turkmenistan"{
             ld{"Türkmənistan Yay Vaxtı"}
             lg{"Türkmənistan Vaxtı"}
@@ -606,10 +604,9 @@ az{
             lg{"Yekaterinburq Vaxtı"}
             ls{"Yekaterinburq Standart Vaxtı"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"Yukon Vaxtı"}
+        }
         regionFormat{"{0} Vaxtı"}
         regionFormatDaylight{"{0} Yay Vaxtı"}
         regionFormatStandard{"{0} Standart Vaxtı"}

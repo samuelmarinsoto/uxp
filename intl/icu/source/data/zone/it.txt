@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 it{
-    Version{"2.1.44.86"}
     zoneStrings{
         "Etc:UTC"{
             ls{"Tempo coordinato universale"}
@@ -25,9 +25,7 @@ it{
             ls{"Ora dell’Africa meridionale"}
         }
         "meta:Africa_Western"{
-            ld{"Ora legale dell’Africa occidentale"}
-            lg{"Ora dell’Africa occidentale"}
-            ls{"Ora standard dell’Africa occidentale"}
+            ls{"Ora dell’Africa occidentale"}
         }
         "meta:Alaska"{
             ld{"Ora legale dell’Alaska"}
@@ -166,11 +164,6 @@ it{
             lg{"Ora della Cina"}
             ls{"Ora standard della Cina"}
         }
-        "meta:Choibalsan"{
-            ld{"Ora legale di Choibalsan"}
-            lg{"Ora di Choibalsan"}
-            ls{"Ora standard di Choibalsan"}
-        }
         "meta:Christmas"{
             ls{"Ora dell’Isola Christmas"}
         }
@@ -285,6 +278,9 @@ it{
         "meta:Guyana"{
             ls{"Ora della Guyana"}
         }
+        "meta:Hawaii"{
+            ls{"Ora standard delle Isole Hawaii-Aleutine"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Ora legale delle Isole Hawaii-Aleutine"}
             lg{"Ora delle isole Hawaii-Aleutine"}
@@ -343,6 +339,9 @@ it{
             lg{"Ora di Petropavlovsk-Kamchatski"}
             ls{"Ora standard di Petropavlovsk-Kamchatski"}
         }
+        "meta:Kazakhstan"{
+            ls{"Ora del Kazakistan"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Ora del Kazakistan orientale"}
         }
@@ -373,8 +372,10 @@ it{
             lg{"Ora di Lord Howe"}
             ls{"Ora standard di Lord Howe"}
         }
-        "meta:Macquarie"{
-            ls{"Ora dell’Isola Macquarie"}
+        "meta:Macau"{
+            ld{"Ora legale di Macao"}
+            lg{"Ora di Macao"}
+            ls{"Ora standard di Macao"}
         }
         "meta:Magadan"{
             ld{"Ora legale di Magadan"}
@@ -400,11 +401,6 @@ it{
         }
         "meta:Mawson"{
             ls{"Ora di Mawson"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Ora legale del Messico nord-occidentale"}
-            lg{"Ora del Messico nord-occidentale"}
-            ls{"Ora standard del Messico nord-occidentale"}
         }
         "meta:Mexico_Pacific"{
             ld{"Ora legale del Pacifico (Messico)"}
@@ -449,7 +445,9 @@ it{
             ls{"Ora di Niue"}
         }
         "meta:Norfolk"{
-            ls{"Ora delle Isole Norfolk"}
+            ld{"Ora legale delle Isole Norfolk"}
+            lg{"Ora delle Isole Norfolk"}
+            ls{"Ora standard delle Isole Norfolk"}
         }
         "meta:Noronha"{
             ld{"Ora legale di Fernando de Noronha"}
@@ -625,10 +623,9 @@ it{
             lg{"Ora di Ekaterinburg"}
             ls{"Ora standard di Ekaterinburg"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"Ora dello Yukon"}
+        }
         regionFormat{"Ora {0}"}
         regionFormatDaylight{"Ora legale: {0}"}
         regionFormatStandard{"Ora standard: {0}"}

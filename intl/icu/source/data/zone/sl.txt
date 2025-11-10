@@ -1,16 +1,16 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 sl{
-    Version{"2.1.44.91"}
     zoneStrings{
         "Etc:UTC"{
             ls{"univerzalni koordinirani čas"}
         }
         "Europe:Dublin"{
-            ld{"irski standardni čas"}
+            ld{"Irski standardni čas"}
         }
         "Europe:London"{
-            ld{"britanski poletni čas"}
+            ld{"Britanski poletni čas"}
         }
         "meta:Afghanistan"{
             ls{"Afganistanski čas"}
@@ -25,9 +25,7 @@ sl{
             ls{"Južnoafriški čas"}
         }
         "meta:Africa_Western"{
-            ld{"Zahodnoafriški poletni čas"}
-            lg{"Zahodnoafriški čas"}
-            ls{"Zahodnoafriški standardni čas"}
+            ls{"Zahodnoafriški čas"}
         }
         "meta:Alaska"{
             ld{"Aljaški poletni čas"}
@@ -166,11 +164,6 @@ sl{
             lg{"Kitajski čas"}
             ls{"Kitajski standardni čas"}
         }
-        "meta:Choibalsan"{
-            ld{"Čojbalsanski poletni čas"}
-            lg{"Čojbalsanski čas"}
-            ls{"Čojbalsanski standardni čas"}
-        }
         "meta:Christmas"{
             ls{"Božičnootoški čas"}
         }
@@ -276,6 +269,9 @@ sl{
         "meta:Guyana"{
             ls{"Gvajanski čas"}
         }
+        "meta:Hawaii"{
+            ls{"Havajski aleutski standardni čas"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Havajski aleutski poletni čas"}
             lg{"Havajski aleutski čas"}
@@ -334,6 +330,9 @@ sl{
             lg{"Petropavlovsk-Kamčatski čas"}
             ls{"Petropavlovsk-Kamčatski standardni čas"}
         }
+        "meta:Kazakhstan"{
+            ls{"Kazahstanski čas"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Vzhodni kazahstanski čas"}
         }
@@ -357,15 +356,12 @@ sl{
             ls{"Kirgizistanski čas"}
         }
         "meta:Line_Islands"{
-            ls{"Ekvatorski otoki: Čas"}
+            ls{"Čas: Ekvatorski otoki"}
         }
         "meta:Lord_Howe"{
             ld{"Poletni čas otoka Lord Howe"}
             lg{"Čas otoka Lord Howe"}
             ls{"Standardni čas otoka Lord Howe"}
-        }
-        "meta:Macquarie"{
-            ls{"Macquarieski čas"}
         }
         "meta:Magadan"{
             ld{"Magadanski poletni čas"}
@@ -391,11 +387,6 @@ sl{
         }
         "meta:Mawson"{
             ls{"Mawsonski čas"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Mehiški severozahodni poletni čas"}
-            lg{"Mehiški severozahodni čas"}
-            ls{"Mehiški severozahodni standardni čas"}
         }
         "meta:Mexico_Pacific"{
             ld{"Mehiški pacifiški poletni čas"}
@@ -440,7 +431,9 @@ sl{
             ls{"Niuejski čas"}
         }
         "meta:Norfolk"{
-            ls{"Čas: Norfolški otoki"}
+            ld{"Poletni čas: Norfolški otoki"}
+            lg{"Čas: Norfolški otoki"}
+            ls{"Standardni čas: Norfolški otoki"}
         }
         "meta:Noronha"{
             ld{"Fernando de Noronški poletni čas"}
@@ -561,6 +554,11 @@ sl{
         "meta:Truk"{
             ls{"Čas: Otok Chuuk"}
         }
+        "meta:Turkey"{
+            ld{"Turški poletni čas"}
+            lg{"Turški čas"}
+            ls{"Turški standardni čas"}
+        }
         "meta:Turkmenistan"{
             ld{"Turkmenistanski poletni čas"}
             lg{"Turkmenistanski čas"}
@@ -616,12 +614,14 @@ sl{
             lg{"Jekaterinburški čas"}
             ls{"Jekaterinburški standardni čas"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
+        "meta:Yukon"{
+            ls{"Jukonski čas"}
+        }
+        gmtFormat{"GMT {0}"}
+        gmtUnknownFormat{"GMT +?"}
         hourFormat{"+HH.mm;-HH.mm"}
-        regionFormat{"{0} čas"}
-        regionFormatDaylight{"{0} poletni čas"}
-        regionFormatStandard{"{0} standardni čas"}
+        regionFormat{"{0} (lokalni čas)"}
+        regionFormatDaylight{"{0} (poletni čas)"}
+        regionFormatStandard{"{0} (standardni čas)"}
     }
 }

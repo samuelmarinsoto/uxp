@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 lt{
-    Version{"2.1.44.91"}
     zoneStrings{
         "Etc:UTC"{
             ls{"pasaulio suderintasis laikas"}
@@ -30,9 +30,7 @@ lt{
             ls{"Pietų Afrikos laikas"}
         }
         "meta:Africa_Western"{
-            ld{"Vakarų Afrikos vasaros laikas"}
-            lg{"Vakarų Afrikos laikas"}
-            ls{"Vakarų Afrikos žiemos laikas"}
+            ls{"Vakarų Afrikos laikas"}
         }
         "meta:Alaska"{
             ld{"Aliaskos vasaros laikas"}
@@ -189,11 +187,6 @@ lt{
             lg{"Kinijos laikas"}
             ls{"Kinijos žiemos laikas"}
         }
-        "meta:Choibalsan"{
-            ld{"Čoibalsano vasaros laikas"}
-            lg{"Čoibalsano laikas"}
-            ls{"Čoibalsano žiemos laikas"}
-        }
         "meta:Christmas"{
             ls{"Kalėdų Salos laikas"}
         }
@@ -302,6 +295,9 @@ lt{
         "meta:Guyana"{
             ls{"Gajanos laikas"}
         }
+        "meta:Hawaii"{
+            ls{"Havajų–Aleutų žiemos laikas"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Havajų–Aleutų vasaros laikas"}
             lg{"Havajų-Aleutų laikas"}
@@ -360,6 +356,9 @@ lt{
             lg{"Kamčiatkos Petropavlovsko laikas"}
             ls{"Kamčiatkos Petropavlovsko žiemos laikas"}
         }
+        "meta:Kazakhstan"{
+            ls{"Kazachstano laikas"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Rytų Kazachstano laikas"}
         }
@@ -398,9 +397,6 @@ lt{
             lg{"Makau laikas"}
             ls{"Makau žiemos laikas"}
         }
-        "meta:Macquarie"{
-            ls{"Makvorio Salos laikas"}
-        }
         "meta:Magadan"{
             ld{"Magadano vasaros laikas"}
             lg{"Magadano laikas"}
@@ -425,11 +421,6 @@ lt{
         }
         "meta:Mawson"{
             ls{"Mosono laikas"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Šiaurės Vakarų Meksikos vasaros laikas"}
-            lg{"Šiaurės Vakarų Meksikos laikas"}
-            ls{"Šiaurės Vakarų Meksikos žiemos laikas"}
         }
         "meta:Mexico_Pacific"{
             ld{"Meksikos Ramiojo vandenyno vasaros laikas"}
@@ -474,7 +465,9 @@ lt{
             ls{"Niujė laikas"}
         }
         "meta:Norfolk"{
-            ls{"Norfolko Salų laikas"}
+            ld{"Norfolko Salų vasaros laikas"}
+            lg{"Norfolko Salų laikas"}
+            ls{"Norfolko Salų žiemos laikas"}
         }
         "meta:Noronha"{
             ld{"Fernando de Noronjos vasaros laikas"}
@@ -603,6 +596,11 @@ lt{
         "meta:Truk"{
             ls{"Čuko laikas"}
         }
+        "meta:Turkey"{
+            ld{"Turkijos vasaros laikas"}
+            lg{"Turkijos laikas"}
+            ls{"Turkijos žiemos laikas"}
+        }
         "meta:Turkmenistan"{
             ld{"Turkmėnistano vasaros laikas"}
             lg{"Turkmėnistano laikas"}
@@ -658,9 +656,9 @@ lt{
             lg{"Jekaterinburgo laikas"}
             ls{"Jekaterinburgo žiemos laikas"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
+        "meta:Yukon"{
+            ls{"Jukono laikas"}
+        }
         hourFormat{"+HH:mm;−HH:mm"}
         regionFormat{"Laikas: {0}"}
         regionFormatDaylight{"Vasaros laikas: {0}"}

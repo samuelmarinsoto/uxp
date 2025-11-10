@@ -1,8 +1,8 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 yue_Hans{
     %%Parent{"root"}
-    Version{"2.1.44.91"}
     zoneStrings{
         "Etc:UTC"{
             ls{"协调世界时间"}
@@ -31,9 +31,7 @@ yue_Hans{
             ls{"南非标准时间"}
         }
         "meta:Africa_Western"{
-            ld{"西非夏令时间"}
-            lg{"西非时间"}
-            ls{"西非标准时间"}
+            ls{"西非时间"}
         }
         "meta:Alaska"{
             ld{"阿拉斯加夏令时间"}
@@ -190,11 +188,6 @@ yue_Hans{
             lg{"中国时间"}
             ls{"中国标准时间"}
         }
-        "meta:Choibalsan"{
-            ld{"乔巴山夏令时间"}
-            lg{"乔巴山时间"}
-            ls{"乔巴山标准时间"}
-        }
         "meta:Christmas"{
             ls{"圣诞岛时间"}
         }
@@ -303,6 +296,9 @@ yue_Hans{
         "meta:Guyana"{
             ls{"盖亚那时间"}
         }
+        "meta:Hawaii"{
+            ls{"夏威夷-阿留申标准时间"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"夏威夷-阿留申夏令时间"}
             lg{"夏威夷-阿留申时间"}
@@ -361,6 +357,9 @@ yue_Hans{
             lg{"彼得罗巴甫洛夫斯克时间"}
             ls{"彼得罗巴甫洛夫斯克标准时间"}
         }
+        "meta:Kazakhstan"{
+            ls{"哈萨克时间"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"东哈萨克时间"}
         }
@@ -399,9 +398,6 @@ yue_Hans{
             lg{"澳门时间"}
             ls{"澳门标准时间"}
         }
-        "meta:Macquarie"{
-            ls{"麦觉理时间"}
-        }
         "meta:Magadan"{
             ld{"马加丹夏令时间"}
             lg{"马加丹时间"}
@@ -426,11 +422,6 @@ yue_Hans{
         }
         "meta:Mawson"{
             ls{"莫森时间"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"墨西哥西北部夏令时间"}
-            lg{"墨西哥西北部时间"}
-            ls{"墨西哥西北部标准时间"}
         }
         "meta:Mexico_Pacific"{
             ld{"墨西哥太平洋夏令时间"}
@@ -475,7 +466,9 @@ yue_Hans{
             ls{"纽埃岛时间"}
         }
         "meta:Norfolk"{
-            ls{"诺福克岛时间"}
+            ld{"诺福克岛夏令时间"}
+            lg{"诺福克岛时间"}
+            ls{"诺福克岛标准时间"}
         }
         "meta:Noronha"{
             ld{"费尔南多 - 迪诺罗尼亚夏令时间"}
@@ -659,12 +652,11 @@ yue_Hans{
             lg{"叶卡捷琳堡时间"}
             ls{"叶卡捷琳堡标准时间"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"育空时间"}
+        }
         regionFormat{"{0}时间"}
-        regionFormatDaylight{"{0} (+1)"}
-        regionFormatStandard{"{0} (+0)"}
+        regionFormatDaylight{"{0}夏令时间"}
+        regionFormatStandard{"{0}标准时间"}
     }
 }

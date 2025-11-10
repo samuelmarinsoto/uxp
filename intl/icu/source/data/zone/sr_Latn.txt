@@ -1,8 +1,8 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 sr_Latn{
     %%Parent{"root"}
-    Version{"2.1.44.50"}
     zoneStrings{
         "Etc:UTC"{
             ls{"Koordinisano univerzalno vreme"}
@@ -31,9 +31,7 @@ sr_Latn{
             ls{"Južno-afričko vreme"}
         }
         "meta:Africa_Western"{
-            ld{"Zapadno-afričko letnje vreme"}
-            lg{"Zapadno-afričko vreme"}
-            ls{"Zapadno-afričko standardno vreme"}
+            ls{"Zapadno-afričko vreme"}
         }
         "meta:Alaska"{
             ld{"Aljaska, letnje vreme"}
@@ -187,11 +185,6 @@ sr_Latn{
             lg{"Kina vreme"}
             ls{"Kinesko standardno vreme"}
         }
-        "meta:Choibalsan"{
-            ld{"Čojbalsan, letnje vreme"}
-            lg{"Čojbalsan vreme"}
-            ls{"Čojbalsan, standardno vreme"}
-        }
         "meta:Christmas"{
             ls{"Božićno ostrvo vreme"}
         }
@@ -247,7 +240,7 @@ sr_Latn{
             ss{"EET"}
         }
         "meta:Europe_Further_Eastern"{
-            ls{"Dalji istok Evrope"}
+            ls{"Vreme daljeg istoka Evrope"}
         }
         "meta:Europe_Western"{
             ld{"Zapadnoevropsko letnje vreme"}
@@ -310,6 +303,9 @@ sr_Latn{
         "meta:Guyana"{
             ls{"Gvajana vreme"}
         }
+        "meta:Hawaii"{
+            ls{"Havajsko-aleutsko standardno vreme"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Havajsko-aleutsko letnje vreme"}
             lg{"Havajsko-aleutsko vreme"}
@@ -368,6 +364,9 @@ sr_Latn{
             lg{"Petropavlovsko-kamčatsko vreme"}
             ls{"Petropavlovsko-kamčatsko standardno vreme"}
         }
+        "meta:Kazakhstan"{
+            ls{"Kazahstansko vreme"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Istočno-kazahstansko vreme"}
         }
@@ -406,9 +405,6 @@ sr_Latn{
             lg{"Makao vreme"}
             ls{"Makao standardno vreme"}
         }
-        "meta:Macquarie"{
-            ls{"Ostrvo Makveri vreme"}
-        }
         "meta:Magadan"{
             ld{"Magadan, letnje vreme"}
             lg{"Magadan vreme"}
@@ -433,11 +429,6 @@ sr_Latn{
         }
         "meta:Mawson"{
             ls{"Moson vreme"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Severozapadni Meksiko, letnje vreme"}
-            lg{"Severozapadni Meksiko"}
-            ls{"Severozapadni Meksiko, standardno vreme"}
         }
         "meta:Mexico_Pacific"{
             ld{"Meksički Pacifik, letnje vreme"}
@@ -482,7 +473,9 @@ sr_Latn{
             ls{"Niue vreme"}
         }
         "meta:Norfolk"{
-            ls{"Norfolk Ostrvo vreme"}
+            ld{"Norfolk Ostrvo, letnje vreme"}
+            lg{"Norfolk Ostrvo vreme"}
+            ls{"Norfolk Ostrvo, standardno vreme"}
         }
         "meta:Noronha"{
             ld{"Fernando de Noronja, letnje vreme"}
@@ -611,6 +604,11 @@ sr_Latn{
         "meta:Truk"{
             ls{"Čuuk vreme"}
         }
+        "meta:Turkey"{
+            ld{"Turska letnje računanje vremena"}
+            lg{"Turska vreme"}
+            ls{"Turska standardno vreme"}
+        }
         "meta:Turkmenistan"{
             ld{"Turkmenistan, letnje vreme"}
             lg{"Turkmenistan vreme"}
@@ -666,11 +664,9 @@ sr_Latn{
             lg{"Jekaterinburg vreme"}
             ls{"Jekaterinburg, standardno vreme"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
-        regionFormat{"{0}"}
+        "meta:Yukon"{
+            ls{"Jukon"}
+        }
         regionFormatDaylight{"{0}, letnje vreme"}
         regionFormatStandard{"{0}, standardno vreme"}
     }

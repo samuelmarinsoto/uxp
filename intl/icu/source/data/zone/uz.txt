@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 uz{
-    Version{"2.1.44.88"}
     zoneStrings{
         "Etc:UTC"{
             ls{"Koordinatali universal vaqt"}
@@ -25,9 +25,7 @@ uz{
             ls{"Janubiy Afrika standart vaqti"}
         }
         "meta:Africa_Western"{
-            ld{"Gʻarbiy Afrika yozgi vaqti"}
-            lg{"Gʻarbiy Afrika vaqti"}
-            ls{"Gʻarbiy Afrika standart vaqti"}
+            ls{"Gʻarbiy Afrika vaqti"}
         }
         "meta:Alaska"{
             ld{"Alyaska yozgi vaqti"}
@@ -161,11 +159,6 @@ uz{
             lg{"Xitoy vaqti"}
             ls{"Xitoy standart vaqti"}
         }
-        "meta:Choibalsan"{
-            ld{"Choybalsan yozgi vaqti"}
-            lg{"Choybalsan vaqti"}
-            ls{"Choybalsan standart vaqti"}
-        }
         "meta:Christmas"{
             ls{"Rojdestvo oroli vaqti"}
         }
@@ -271,6 +264,9 @@ uz{
         "meta:Guyana"{
             ls{"Gayana vaqti"}
         }
+        "meta:Hawaii"{
+            ls{"Gavayi-aleut standart vaqti"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Gavayi-aleut yozgi vaqti"}
             lg{"Gavayi-aleut vaqti"}
@@ -324,6 +320,9 @@ uz{
             lg{"Yaponiya vaqti"}
             ls{"Yaponiya standart vaqti"}
         }
+        "meta:Kazakhstan"{
+            ls{"Qozogʻiston vaqti"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Sharqiy Qozogʻiston vaqti"}
         }
@@ -354,9 +353,6 @@ uz{
             lg{"Lord-Xau vaqti"}
             ls{"Lord-Xau standart vaqti"}
         }
-        "meta:Macquarie"{
-            ls{"Makkuori oroli vaqti"}
-        }
         "meta:Magadan"{
             ld{"Magadan yozgi vaqti"}
             lg{"Magadan vaqti"}
@@ -381,11 +377,6 @@ uz{
         }
         "meta:Mawson"{
             ls{"Mouson vaqti"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Shimoli-g‘arbiy Meksika yozgi vaqti"}
-            lg{"Shimoli-g‘arbiy Meksika vaqti"}
-            ls{"Shimoli-g‘arbiy Meksika standart vaqti"}
         }
         "meta:Mexico_Pacific"{
             ld{"Meksika Tinch okeani yozgi vaqti"}
@@ -430,7 +421,9 @@ uz{
             ls{"Niuye vaqti"}
         }
         "meta:Norfolk"{
-            ls{"Norfolk oroli vaqti"}
+            ld{"Norfolk oroli yozgi vaqti"}
+            lg{"Norfolk oroli vaqti"}
+            ls{"Norfolk oroli standart vaqti"}
         }
         "meta:Noronha"{
             ld{"Fernandu-di-Noronya yozgi vaqti"}
@@ -601,12 +594,8 @@ uz{
             lg{"Yekaterinburg vaqti"}
             ls{"Yekaterinburg standart vaqti"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
-        regionFormat{"{0}"}
-        regionFormatDaylight{"{0} (+1)"}
-        regionFormatStandard{"{0} (+0)"}
+        "meta:Yukon"{
+            ls{"Yukon vaqti"}
+        }
     }
 }

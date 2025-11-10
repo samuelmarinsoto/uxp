@@ -1,8 +1,11 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 dsb{
-    Version{"2.1.41.34"}
     zoneStrings{
+        "Etc:UTC"{
+            ls{"koordiněrowany swětowy cas"}
+        }
         "Europe:Dublin"{
             ld{"Iriski lěśojski cas"}
         }
@@ -22,9 +25,7 @@ dsb{
             ls{"Pódpołdnjowoafriski cas"}
         }
         "meta:Africa_Western"{
-            ld{"Pódwjacornoafriski lěśojski cas"}
-            lg{"Pódwjacornoafriski cas"}
-            ls{"Pódwjacornoafriski standardny cas"}
+            ls{"Pódwjacornoafriski cas"}
         }
         "meta:Alaska"{
             ld{"Alaskojski lěśojski cas"}
@@ -158,11 +159,6 @@ dsb{
             lg{"Chinski cas"}
             ls{"Chinski standardny cas"}
         }
-        "meta:Choibalsan"{
-            ld{"Choibalsański lěśojski cas"}
-            lg{"Choibalsański cas"}
-            ls{"Choibalsański standardny cas"}
-        }
         "meta:Christmas"{
             ls{"cas Gódownych kupow"}
         }
@@ -202,17 +198,17 @@ dsb{
             ls{"Ekuadorski cas"}
         }
         "meta:Europe_Central"{
-            ld{"Srjejźoeuropski lěśojski cas"}
-            lg{"Srjejźoeuropski cas"}
-            ls{"Srjejźoeuropski standardny cas"}
+            ld{"Srjejźnoeuropejski lěśojski cas"}
+            lg{"Srjejźnoeuropejski cas"}
+            ls{"Srjejźnoeuropejski standardny cas"}
             sd{"MESZ"}
             sg{"MEZ"}
             ss{"MEZ"}
         }
         "meta:Europe_Eastern"{
-            ld{"Pódzajtšnoeuropski lěśojski cas"}
-            lg{"Pódzajtšnoeuropski cas"}
-            ls{"Pódzajtšnoeuropski standardny cas"}
+            ld{"Pódzajtšnoeuropejski lěśojski cas"}
+            lg{"Pódzajtšnoeuropejski cas"}
+            ls{"Pódzajtšnoeuropejski standardny cas"}
             sd{"OESZ"}
             sg{"OEZ"}
             ss{"OEZ"}
@@ -221,9 +217,9 @@ dsb{
             ls{"Kaliningradski cas"}
         }
         "meta:Europe_Western"{
-            ld{"Pódwjacornoeuropski lěśojski cas"}
-            lg{"Pódwjacornoeuropski cas"}
-            ls{"Pódwjacornoeuropski standardny cas"}
+            ld{"Pódwjacornoeuropejski lěśojski cas"}
+            lg{"Pódwjacornoeuropejski cas"}
+            ls{"Pódwjacornoeuropejski standardny cas"}
             sd{"WESZ"}
             sg{"WEZ"}
             ss{"WEZ"}
@@ -276,6 +272,9 @@ dsb{
         }
         "meta:Guyana"{
             ls{"Guyański cas"}
+        }
+        "meta:Hawaii"{
+            ls{"Hawaiisko-aleutski standardny cas"}
         }
         "meta:Hawaii_Aleutian"{
             ld{"Hawaiisko-aleutski lěśojski cas"}
@@ -330,6 +329,9 @@ dsb{
             lg{"Japański cas"}
             ls{"Japański standardny cas"}
         }
+        "meta:Kazakhstan"{
+            ls{"kazachiski cas"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Pódzajtšnokazachski cas"}
         }
@@ -360,9 +362,6 @@ dsb{
             lg{"cas kupy Lord-Howe"}
             ls{"Standardny cas kupy Lord-Howe"}
         }
-        "meta:Macquarie"{
-            ls{"cas kupy Macquarie"}
-        }
         "meta:Magadan"{
             ld{"Magadański lěśojski cas"}
             lg{"Magadański cas"}
@@ -387,11 +386,6 @@ dsb{
         }
         "meta:Mawson"{
             ls{"Mawson cas"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Mexiski dłujkowjacorny lěśojski cas"}
-            lg{"Mexiski dłujkowjacorny cas"}
-            ls{"Mexiski dłujkowjacorny standardny cas"}
         }
         "meta:Mexico_Pacific"{
             ld{"Mexiski pacifiski lěśojski cas"}
@@ -436,7 +430,9 @@ dsb{
             ls{"Niueski cas"}
         }
         "meta:Norfolk"{
-            ls{"cas kupy Norfolk"}
+            ld{"lěśojski cas kupy Norfolk"}
+            lg{"cas kupy Norfolk"}
+            ls{"standardny cas kupy Norfolk"}
         }
         "meta:Noronha"{
             ld{"lěśojski cas Fernando de Noronha"}
@@ -492,6 +488,9 @@ dsb{
         }
         "meta:Ponape"{
             ls{"Ponapski cas"}
+        }
+        "meta:Pyongyang"{
+            ls{"Pjöngjangski cas"}
         }
         "meta:Reunion"{
             ls{"Reunionski cas"}
@@ -604,10 +603,9 @@ dsb{
             lg{"Jekaterinburgski cas"}
             ls{"Jekaterinburgski standardny cas"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"Yukonowy cas"}
+        }
         regionFormat{"Casowe pasmo {0}"}
         regionFormatDaylight{"{0} lěśojski cas"}
         regionFormatStandard{"{0} zymski cas"}

@@ -1,0 +1,661 @@
+﻿// © 2016 and later: Unicode, Inc. and others.
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
+kgp{
+    zoneStrings{
+        "Etc:UTC"{
+            ls{"Ga-kar Óra Vẽnh-krén-ja"}
+        }
+        "Europe:Dublin"{
+            ld{"Óra Pã Irỹna"}
+        }
+        "Europe:London"{
+            ld{"Óra Mritỹnĩku Rỹ Kã"}
+        }
+        "meta:Acre"{
+            ld{"Rỹ Kã óra Akre tá"}
+            lg{"Akre tá óra"}
+            ls{"Óra Pã Akre tá"}
+            sd{"ACST"}
+            sg{"ACT"}
+            ss{"ACT"}
+        }
+        "meta:Afghanistan"{
+            ls{"Afeganĩtã tá óra"}
+        }
+        "meta:Africa_Central"{
+            ls{"Afrika-Kuju tá óra"}
+        }
+        "meta:Africa_Eastern"{
+            ls{"Afrika Rãjur tá óra"}
+        }
+        "meta:Africa_Southern"{
+            ls{"Sur-Afrika tá óra"}
+        }
+        "meta:Africa_Western"{
+            ls{"Afrika Rãpur tá óra"}
+        }
+        "meta:Alaska"{
+            ld{"Rỹ Kã óra Aranhka tá"}
+            lg{"Aranhka tá óra"}
+            ls{"Óra Pã Aranhka tá"}
+        }
+        "meta:Almaty"{
+            ld{"Rỹ Kã óra Armaty tá"}
+            lg{"Armaty tá óra"}
+            ls{"Óra Pã Armaty tá"}
+        }
+        "meta:Amazon"{
+            ld{"Rỹ Kã óra Amỹjonỹ tá"}
+            lg{"Amỹjonỹ tá óra"}
+            ls{"Óra Pã Amỹjonỹ tá"}
+            sd{"AMST"}
+            sg{"AMT"}
+            ss{"AMT"}
+        }
+        "meta:America_Central"{
+            ld{"Rỹ Kã óra Kuju tá"}
+            lg{"Kuju tá óra"}
+            ls{"Óra Pã Kuju tá"}
+        }
+        "meta:America_Eastern"{
+            ld{"Rỹ Kã óra Rãjur tá"}
+            lg{"Óra Rãjur tá"}
+            ls{"Óra Pã Rãjur tá"}
+        }
+        "meta:America_Mountain"{
+            ld{"Rỹ Kã óra Krĩ tá"}
+            lg{"Óra Krĩ tá"}
+            ls{"Óra Pã Krĩ tá"}
+        }
+        "meta:America_Pacific"{
+            ld{"Rỹ Kã óra Rãpur tá"}
+            lg{"Óra Rãpur tá"}
+            ls{"Óra Pã Rãpur tá"}
+        }
+        "meta:Anadyr"{
+            ld{"Rỹ Kã óra Anỹnhyr tá"}
+            lg{"Óra Anỹnnyr tá"}
+            ls{"Óra Pã Anỹnhyr tá"}
+        }
+        "meta:Apia"{
+            ld{"Rỹ Kã óra Apija tá"}
+            lg{"Óra Apija tá"}
+            ls{"Óra Pã Apija tá"}
+        }
+        "meta:Aqtau"{
+            ld{"Rỹ Kã óra Agtav tá"}
+            lg{"Óra Agtav tá"}
+            ls{"Óra Pã Agtav tá"}
+        }
+        "meta:Aqtobe"{
+            ld{"Rỹ Kã óra Agtóme tá"}
+            lg{"Óra Agtóme tá"}
+            ls{"Óra Pã Agtóme tá"}
+        }
+        "meta:Arabian"{
+            ld{"Rỹ Kã óra Aramija tá"}
+            lg{"Óra Aramija tá"}
+            ls{"Óra Pã Aramija tá"}
+        }
+        "meta:Argentina"{
+            ld{"Rỹ Kã óra Arjẽtĩnỹ tá"}
+            lg{"Óra Arjẽtĩnỹ tá"}
+            ls{"Óra Opã Arjẽtĩnỹ tá"}
+        }
+        "meta:Argentina_Western"{
+            ld{"Rỹ Kã óra Arjẽtĩnỹ Rãpurtá"}
+            lg{"Óra Arjẽtĩnỹ Rãpur tá"}
+            ls{"Óra Pã Arjẽtĩnỹ Rãpur tá"}
+        }
+        "meta:Armenia"{
+            ld{"Rỹ Kã óra Armẽnĩja tá"}
+            lg{"Óra Armẽnĩja tá"}
+            ls{"Óra Pã Armẽnĩja tá"}
+        }
+        "meta:Atlantic"{
+            ld{"Rỹ Kã óra Atrỹtiku tá"}
+            lg{"Óra Atrỹtiku tá"}
+            ls{"Óra Pã Atrỹtiku tá"}
+        }
+        "meta:Australia_Central"{
+            ld{"Rỹ Kã óra Avotyraria Kuju tá"}
+            lg{"Óra Avotyraria Kuju tá"}
+            ls{"Óra Pã Avotyraria Kuju tá"}
+        }
+        "meta:Australia_CentralWestern"{
+            ld{"Rỹ Kã óra Avotyraria Kuju-Rãpur tá"}
+            lg{"Óra Avotyaria Kuju-Rãpur tá"}
+            ls{"Óra Pã Avotyraria Kuju-Rãpur tá"}
+        }
+        "meta:Australia_Eastern"{
+            ld{"Rỹ Kã óra Avotyraria Rãjur tá"}
+            lg{"Óra Avotyraria Rãjur tá"}
+            ls{"Óra Pã Avotyraria Rãjur tá"}
+        }
+        "meta:Australia_Western"{
+            ld{"Rỹ Kã óra Avotyraria Rãpur tá"}
+            lg{"Óra Avotyraria Rãpur tá"}
+            ls{"Óra Pã Avotyraria Rãpur tá"}
+        }
+        "meta:Azerbaijan"{
+            ld{"Rỹ Kã óra Ajermajjáv tá"}
+            lg{"Óra Ajermajjáv tá"}
+            ls{"Óra Pã Ajermajjáv tá"}
+        }
+        "meta:Azores"{
+            ld{"Rỹ Kã óra Aso-ag tá"}
+            lg{"Óra Asor-ag tá"}
+            ls{"Óra Pã Asor-ag tá"}
+        }
+        "meta:Bangladesh"{
+            ld{"Rỹ Kã óra Mỹngranési tá"}
+            lg{"Óra Mỹngranési tá"}
+            ls{"Óra Pã Mỹngranési tá"}
+        }
+        "meta:Bhutan"{
+            ls{"Óra Mutỹv tá"}
+        }
+        "meta:Bolivia"{
+            ls{"Óra Morivia tá"}
+        }
+        "meta:Brasilia"{
+            ld{"Rỹ Kã óra Mrasirja tá"}
+            lg{"Óra Mrasirja tá"}
+            ls{"Óra Pã Mrasirja tá"}
+            sd{"BRST"}
+            sg{"BRT"}
+            ss{"BRT"}
+        }
+        "meta:Brunei"{
+            ls{"Óra Mrunẽj Narusarỹ tá"}
+        }
+        "meta:Cape_Verde"{
+            ld{"Rỹ Kã óra Pu tánh tá"}
+            lg{"Óra Pu Tánh tá"}
+            ls{"Óra Pã Pu Tánh tá"}
+        }
+        "meta:Chamorro"{
+            ls{"Óra Samãho tá"}
+        }
+        "meta:Chatham"{
+            ld{"Rỹ Kã óra San-hỹm tá"}
+            lg{"Óra San-hỹm tá"}
+            ls{"Óra Pã San-hỹm tá"}
+        }
+        "meta:Chile"{
+            ld{"Rỹ Kã óra Sire tá"}
+            lg{"Óra Sire tá"}
+            ls{"Óra Pã Sire tá"}
+        }
+        "meta:China"{
+            ld{"Rỹ Kã óra Sĩnỹ tá"}
+            lg{"Óra Sĩnỹ tá"}
+            ls{"Óra Pã Sĩnỹ tá"}
+        }
+        "meta:Christmas"{
+            ls{"Óra Krĩtimỹnh Goj-vẽso tá"}
+        }
+        "meta:Cocos"{
+            ls{"Óra Kokonh Goj-vẽso tá"}
+        }
+        "meta:Colombia"{
+            ld{"Rỹ Kã óra Korãmija tá"}
+            lg{"Óra Korãmija tá"}
+            ls{"Óra Pã Korãmija tá"}
+        }
+        "meta:Cook"{
+            ld{"Rỹ Kã óra Kuki Goj-vẽso tá"}
+            lg{"Óra Kuki Goj-vẽso tá"}
+            ls{"Óra Pã Kuki Goj-vẽso tá"}
+        }
+        "meta:Cuba"{
+            ld{"Rỹ Kã óra Kuma tá"}
+            lg{"Óra Kuma tá"}
+            ls{"Óra Pã Kuma tá"}
+        }
+        "meta:Davis"{
+            ls{"Óra Navinh tá"}
+        }
+        "meta:DumontDUrville"{
+            ls{"Óra Numã-Nurviri tá"}
+        }
+        "meta:East_Timor"{
+            ls{"Óra Tĩmãr-Rãjur tá"}
+        }
+        "meta:Easter"{
+            ld{"Rỹ Kã óra Panhkuva Goj-vẽso tá"}
+            lg{"Óra Panhkuva Goj-vẽso tá"}
+            ls{"Óra Pã Panhkuva Goj-vẽso tá"}
+        }
+        "meta:Ecuador"{
+            ls{"Óra Ekuvanor tá"}
+        }
+        "meta:Europe_Central"{
+            ld{"Rỹ Kã óra Orópa Kuju tá"}
+            lg{"Óra Orópa Kuju tá"}
+            ls{"Óra Pã Orópa Kuju tá"}
+        }
+        "meta:Europe_Eastern"{
+            ld{"Rỹ Kã óra Orópa Rãjur tá"}
+            lg{"Óra Orópa Rãjur tá"}
+            ls{"Óra Pã Orópa Rãjur tá"}
+        }
+        "meta:Europe_Further_Eastern"{
+            ls{"Rãjur tỹ Orópa jã há tá óra"}
+        }
+        "meta:Europe_Western"{
+            ld{"Rỹ Kã óra Orópa Rãpur tá"}
+            lg{"Óra Orópa Rãpur tá"}
+            ls{"Óra Pã Orópa Rãpur tá"}
+        }
+        "meta:Falkland"{
+            ld{"Rỹ Kã óra Mỹrvĩnỹ Goj-vẽso tá"}
+            lg{"Óra Mỹrvĩnỹ Goj-vẽso tá"}
+            ls{"Ór Pã Mỹrvĩnỹ Goj-vẽso tá"}
+        }
+        "meta:Fiji"{
+            ld{"Rỹ Kã óra Fiji tá"}
+            lg{"Óra Fiji tá"}
+            ls{"Óra Pã Fiji tá"}
+        }
+        "meta:French_Guiana"{
+            ls{"Óra Frỹsa Gijanỹ tá"}
+        }
+        "meta:French_Southern"{
+            ls{"Óra Frỹsa Ga Sur kar Ỹtartina tá"}
+        }
+        "meta:GMT"{
+            ls{"Óra Mirinjỹnũ Grinũvisi tá"}
+        }
+        "meta:Galapagos"{
+            ls{"Óra Gara Pago tá"}
+        }
+        "meta:Gambier"{
+            ls{"Óra Gỹmmijer"}
+        }
+        "meta:Georgia"{
+            ld{"Rỹ Kã óra Jeórja tá"}
+            lg{"Óra Jeórja tá"}
+            ls{"Óra Pã Jeórja tá"}
+        }
+        "meta:Gilbert_Islands"{
+            ls{"Óra Jirmértu Goj-vẽso tá"}
+        }
+        "meta:Greenland_Eastern"{
+            ld{"Rỹ Kã óra Groẽrỹnija Rãjur tá"}
+            lg{"Óra Groẽrỹnija Rãjur tá"}
+            ls{"Óra Pã Groẽrỹnija Rãjur tá"}
+        }
+        "meta:Greenland_Western"{
+            ld{"Rỹ Kã óra Groẽrỹnija Rãpur tá"}
+            lg{"Óra Groẽrỹnija Rãpur tá"}
+            ls{"Óra Pã Groẽrỹnija Rãpur tá"}
+        }
+        "meta:Guam"{
+            ls{"Óra Pã Guvỹm tá"}
+        }
+        "meta:Gulf"{
+            ls{"Óra Gorfu tá"}
+        }
+        "meta:Guyana"{
+            ls{"Óra Gijỹnỹ tá"}
+        }
+        "meta:Hawaii"{
+            ls{"Óra Pã Hava’i kar Arevta Goj-vẽso tá"}
+        }
+        "meta:Hawaii_Aleutian"{
+            ld{"Rỹ kã óra Hava’i kar Arevta Goj-vẽso tá"}
+            lg{"Óra Hava’i kar Arevta Goj-vẽso tá"}
+            ls{"Óra Pã Hava’i kar Arevta Goj-vẽso tá"}
+        }
+        "meta:Hong_Kong"{
+            ld{"Rỹ Kã óra Hãg Kãg tá"}
+            lg{"Óra Hãg Kãg tá"}
+            ls{"Óra Pã Hãg Kãg tá"}
+        }
+        "meta:Hovd"{
+            ld{"Rỹ kã óra Hóvin tá"}
+            lg{"Óra Hóvin tá"}
+            ls{"Óra Pã Hóvin tá"}
+        }
+        "meta:India"{
+            ls{"Óra Pã Ĩnija tá"}
+        }
+        "meta:Indian_Ocean"{
+            ls{"Óra Osiỹno Ĩniko tá"}
+        }
+        "meta:Indochina"{
+            ls{"Óra Ĩnosĩnỹ tá"}
+        }
+        "meta:Indonesia_Central"{
+            ls{"Óra Ĩnonẽja Kuju tá"}
+        }
+        "meta:Indonesia_Eastern"{
+            ls{"Óra Ĩnonẽja Rãjur tá"}
+        }
+        "meta:Indonesia_Western"{
+            ls{"Óra Ĩnonẽja Rãpur tá"}
+        }
+        "meta:Iran"{
+            ld{"Rỹ Kã óra Irỹ tá"}
+            lg{"Óra Irỹ tá"}
+            ls{"Óra Pã Irỹ tá"}
+        }
+        "meta:Irkutsk"{
+            ld{"Rỹ Kã óra Irkutinhki tá"}
+            lg{"Óra Irkutinhki tá"}
+            ls{"Óra Pã Irkutinhki tá"}
+        }
+        "meta:Israel"{
+            ld{"Rỹ Kã óra Isihaé tá"}
+            lg{"Óra Isihaé tá"}
+            ls{"Óra Pã Isihaé tá"}
+        }
+        "meta:Japan"{
+            ld{"Rỹ Kã óra Japã tá"}
+            lg{"Óra Japã tá"}
+            ls{"Óra Pã Japã tá"}
+        }
+        "meta:Kamchatka"{
+            ld{"Rỹ Kã óra Petrupaviróvinhki-Kỹmsatinhki"}
+            lg{"Óra Petrupaviróvinhki-Kỹmsatinhki"}
+            ls{"Óra Pã Petrupaviróvinhki-Kỹmsatinhki"}
+        }
+        "meta:Kazakhstan_Eastern"{
+            ls{"Óra Kajakinhtỹv Rãjur tá"}
+        }
+        "meta:Kazakhstan_Western"{
+            ls{"Óra Kajakinhtỹv Rãpur tá"}
+        }
+        "meta:Korea"{
+            ld{"Rỹ Kã óra Koréja tá"}
+            lg{"Óra Koréja tá"}
+            ls{"Óra Pã Koréja tá"}
+        }
+        "meta:Kosrae"{
+            ls{"Óra de Kosiraje tá"}
+        }
+        "meta:Krasnoyarsk"{
+            ld{"Rỹ Kã óra Kranhnãjarki tá"}
+            lg{"Óra Kranhnãjarki tá"}
+            ls{"Óra Pã Kranhnãjarki tá"}
+        }
+        "meta:Kyrgystan"{
+            ls{"Óra Kirginhtỹv tá"}
+        }
+        "meta:Lanka"{
+            ls{"Óra Rỹnka tá"}
+        }
+        "meta:Line_Islands"{
+            ls{"Óra Vãfe Goj-vẽso tỹ tá"}
+        }
+        "meta:Lord_Howe"{
+            ld{"Rỹ Kã óra Rórni Hove tá"}
+            lg{"Óra Rórni Hove tá"}
+            ls{"Óra Pã Rórni Hove tá"}
+        }
+        "meta:Macau"{
+            ld{"Rỹ kã óra Mỹkav tá"}
+            lg{"Óra Mỹkav tá"}
+            ls{"Óra Pã Mỹkav tá"}
+        }
+        "meta:Magadan"{
+            ld{"Rỹ Kã óra Mỹganan tá"}
+            lg{"Óra Mỹganan tá"}
+            ls{"Óra Pã Mỹganan tá"}
+        }
+        "meta:Malaysia"{
+            ls{"Óra Mỹraja tá"}
+        }
+        "meta:Maldives"{
+            ls{"Óra Goj Vẽso Mỹrniva tá"}
+        }
+        "meta:Marquesas"{
+            ls{"Óra Mỹrkeja Fag tá"}
+        }
+        "meta:Marshall_Islands"{
+            ls{"Óra MỹrSar Goj-vẽso tá"}
+        }
+        "meta:Mauritius"{
+            ld{"Rỹ Kã óra Mãriso tá"}
+            lg{"Óra Mãriso tá"}
+            ls{"Óra Pã Mãriso tá"}
+        }
+        "meta:Mawson"{
+            ls{"Óra Mỹusãn tá"}
+        }
+        "meta:Mexico_Pacific"{
+            ld{"Rỹ Kã óra Mẽsiku Pasifiku tá"}
+            lg{"Óra Mẽsiku Pasifiku tá"}
+            ls{"Óra Pã Mẽsiku Pasifiku tá"}
+        }
+        "meta:Mongolia"{
+            ld{"Rỹ Kã óra Uran Mator tá"}
+            lg{"Óra Uran Mator tá"}
+            ls{"Óra Pã Uran Mator tá"}
+        }
+        "meta:Moscow"{
+            ld{"Rỹ Kã óra Mãnhkov tá"}
+            lg{"Óra Mãnhkov tá"}
+            ls{"Óra Pã Mãnhkov tá"}
+        }
+        "meta:Myanmar"{
+            ls{"Óra Mĩjỹmỹr tá"}
+        }
+        "meta:Nauru"{
+            ls{"Óra Nỹvuru tá"}
+        }
+        "meta:Nepal"{
+            ls{"Óra Nẽpar tá"}
+        }
+        "meta:New_Caledonia"{
+            ld{"Rỹ Kã óra Karenonĩja Tãg tá"}
+            lg{"Óra Karenonĩja Tãg tá"}
+            ls{"Óra Pã Karenonĩja Tãg tá"}
+        }
+        "meta:New_Zealand"{
+            ld{"Rỹ Kã óra Jerỹnija Tãg tá"}
+            lg{"Óra Jerỹnija Tãg tá"}
+            ls{"Óra Pã Jerỹnija Tãg tá"}
+        }
+        "meta:Newfoundland"{
+            ld{"Rỹ Kã óra Ga Tãg tá"}
+            lg{"Óra Ga tãg tá"}
+            ls{"Óra Pã Ga Tãg tá"}
+        }
+        "meta:Niue"{
+            ls{"Óra Nĩve tá"}
+        }
+        "meta:Norfolk"{
+            ld{"Rỹ Kã óra Nãrforki Goj-vẽso tá"}
+            lg{"Óra Nãrforki Goj-vẽso tá"}
+            ls{"Óra Pã Nãrforki Goj-vẽso tá"}
+        }
+        "meta:Noronha"{
+            ld{"Rỹ Kã óra Fernỹnu Nãrãja-tá tá"}
+            lg{"Óra Fernỹnu Nãrãja-tá tá"}
+            ls{"Óra Pã Fernỹnu Nãrãja-tá tá"}
+        }
+        "meta:North_Mariana"{
+            ls{"Óra Nãrti-Mỹrijỹnỹ Goj-vẽso tá"}
+        }
+        "meta:Novosibirsk"{
+            ld{"Rỹ Kã óra Pã Simirsiki Tãg tá"}
+            lg{"Óra Simirsiki Tãg tá"}
+            ls{"Óra Pã Simirsiki Tãg tá"}
+        }
+        "meta:Omsk"{
+            ld{"Rỹ Kã óra Omĩnhki tá"}
+            lg{"Óra Omĩnhki tá"}
+            ls{"Óra Pã Omĩnhki tá"}
+        }
+        "meta:Pakistan"{
+            ld{"Rỹ Kã óra Pakinhtỹv tá"}
+            lg{"Óra Pakinhtỹv tá"}
+            ls{"Óra Pã Pakinhtỹv tá"}
+        }
+        "meta:Palau"{
+            ls{"Óra Paravu tá"}
+        }
+        "meta:Papua_New_Guinea"{
+            ls{"Óra Papuva-Ginẽ Tãg tá"}
+        }
+        "meta:Paraguay"{
+            ld{"Rỹ Kã óra Paraguvaj tá"}
+            lg{"Óra Paraguvaj tá"}
+            ls{"Óra Pã Paraguvaj tá"}
+        }
+        "meta:Peru"{
+            ld{"Rỹ Kã óra Piru tá"}
+            lg{"Óra Piru tá"}
+            ls{"Óra Pã Piru tá"}
+        }
+        "meta:Philippines"{
+            ld{"Rỹ Kã Firipinỹ tá"}
+            lg{"Óra Firipinỹ tá"}
+            ls{"Óra Pã Firipinỹ tá"}
+        }
+        "meta:Phoenix_Islands"{
+            ls{"Óra Fẽnĩg Goj-vẽso tá"}
+        }
+        "meta:Pierre_Miquelon"{
+            ld{"Rỹ Kã óra Sỹ Pedro kar Mĩkerỹv tá"}
+            lg{"Óra Sỹ Penru kar Mĩkerỹv tá"}
+            ls{"Óra Pã Sỹ Pedro kar Mĩkerỹv tá"}
+        }
+        "meta:Pitcairn"{
+            ls{"Óra Pinkajir Goj-vẽso tá"}
+        }
+        "meta:Ponape"{
+            ls{"Óra Ponỹpe tá"}
+        }
+        "meta:Pyongyang"{
+            ls{"Óra Piãgiỹng tá"}
+        }
+        "meta:Qyzylorda"{
+            ld{"Rỹ Kã óra Kysyrorna tá"}
+            lg{"Óra Kysyrorna tá"}
+            ls{"Óra Pã Kysyrorna tá"}
+        }
+        "meta:Reunion"{
+            ls{"Óra Hujáv tá"}
+        }
+        "meta:Rothera"{
+            ls{"Óra Rotera tá"}
+        }
+        "meta:Sakhalin"{
+            ld{"Rỹ Kã óra Sakarinỹ tá"}
+            lg{"Óra Sakarinỹ tá"}
+            ls{"Óra Pã Sakarinỹ tá"}
+        }
+        "meta:Samara"{
+            ld{"Rỹ Kã óra Samỹra tá"}
+            lg{"Óra Samỹra tá"}
+            ls{"Óra Pã Samỹra tá"}
+        }
+        "meta:Samoa"{
+            ld{"Rỹ Kã óra Samãva tá"}
+            lg{"Óra Samãva tá"}
+            ls{"Óra Pã Samãva tá"}
+        }
+        "meta:Seychelles"{
+            ls{"Óra Sejserenh tá"}
+        }
+        "meta:Singapore"{
+            ls{"Óra Pã Sĩgapura tá"}
+        }
+        "meta:Solomon"{
+            ls{"Óra Saromỹv Goj-vẽso tá"}
+        }
+        "meta:South_Georgia"{
+            ls{"Óra Jiórja tỹ Sur tá"}
+        }
+        "meta:Suriname"{
+            ls{"Óra Surinỹmĩ tá"}
+        }
+        "meta:Syowa"{
+            ls{"Óra Siova tá"}
+        }
+        "meta:Tahiti"{
+            ls{"Óra Tajti tá"}
+        }
+        "meta:Taipei"{
+            ld{"Rỹ Kã óra Tajpej tá"}
+            lg{"Óra Tajpej tá"}
+            ls{"Óra Pã Tajpej tá"}
+        }
+        "meta:Tajikistan"{
+            ls{"Óra Tajikinhtỹv tá"}
+        }
+        "meta:Tokelau"{
+            ls{"Óra Tokeravu tá"}
+        }
+        "meta:Tonga"{
+            ld{"Rỹ Kã óra Tãga tá"}
+            lg{"Óra Tãga tá"}
+            ls{"Óra Pã Tãga tá"}
+        }
+        "meta:Truk"{
+            ls{"Óra Suuki tá"}
+        }
+        "meta:Turkmenistan"{
+            ld{"Rỹ Kã óra Turkomẽnĩnhtỹv tá"}
+            lg{"Óra Turkomẽnĩnhtỹv tá"}
+            ls{"Óra Pã Turkomẽnĩnhtỹv tá"}
+        }
+        "meta:Tuvalu"{
+            ls{"Óra Tuvaru tá"}
+        }
+        "meta:Uruguay"{
+            ld{"Rỹ Kã óra Uruguvaj tá"}
+            lg{"Óra Uruguvaj tá"}
+            ls{"Óra Pã Uruguvaj tá"}
+        }
+        "meta:Uzbekistan"{
+            ld{"Rỹ Kã óra Unhmekinhtỹv tá"}
+            lg{"Óra Unhmekinhtỹv tá"}
+            ls{"Óra Pã Unnmekinhtỹv tá"}
+        }
+        "meta:Vanuatu"{
+            ld{"Rỹ Kã óra Vanũvatu tá"}
+            lg{"Óra Vanũvatu tá"}
+            ls{"Óra Pã Vanũvatu tá"}
+        }
+        "meta:Venezuela"{
+            ls{"Óra Venẽjuvéra tá"}
+        }
+        "meta:Vladivostok"{
+            ld{"Rỹ Kã óra Uranivónhtóki tá"}
+            lg{"Óra Uranivónhtókii tá"}
+            ls{"Óra Pã Uranivónhtóki tá"}
+        }
+        "meta:Volgograd"{
+            ld{"Rỹ Kã óra Vorgugrano tá"}
+            lg{"Óra Vorgugrano tá"}
+            ls{"Óra Pã Vorgugrano tá"}
+        }
+        "meta:Vostok"{
+            ls{"Óra Vonhtóki tá"}
+        }
+        "meta:Wake"{
+            ls{"Óra Vejki Goj-vẽso tá"}
+        }
+        "meta:Wallis"{
+            ls{"Óra Varinh kar Futunỹ tá"}
+        }
+        "meta:Yakutsk"{
+            ld{"Rỹ Kã óra Yjakutinhki tá"}
+            lg{"Óra Yjakutinhki tá"}
+            ls{"Óra Pã Yjakutinhkii tá"}
+        }
+        "meta:Yekaterinburg"{
+            ld{"Rỹ Kã óra Ekaterĩnmurgu tá"}
+            lg{"Óra Ekaterĩnmurgu tá"}
+            ls{"Óra Pã Ekaterĩnmurgu tá"}
+        }
+        regionFormat{"Óra kar {0}"}
+        regionFormatDaylight{"Prỹg kã óra kar {0}"}
+        regionFormatStandard{"Óra pẽ {0}"}
+    }
+}

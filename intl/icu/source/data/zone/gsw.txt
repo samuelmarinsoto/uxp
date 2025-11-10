@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 gsw{
-    Version{"2.1.41.34"}
     zoneStrings{
         "meta:Acre"{
             ld{"Acre-Summerziit"}
@@ -21,9 +21,7 @@ gsw{
             ls{"Süüdafrikanischi ziit"}
         }
         "meta:Africa_Western"{
-            ld{"Weschtafrikanischi Summerziit"}
-            lg{"Weschtafrikanischi Ziit"}
-            ls{"Weschtafrikanischi Schtandardziit"}
+            ls{"Weschtafrikanischi Ziit"}
         }
         "meta:Alaska"{
             ld{"Alaska-Summerziit"}
@@ -74,8 +72,5 @@ gsw{
             lg{"Moskauer Ziit"}
             ls{"Moskauer Schtandardziit"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        hourFormat{"+HH:mm;-HH:mm"}
     }
 }

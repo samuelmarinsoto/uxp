@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 ce{
-    Version{"2.1.41.34"}
     zoneStrings{
         "Europe:Dublin"{
             ld{"Ирланди, аьхкенан хан"}
@@ -22,9 +22,7 @@ ce{
             ls{"Къилба Африка"}
         }
         "meta:Africa_Western"{
-            ld{"Малхбузен Африка, аьхкенан хан"}
-            lg{"Малхбузен Африка"}
-            ls{"Малхбузен Африка, стандартан хан"}
+            ls{"Малхбузен Африка"}
         }
         "meta:Alaska"{
             ld{"Аляска, аьхкенан хан"}
@@ -158,11 +156,6 @@ ce{
             lg{"Цийчоь"}
             ls{"Цийчоьнан, стандартан хан"}
         }
-        "meta:Choibalsan"{
-            ld{"Чойбалсан, аьхкенан хан"}
-            lg{"Чойбалсан"}
-            ls{"Чойбалсан, стандартан хан"}
-        }
         "meta:Christmas"{
             ls{"Ӏийса пайхамар винчу ден гӀайре"}
         }
@@ -268,6 +261,9 @@ ce{
         "meta:Guyana"{
             ls{"Гайана"}
         }
+        "meta:Hawaii"{
+            ls{"Гавайн-алеутийн стандартан хан"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Гавайн-алеутийн аьхкенан хан"}
             lg{"Гавайн-алеутийн хан"}
@@ -351,9 +347,6 @@ ce{
             lg{"Лорд-Хау"}
             ls{"Лорд-Хау, стандартан хан"}
         }
-        "meta:Macquarie"{
-            ls{"Маккуори"}
-        }
         "meta:Magadan"{
             ld{"Магадан, аьхкенан хан"}
             lg{"Магадан"}
@@ -378,11 +371,6 @@ ce{
         }
         "meta:Mawson"{
             ls{"Моусон"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Къилбаседа Американ Мексикан аьхкенан хан"}
-            lg{"Къилбаседа Американ Мексикан хан"}
-            ls{"Къилбаседа Американ Мексикан стандартан хан"}
         }
         "meta:Mexico_Pacific"{
             ld{"Тийна океанан Мексикан аьхкенан хан"}
@@ -427,7 +415,9 @@ ce{
             ls{"Ниуэ"}
         }
         "meta:Norfolk"{
-            ls{"Норфолк"}
+            ld{"Норфолк, аьхкенан хан"}
+            lg{"Норфолк"}
+            ls{"Норфолк, стандартан хан"}
         }
         "meta:Noronha"{
             ld{"Фернанду-ди-Норонья, аьхкенан хан"}
@@ -598,12 +588,5 @@ ce{
             lg{"Екатеринбург"}
             ls{"Екатеринбург, стандартан хан"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
-        regionFormat{"{0}"}
-        regionFormatDaylight{"{0} (+1)"}
-        regionFormatStandard{"{0} (+0)"}
     }
 }

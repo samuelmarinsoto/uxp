@@ -1,0 +1,604 @@
+﻿// © 2016 and later: Unicode, Inc. and others.
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
+pcm{
+    zoneStrings{
+        "Etc:UTC"{
+            ls{"Arénjmẹnt ọf Di Hól Wọld Taim"}
+        }
+        "Europe:Dublin"{
+            ld{"Aírísh Fíksd Taim"}
+        }
+        "Europe:London"{
+            ld{"Brítísh Họ́t Sízin Taim"}
+        }
+        "meta:Afghanistan"{
+            ls{"Afgánístan Taim"}
+        }
+        "meta:Africa_Central"{
+            ls{"Mídúl Áfríká Taim"}
+        }
+        "meta:Africa_Eastern"{
+            ls{"Íst Áfríká Taim"}
+        }
+        "meta:Africa_Southern"{
+            ls{"Saút Áfríká Fíksd Taim"}
+        }
+        "meta:Africa_Western"{
+            ls{"Wẹ́st Áfríká Taim"}
+        }
+        "meta:Alaska"{
+            ld{"Aláská Délaít Taim"}
+            lg{"Aláská Taim"}
+            ls{"Aláská Fíksd Taim"}
+        }
+        "meta:Amazon"{
+            ld{"Ámázọn Họ́t Sízín Taim"}
+            lg{"Ámázọn Taim"}
+            ls{"Ámázọn Fíksd Taim"}
+        }
+        "meta:America_Central"{
+            ld{"Nọ́t Amẹ́ríká Mídúl Ériá Délaít Taim"}
+            lg{"Nọ́t Amẹ́ríká Mídúl Ériá Taim"}
+            ls{"Nọ́t Amẹ́ríká Mídúl Ériá Fíksd Taim"}
+        }
+        "meta:America_Eastern"{
+            ld{"Nọ́t Amẹ́ríká Ístán Ériá Délaít Taim"}
+            lg{"Nọ́t Amẹ́ríká Ístán Ériá Taim"}
+            ls{"Nọ́t Amẹ́ríká Ístán Ériá Fíksd Taim"}
+        }
+        "meta:America_Mountain"{
+            ld{"Nọ́t Amẹ́ríká Maúntin Ériá Délaít Taim"}
+            lg{"Nọ́t Amẹ́ríká Maúntin Ériá Taim"}
+            ls{"Nọ́t Amẹ́ríká Maúntin Ériá Fíksd Taim"}
+        }
+        "meta:America_Pacific"{
+            ld{"Nọ́t Amẹ́ríká Pasífík Ériá Délaít Taim"}
+            lg{"Nọ́t Amẹ́ríká Pasífík Ériá Taim"}
+            ls{"Nọ́t Amẹ́ríká Pasífík Ériá Fíksd Taim"}
+        }
+        "meta:Apia"{
+            ld{"Ápia Délaít Taim"}
+            lg{"Ápia Taim"}
+            ls{"Ápia Fíksd Taim"}
+        }
+        "meta:Arabian"{
+            ld{"Arébiá Délaít Taim"}
+            lg{"Arébiá Taim"}
+            ls{"Arébiá Fíksd Taim"}
+        }
+        "meta:Argentina"{
+            ld{"Ajẹntína Họ́t Sízín Taim"}
+            lg{"Ajẹntína Taim"}
+            ls{"Ajẹntína Fíksd Taim"}
+        }
+        "meta:Argentina_Western"{
+            ld{"Wẹ́stán Ajẹntína Họ́t Sízín Taim"}
+            lg{"Wẹ́stán Ajẹntína Taim"}
+            ls{"Wẹ́stán Ajẹntína Fíksd Taim"}
+        }
+        "meta:Armenia"{
+            ld{"Armẹ́nia Họ́t Sízin Taim"}
+            lg{"Armẹ́nia Taim"}
+            ls{"Armẹ́nia Fíksd Taim"}
+        }
+        "meta:Atlantic"{
+            ld{"Atlántík Délaít Taim"}
+            lg{"Atlántík Taim"}
+            ls{"Atlántík Fíksd Taim"}
+        }
+        "meta:Australia_Central"{
+            ld{"Ọstrélia Mídúl Délaít Taim"}
+            lg{"Mídúl Ọstrélia Taim"}
+            ls{"Ọstrélia Mídúl Fíksd Taim"}
+        }
+        "meta:Australia_CentralWestern"{
+            ld{"Ọstrélia Mídúl Wẹ́stán Délaít Taim"}
+            lg{"Ọstrélia Mídúl Wẹ́stán Taim"}
+            ls{"Ọstrélia Mídúl Wẹ́stán Fíksd Taim"}
+        }
+        "meta:Australia_Eastern"{
+            ld{"Ọstrélia Ístán Délaít Taim"}
+            lg{"Ístán Ọstrélia Taim"}
+            ls{"Ọstrélia Ístán Fíksd Taim"}
+        }
+        "meta:Australia_Western"{
+            ld{"Ọstrélia Wẹ́stán Délaít Taim"}
+            lg{"Wẹ́stán Ọstrélia Taim"}
+            ls{"Ọstrélia Wẹ́stán Fíksd Taim"}
+        }
+        "meta:Azerbaijan"{
+            ld{"Azẹrbaijan Họ́t Sízin Taim"}
+            lg{"Azẹrbaijan Taim"}
+            ls{"Azẹrbaijan Fíksd Taim"}
+        }
+        "meta:Azores"{
+            ld{"Azọz Họ́t Sízin Taim"}
+            lg{"Azọz Taim"}
+            ls{"Azọz Fíksd Taim"}
+        }
+        "meta:Bangladesh"{
+            ld{"Bangladẹsh Délaít Taim"}
+            lg{"Bangladẹsh Taim"}
+            ls{"Bangladẹsh Fíksd Taim"}
+        }
+        "meta:Bhutan"{
+            ls{"Butan Taim"}
+        }
+        "meta:Bolivia"{
+            ls{"Bolívia Fíksd Taim"}
+        }
+        "meta:Brasilia"{
+            ld{"Brasília Họ́t Sízín Taim"}
+            lg{"Brasília Taim"}
+            ls{"Brasília Fíksd Taim"}
+        }
+        "meta:Brunei"{
+            ls{"Brunẹi Darúsalam Taim"}
+        }
+        "meta:Cape_Verde"{
+            ld{"Kep Vẹ́d Họ́t Sízin Taim"}
+            lg{"Kep Vẹ́d Taim"}
+            ls{"Kep Vẹ́d Fíksd Taim"}
+        }
+        "meta:Chamorro"{
+            ls{"Chamóro Fíksd Taim"}
+        }
+        "meta:Chatham"{
+            ld{"Chátam Délaít Taim"}
+            lg{"Chátam Taim"}
+            ls{"Chátam Fíksd Taim"}
+        }
+        "meta:Chile"{
+            ld{"Chílẹ Họ́t Sízín Taim"}
+            lg{"Chílẹ Taim"}
+            ls{"Chílẹ Fíksd Taim"}
+        }
+        "meta:China"{
+            ld{"Chaína Délaít Taim"}
+            lg{"Chaína Taim"}
+            ls{"Chaína Fíksd Taim"}
+        }
+        "meta:Christmas"{
+            ls{"Krísmás Aíland Taim"}
+        }
+        "meta:Cocos"{
+            ls{"Kókós Aílands Taim"}
+        }
+        "meta:Colombia"{
+            ld{"Kolómbia Họ́t Sízín Taim"}
+            lg{"Kolómbia Taim"}
+            ls{"Kolómbia Fíksd Taim"}
+        }
+        "meta:Cook"{
+            ld{"Kúk Aílands Haf Họ́t Sízin Taim"}
+            lg{"Kúk Aílands Taim"}
+            ls{"Kúk Aílands Fíksd Taim"}
+        }
+        "meta:Cuba"{
+            ld{"Kúba Délaít Taim"}
+            lg{"Kúba Taim"}
+            ls{"Kúba Fíksd Taim"}
+        }
+        "meta:Davis"{
+            ls{"Dévis Taim"}
+        }
+        "meta:DumontDUrville"{
+            ls{"Diúmọ́n-d’Uvil Taim"}
+        }
+        "meta:East_Timor"{
+            ls{"Íst Tímọ Taim"}
+        }
+        "meta:Easter"{
+            ld{"Ísta Họ́t Sízín Taim"}
+            lg{"Ísta Taim"}
+            ls{"Ísta Fíksd Taim"}
+        }
+        "meta:Ecuador"{
+            ls{"Ẹ́kwuádọ Taim"}
+        }
+        "meta:Europe_Central"{
+            ld{"Mídúl Yúrop Họ́t Sízin Taim"}
+            lg{"Mídúl Yúrop Taim"}
+            ls{"Mídúl Yúrop Fíksd Taim"}
+        }
+        "meta:Europe_Eastern"{
+            ld{"Ístán Yúrop Họ́t Sízin Taim"}
+            lg{"Ístán Yúrop Taim"}
+            ls{"Ístán Yúrop Fíksd Taim"}
+        }
+        "meta:Europe_Further_Eastern"{
+            ls{"Faá-Ístán Yúrop Taim"}
+        }
+        "meta:Europe_Western"{
+            ld{"Wẹ́stán Yúrop Họ́t Sízin Taim"}
+            lg{"Wẹ́stán Yúrop Taim"}
+            ls{"Wẹ́stán Yúrop Fíksd Taim"}
+        }
+        "meta:Falkland"{
+            ld{"Fọ́lkland Họ́t Sízín Taim"}
+            lg{"Fọ́lkland Taim"}
+            ls{"Fọ́lkland Fíksd Taim"}
+        }
+        "meta:Fiji"{
+            ld{"Fíji Họ́t Sízín Taim"}
+            lg{"Fíji Taim"}
+            ls{"Fíji Fíksd Taim"}
+        }
+        "meta:French_Guiana"{
+            ls{"Frẹ́nch Giána Taim"}
+        }
+        "meta:French_Southern"{
+            ls{"Frẹ́nch Saútan an Antátík Taim"}
+        }
+        "meta:GMT"{
+            ls{"Grínwích Mín Taim"}
+        }
+        "meta:Galapagos"{
+            ls{"Galápágọs Taim"}
+        }
+        "meta:Gambier"{
+            ls{"Gámbiẹr Taim"}
+        }
+        "meta:Georgia"{
+            ld{"Jọ́jia Họ́t Sízin Taim"}
+            lg{"Jọ́jia Taim"}
+            ls{"Jọ́jia Fíksd Taim"}
+        }
+        "meta:Gilbert_Islands"{
+            ls{"Gílbat Aílands Taim"}
+        }
+        "meta:Greenland_Eastern"{
+            ld{"Íist Grínlánd Họ́t Sízin Taim"}
+            lg{"Íist Grínlánd Taim"}
+            ls{"Íist Grínlánd Fíksd Taim"}
+        }
+        "meta:Greenland_Western"{
+            ld{"Wẹ́st Grínlánd Họ́t Sízin Taim"}
+            lg{"Wẹ́st Grínlánd Taim"}
+            ls{"Wẹ́st Grínlánd Fíksd Taim"}
+        }
+        "meta:Gulf"{
+            ls{"Gọ́lf Fíksd Taim"}
+        }
+        "meta:Guyana"{
+            ls{"Gayána Taim"}
+        }
+        "meta:Hawaii"{
+            ls{"Hawaií-Elúshián Fíksd Taim"}
+        }
+        "meta:Hawaii_Aleutian"{
+            ld{"Hawaií-Elúshián Délaít Taim"}
+            lg{"Hawaií-Elúshián Taim"}
+            ls{"Hawaií-Elúshián Fíksd Taim"}
+        }
+        "meta:Hong_Kong"{
+            ld{"Họng Kọng Họ́t Sízin Taim"}
+            lg{"Họng Kọng Taim"}
+            ls{"Họng Kọng Fíksd Taim"}
+        }
+        "meta:Hovd"{
+            ld{"Hovd Họ́t Sízin Taim"}
+            lg{"Hovd Taim"}
+            ls{"Hovd Fíksd Taim"}
+        }
+        "meta:India"{
+            ls{"Índia Fíksd Taim"}
+        }
+        "meta:Indian_Ocean"{
+            ls{"Índián Óshẹ́n Taim"}
+        }
+        "meta:Indochina"{
+            ls{"Indochaína Taim"}
+        }
+        "meta:Indonesia_Central"{
+            ls{"Mídúl Indonẹ́shia Taim"}
+        }
+        "meta:Indonesia_Eastern"{
+            ls{"Ístán Indonẹ́shia Taim"}
+        }
+        "meta:Indonesia_Western"{
+            ls{"Wẹ́stán Indonẹ́shia Taim"}
+        }
+        "meta:Iran"{
+            ld{"Iran Délaít Taim"}
+            lg{"Iran Taim"}
+            ls{"Iran Fíksd Taim"}
+        }
+        "meta:Irkutsk"{
+            ld{"Irkútsk Họ́t Sízin Taim"}
+            lg{"Irkútsk Taim"}
+            ls{"Irkútsk Fíksd Taim"}
+        }
+        "meta:Israel"{
+            ld{"Ízrẹl Délaít Taim"}
+            lg{"Ízrẹl Taim"}
+            ls{"Ízrẹl Fíksd Taim"}
+        }
+        "meta:Japan"{
+            ld{"Japan Délaít Taim"}
+            lg{"Japan Taim"}
+            ls{"Japan Fíksd Taim"}
+        }
+        "meta:Kazakhstan"{
+            ls{"Kazékstan Taim"}
+        }
+        "meta:Kazakhstan_Eastern"{
+            ls{"Íst Kazékstan Taim"}
+        }
+        "meta:Kazakhstan_Western"{
+            ls{"Wẹ́st Kazékstan Taim"}
+        }
+        "meta:Korea"{
+            ld{"Koria Délaít Taim"}
+            lg{"Koria Taim"}
+            ls{"Koria Fíksd Taim"}
+        }
+        "meta:Kosrae"{
+            ls{"Kọ́sraẹ Taim"}
+        }
+        "meta:Krasnoyarsk"{
+            ld{"Krasnoyask Họ́t Sízin Taim"}
+            lg{"Krasnoyask Taim"}
+            ls{"Krasnoyask Fíksd Taim"}
+        }
+        "meta:Kyrgystan"{
+            ls{"Kẹgistan Taim"}
+        }
+        "meta:Line_Islands"{
+            ls{"Laín Aílands Taim"}
+        }
+        "meta:Lord_Howe"{
+            ld{"Lọd Haú Délaít Taim"}
+            lg{"Lọd Haú Taim"}
+            ls{"Lọd Haú Fíksd Taim"}
+        }
+        "meta:Magadan"{
+            ld{"Mágádan Họ́t Sízin Taim"}
+            lg{"Mágádan Taim"}
+            ls{"Mágádan Fíksd Taim"}
+        }
+        "meta:Malaysia"{
+            ls{"Maléshia Taim"}
+        }
+        "meta:Maldives"{
+            ls{"Mọ́divs Taim"}
+        }
+        "meta:Marquesas"{
+            ls{"Makwẹ́sas Taim"}
+        }
+        "meta:Marshall_Islands"{
+            ls{"Máshal Aílands Taim"}
+        }
+        "meta:Mauritius"{
+            ld{"Mọríshọs Họ́t Sízin Taim"}
+            lg{"Mọríshọs Taim"}
+            ls{"Mọríshọs Fíksd Taim"}
+        }
+        "meta:Mawson"{
+            ls{"Mọ́sọn Taim"}
+        }
+        "meta:Mexico_Pacific"{
+            ld{"Mẹ́ksíkó Pasífík Délaít Taim"}
+            lg{"Mẹ́ksíkó Pasífík Taim"}
+            ls{"Mẹ́ksíkó Pasífík Fíksd Taim"}
+        }
+        "meta:Mongolia"{
+            ld{"Mọngólia Họ́t Sízin Taim"}
+            lg{"Mọngólia Taim"}
+            ls{"Mọngólia Fíksd Taim"}
+        }
+        "meta:Moscow"{
+            ld{"Mọ́sko Họ́t Sízin Taim"}
+            lg{"Mọ́sko Taim"}
+            ls{"Mọ́sko Fíksd Taim"}
+        }
+        "meta:Myanmar"{
+            ls{"Miánma Taim"}
+        }
+        "meta:Nauru"{
+            ls{"Naúru Taim"}
+        }
+        "meta:Nepal"{
+            ls{"Nẹpọl Taim"}
+        }
+        "meta:New_Caledonia"{
+            ld{"Niú Kalẹdónia Họ́t Sízin Taim"}
+            lg{"Niú Kalẹdónia Taim"}
+            ls{"Niú Kalẹdónia Fíksd Taim"}
+        }
+        "meta:New_Zealand"{
+            ld{"Niú Ziland Délaít Taim"}
+            lg{"Niú Ziland Taim"}
+            ls{"Niú Ziland Fíksd Taim"}
+        }
+        "meta:Newfoundland"{
+            ld{"Niúfaúndlánd Délaít Taim"}
+            lg{"Niúfaúndlánd Taim"}
+            ls{"Niúfaúndlánd Fíksd Taim"}
+        }
+        "meta:Niue"{
+            ls{"Niúẹ Taim"}
+        }
+        "meta:Norfolk"{
+            ld{"Nọ́rfọ́lk Aíland Délaít Taim"}
+            lg{"Nọ́rfọ́lk Aíland Taim"}
+            ls{"Nọ́rfọ́lk Aíland Fíksd Taim"}
+        }
+        "meta:Noronha"{
+            ld{"Fẹrnándó di Nọrónia Họ́t Sízín Taim"}
+            lg{"Fẹrnándó di Nọrónia Taim"}
+            ls{"Fẹrnándó di Nọrónia Fíksd Taim"}
+        }
+        "meta:Novosibirsk"{
+            ld{"Novosibisk Họ́t Sízin Taim"}
+            lg{"Novosibisk Taim"}
+            ls{"Novosibisk Fíksd Taim"}
+        }
+        "meta:Omsk"{
+            ld{"Ọmsk Họ́t Sízin Taim"}
+            lg{"Ọmsk Taim"}
+            ls{"Ọmsk Fíksd Taim"}
+        }
+        "meta:Pakistan"{
+            ld{"Pákístan Họ́t Sízin Taim"}
+            lg{"Pákístan Taim"}
+            ls{"Pákístan Fíksd Taim"}
+        }
+        "meta:Palau"{
+            ls{"Paláu Taim"}
+        }
+        "meta:Papua_New_Guinea"{
+            ls{"Pápuá Niú Gíni Taim"}
+        }
+        "meta:Paraguay"{
+            ld{"Párágwue Họ́t Sízín Taim"}
+            lg{"Párágwue Taim"}
+            ls{"Párágwue Fíksd Taim"}
+        }
+        "meta:Peru"{
+            ld{"Pẹru Họ́t Sízín Taim"}
+            lg{"Pẹru Taim"}
+            ls{"Pẹru Fíksd Taim"}
+        }
+        "meta:Philippines"{
+            ld{"Fílípin Họt Sízin Taim"}
+            lg{"Fílípin Taim"}
+            ls{"Fílípin Fíksd Taim"}
+        }
+        "meta:Phoenix_Islands"{
+            ls{"Fíniks Aílands Taim"}
+        }
+        "meta:Pierre_Miquelon"{
+            ld{"Sent Piẹr an Míkẹlọn Délaít Taim"}
+            lg{"Sent Piẹr & Míkẹlọn Taim"}
+            ls{"Sent Piẹr an Míkẹlọn Fíksd Taim"}
+        }
+        "meta:Pitcairn"{
+            ls{"Pítkan Taim"}
+        }
+        "meta:Ponape"{
+            ls{"Pónápẹ Taim"}
+        }
+        "meta:Pyongyang"{
+            ls{"Piọngyang Taim"}
+        }
+        "meta:Reunion"{
+            ls{"Riyúniọn Taim"}
+        }
+        "meta:Rothera"{
+            ls{"Rotẹ́ra Taim"}
+        }
+        "meta:Sakhalin"{
+            ld{"Sákhalin Họ́t Sízin Taim"}
+            lg{"Sákhalin Taim"}
+            ls{"Sákhalin Fíksd Taim"}
+        }
+        "meta:Samoa"{
+            ld{"Sámoá Délaít Taim"}
+            lg{"Sámoá Taim"}
+            ls{"Sámoá Fíksd Taim"}
+        }
+        "meta:Seychelles"{
+            ls{"Sẹ́chẹls Taim"}
+        }
+        "meta:Singapore"{
+            ls{"Singapọ Taim"}
+        }
+        "meta:Solomon"{
+            ls{"Sólómọ́n Aílands Taim"}
+        }
+        "meta:South_Georgia"{
+            ls{"Saút Jọ́jia Taim"}
+        }
+        "meta:Suriname"{
+            ls{"Súrínam Taim"}
+        }
+        "meta:Syowa"{
+            ls{"Siówa Taim"}
+        }
+        "meta:Tahiti"{
+            ls{"Tahíti Taim"}
+        }
+        "meta:Taipei"{
+            ld{"Taipẹi Délaít Taim"}
+            lg{"Taipẹi Taim"}
+            ls{"Taipẹi Fíksd Taim"}
+        }
+        "meta:Tajikistan"{
+            ls{"Tajíkistan Taim"}
+        }
+        "meta:Tokelau"{
+            ls{"Tokẹláu Taim"}
+        }
+        "meta:Tonga"{
+            ld{"Tọ́nga Họ́t Sízin Taim"}
+            lg{"Tọ́nga Taim"}
+            ls{"Tọ́nga Fíksd Taim"}
+        }
+        "meta:Truk"{
+            ls{"Chuk Taim"}
+        }
+        "meta:Turkmenistan"{
+            ld{"Tọkmẹnistan Họ́t Sízin Taim"}
+            lg{"Tọkmẹnistan Taim"}
+            ls{"Tọkmẹnistan Fíksd Taim"}
+        }
+        "meta:Tuvalu"{
+            ls{"Tuválu Taim"}
+        }
+        "meta:Uruguay"{
+            ld{"Yúrugwue Họ́t Sízín Taim"}
+            lg{"Yúrugwue Taim"}
+            ls{"Yúrugwue Fíksd Taim"}
+        }
+        "meta:Uzbekistan"{
+            ld{"Uzbẹkistan Họ́t Sízin Taim"}
+            lg{"Uzbẹkistan Taim"}
+            ls{"Uzbẹkistan Fíksd Taim"}
+        }
+        "meta:Vanuatu"{
+            ld{"Vanuátu Sízin Taim"}
+            lg{"Vanuátu Taim"}
+            ls{"Vanuátu Fíksd Taim"}
+        }
+        "meta:Venezuela"{
+            ls{"Vẹnẹzuẹ́la Taim"}
+        }
+        "meta:Vladivostok"{
+            ld{"Vladivostok Họ́t Sízin Taim"}
+            lg{"Vladivọstọk Taim"}
+            ls{"Vladivọstọk Fíksd Taim"}
+        }
+        "meta:Volgograd"{
+            ld{"Volvógrad Họ́t Sízin Taim"}
+            lg{"Volvógrad Taim"}
+            ls{"Volvógrad Fíksd Taim"}
+        }
+        "meta:Vostok"{
+            ls{"Vọ́stọk Taim"}
+        }
+        "meta:Wake"{
+            ls{"Wék Aíland Taim"}
+        }
+        "meta:Wallis"{
+            ls{"Wális an Fútúna Taim"}
+        }
+        "meta:Yakutsk"{
+            ld{"Yékútsk Họ́t Sízin Taim"}
+            lg{"Yékútsk Taim"}
+            ls{"Yékútsk Fíksd Taim"}
+        }
+        "meta:Yekaterinburg"{
+            ld{"Yẹketẹrínbug Họ́t Sízin Taim"}
+            lg{"Yẹketẹrínbug Taim"}
+            ls{"Yẹketẹrínbug Fíksd Taim"}
+        }
+        "meta:Yukon"{
+            ls{"Yukón Taim"}
+        }
+        regionFormat{"{0} Taim"}
+        regionFormatDaylight{"{0} Délaít Taim"}
+        regionFormatStandard{"{0} Fíksd Taim"}
+    }
+}

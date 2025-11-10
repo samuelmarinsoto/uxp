@@ -1,5 +1,8 @@
-commit 4f715ae124c418a15a3fa4d8fb14f406576a7ee5
-Author: Jeff Genovy <29107334+jefgen@users.noreply.github.com>
-Date:   Wed Apr 10 17:32:11 2019 -0700
+commit 049e0d6a420629ac7db77256987d083a563287b5
+Author: Fredrik Roubert <roubert@google.com>
+Date:   Wed Oct 29 16:30:26 2025 +0100
 
-    ICU-20536 ICU 63.2 release tasks + tzdata2019a
+    ICU-23243 Bugfix: Don't call std::string_view::front() when empty.
+    
+    Doing this just happens to work in most builds (which is why this bug
+    hasn't been found until now), but it's actually undefined behavior.

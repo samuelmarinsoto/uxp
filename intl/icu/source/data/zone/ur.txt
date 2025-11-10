@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 ur{
-    Version{"2.1.44.3"}
     zoneStrings{
         "Etc:UTC"{
             ls{"کوآرڈینیٹڈ یونیورسل ٹائم"}
@@ -25,9 +25,7 @@ ur{
             ls{"جنوبی افریقہ سٹینڈرڈ ٹائم"}
         }
         "meta:Africa_Western"{
-            ld{"مغربی افریقہ سمر ٹائم"}
-            lg{"مغربی افریقہ ٹائم"}
-            ls{"مغربی افریقہ سٹینڈرڈ ٹائم"}
+            ls{"مغربی افریقہ ٹائم"}
         }
         "meta:Alaska"{
             ld{"الاسکا ڈے لائٹ ٹائم"}
@@ -37,7 +35,7 @@ ur{
         "meta:Amazon"{
             ld{"امیزون کا موسم گرما کا وقت"}
             lg{"امیزون ٹائم"}
-            ls{"ایمیزون سٹینڈرڈ ٹائم"}
+            ls{"ایمیزون کا معیاری وقت"}
         }
         "meta:America_Central"{
             ld{"سنٹرل ڈے لائٹ ٹائم"}
@@ -75,9 +73,9 @@ ur{
             ls{"عرب کا معیاری وقت"}
         }
         "meta:Argentina"{
-            ld{"ارجنٹینا سمر ٹائم"}
-            lg{"ارجنٹینا ٹائم"}
-            ls{"ارجنٹینا سٹینڈرڈ ٹائم"}
+            ld{"ارجنٹینا کا موسم گرما کا وقت"}
+            lg{"ارجنٹینا کا وقت"}
+            ls{"ارجنٹینا کا معیاری وقت"}
         }
         "meta:Argentina_Western"{
             ld{"مغربی ارجنٹینا کا موسم گرما کا وقت"}
@@ -163,13 +161,8 @@ ur{
         }
         "meta:China"{
             ld{"چینی ڈے لائٹ ٹائم"}
-            lg{"چین ٹائم"}
+            lg{"چین کا وقت"}
             ls{"چین سٹینڈرڈ ٹائم"}
-        }
-        "meta:Choibalsan"{
-            ld{"کوائبلسان سمر ٹائم"}
-            lg{"کوئبلسان ٹائم"}
-            ls{"کوئبلسان سٹینڈرڈ ٹائم"}
         }
         "meta:Christmas"{
             ls{"کرسمس آئلینڈ ٹائم"}
@@ -276,6 +269,9 @@ ur{
         "meta:Guyana"{
             ls{"گیانا کا وقت"}
         }
+        "meta:Hawaii"{
+            ls{"ہوائی الیوٹیئن اسٹینڈرڈ ٹائم"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"ہوائی الیوٹیئن ڈے لائٹ ٹائم"}
             lg{"ہوائی الیوٹیئن ٹائم"}
@@ -334,6 +330,9 @@ ur{
             lg{"پیٹروپاؤلووسک-کیمچسکی ٹائم"}
             ls{"پیٹروپاؤلووسک-کیمچسکی اسٹینڈرڈ ٹائم"}
         }
+        "meta:Kazakhstan"{
+            ls{"قازقستان کا وقت"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"مشرقی قزاخستان کا وقت"}
         }
@@ -364,9 +363,6 @@ ur{
             lg{"لارڈ ہووے ٹائم"}
             ls{"لارڈ ہووے اسٹینڈرڈ ٹائم"}
         }
-        "meta:Macquarie"{
-            ls{"مکوآری آئلینڈ کا وقت"}
-        }
         "meta:Magadan"{
             ld{"میگیدن سمر ٹائم"}
             lg{"میگیدن ٹائم"}
@@ -391,11 +387,6 @@ ur{
         }
         "meta:Mawson"{
             ls{"ماؤسن ٹائم"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"شمال مغربی میکسیکو ڈے لائٹ ٹائم"}
-            lg{"شمال مغربی میکسیکو ٹائم"}
-            ls{"شمال مغربی میکسیکو اسٹینڈرڈ ٹائم"}
         }
         "meta:Mexico_Pacific"{
             ld{"میکسیکن پیسفک ڈے لائٹ ٹائم"}
@@ -440,7 +431,9 @@ ur{
             ls{"نیئو ٹائم"}
         }
         "meta:Norfolk"{
-            ls{"نارفوک آئلینڈ کا وقت"}
+            ld{"نارفوک آئلینڈ ڈے لائٹ وقت"}
+            lg{"نارفوک آئلینڈ کا وقت"}
+            ls{"نارفوک آئلینڈ کا معیاری وقت"}
         }
         "meta:Noronha"{
             ld{"فرنانڈو ڈی نورونہا سمر ٹائم"}
@@ -616,12 +609,12 @@ ur{
             lg{"یکاٹیرِنبرگ ٹائم"}
             ls{"یکاٹیرِنبرگ اسٹینڈرڈ ٹائم"}
         }
-        fallbackFormat{"{1} ({0})"}
+        "meta:Yukon"{
+            ls{"یوکون ٹائم"}
+        }
         gmtFormat{"GMT {0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
         regionFormat{"{0} وقت"}
         regionFormatDaylight{"{0} ڈے لائٹ ٹائم"}
-        regionFormatStandard{"{0} اسٹینڈرڈ ٹائم"}
+        regionFormatStandard{"{0} معیاری وقت"}
     }
 }

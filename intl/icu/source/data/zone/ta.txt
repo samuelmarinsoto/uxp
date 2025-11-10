@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 ta{
-    Version{"2.1.43.50"}
     zoneStrings{
         "Etc:UTC"{
             ls{"ஒருங்கிணைந்த சர்வதேச நேரம்"}
@@ -30,9 +30,7 @@ ta{
             ls{"தென் ஆப்பிரிக்க நிலையான நேரம்"}
         }
         "meta:Africa_Western"{
-            ld{"மேற்கு ஆப்பிரிக்க கோடை நேரம்"}
-            lg{"மேற்கு ஆப்பிரிக்க நேரம்"}
-            ls{"மேற்கு ஆப்பிரிக்க நிலையான நேரம்"}
+            ls{"மேற்கு ஆப்பிரிக்க நேரம்"}
         }
         "meta:Alaska"{
             ld{"அலாஸ்கா பகலொளி நேரம்"}
@@ -186,11 +184,6 @@ ta{
             lg{"சீன நேரம்"}
             ls{"சீன நிலையான நேரம்"}
         }
-        "meta:Choibalsan"{
-            ld{"சோய்பால்சன் கோடை நேரம்"}
-            lg{"சோய்பால்சன் நேரம்"}
-            ls{"சோய்பால்சன் நிலையான நேரம்"}
-        }
         "meta:Christmas"{
             ls{"கிறிஸ்துமஸ் தீவு நேரம்"}
         }
@@ -299,6 +292,9 @@ ta{
         "meta:Guyana"{
             ls{"கயானா நேரம்"}
         }
+        "meta:Hawaii"{
+            ls{"ஹவாய்-அலேஷியன் நிலையான நேரம்"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"ஹவாய்-அலேஷியன் பகலொளி நேரம்"}
             lg{"ஹவாய்-அலேஷியன் நேரம்"}
@@ -358,6 +354,9 @@ ta{
             lg{"பெட்ரோபவ்லோவ்ஸ்க் கம்சட்ஸ்கி நேரம்"}
             ls{"பெட்ரோபவ்லோவ்ஸ்க் கம்சட்ஸ்கி தர நேரம்"}
         }
+        "meta:Kazakhstan"{
+            ls{"கஜகஸ்தான் நேரம்"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"கிழக்கு கஜகஸ்தான் நேரம்"}
         }
@@ -396,9 +395,6 @@ ta{
             lg{"மக்காவ் நேரம்"}
             ls{"மக்காவ் தர நேரம்"}
         }
-        "meta:Macquarie"{
-            ls{"மாக்கியூரி தீவு நேரம்"}
-        }
         "meta:Magadan"{
             ld{"மகதன் கோடை நேரம்"}
             lg{"மகதன் நேரம்"}
@@ -423,11 +419,6 @@ ta{
         }
         "meta:Mawson"{
             ls{"மாசன் நேரம்"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"வடமேற்கு மெக்ஸிகோ பகலொளி நேரம்"}
-            lg{"வடமேற்கு மெக்ஸிகோ நேரம்"}
-            ls{"வடமேற்கு மெக்ஸிகோ நிலையான நேரம்"}
         }
         "meta:Mexico_Pacific"{
             ld{"மெக்ஸிகன் பசிபிக் பகலொளி நேரம்"}
@@ -472,7 +463,9 @@ ta{
             ls{"நியு நேரம்"}
         }
         "meta:Norfolk"{
-            ls{"நார்ஃபோக் தீவு நேரம்"}
+            ld{"நார்ஃபோக் தீவு பகலொளி நேரம்"}
+            lg{"நார்ஃபோக் தீவு நேரம்"}
+            ls{"நார்ஃபோக் தீவு நிலையான நேரம்"}
         }
         "meta:Noronha"{
             ld{"பெர்னான்டோ டி நோரோன்ஹா கோடை நேரம்"}
@@ -584,7 +577,7 @@ ta{
         }
         "meta:Taipei"{
             ld{"தாய்பே பகலொளி நேரம்"}
-            lg{"தாய்பே நேரம்"}
+            lg{"தைவான் நேரம்"}
             ls{"தாய்பே நிலையான நேரம்"}
         }
         "meta:Tajikistan"{
@@ -600,6 +593,11 @@ ta{
         }
         "meta:Truk"{
             ls{"சுக் நேரம்"}
+        }
+        "meta:Turkey"{
+            ld{"துருக்கி கோடை நேரம்"}
+            lg{"துருக்கி நேரம்"}
+            ls{"துருக்கி தர நேரம்"}
         }
         "meta:Turkmenistan"{
             ld{"துர்க்மெனிஸ்தான் கோடை நேரம்"}
@@ -656,10 +654,9 @@ ta{
             lg{"யேகாடெரின்பர்க் நேரம்"}
             ls{"யேகாடெரின்பர்க் நிலையான நேரம்"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"யூகோன் நேரம்"}
+        }
         regionFormat{"{0} நேரம்"}
         regionFormatDaylight{"{0} பகலொளி நேரம்"}
         regionFormatStandard{"{0} நிலையான நேரம்"}

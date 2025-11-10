@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 pa{
-    Version{"2.1.43.65"}
     zoneStrings{
         "Etc:UTC"{
             ls{"ਕੋਔਰਡੀਨੇਟੇਡ ਵਿਆਪਕ ਵੇਲਾ"}
@@ -16,18 +16,16 @@ pa{
             ls{"ਅਫ਼ਗਾਨਿਸਤਾਨ ਵੇਲਾ"}
         }
         "meta:Africa_Central"{
-            ls{"ਕੇਂਦਰੀ ਅਫਰੀਕਾ ਵੇਲਾ"}
+            ls{"ਕੇਂਦਰੀ ਅਫ਼ਰੀਕਾ ਵੇਲਾ"}
         }
         "meta:Africa_Eastern"{
-            ls{"ਪੂਰਬੀ ਅਫਰੀਕਾ ਵੇਲਾ"}
+            ls{"ਪੂਰਬੀ ਅਫ਼ਰੀਕਾ ਵੇਲਾ"}
         }
         "meta:Africa_Southern"{
             ls{"ਦੱਖਣੀ ਅਫ਼ਰੀਕਾ ਮਿਆਰੀ ਵੇਲਾ"}
         }
         "meta:Africa_Western"{
-            ld{"ਪੱਛਮੀ ਅਫਰੀਕਾ ਗਰਮੀਆਂ ਦਾ ਵੇਲਾ"}
-            lg{"ਪੱਛਮੀ ਅਫਰੀਕਾ ਵੇਲਾ"}
-            ls{"ਪੱਛਮੀ ਅਫਰੀਕਾ ਮਿਆਰੀ ਵੇਲਾ"}
+            ls{"ਪੱਛਮੀ ਅਫਰੀਕਾ ਵੇਲਾ"}
         }
         "meta:Alaska"{
             ld{"ਅਲਾਸਕਾ ਪ੍ਰਕਾਸ਼ ਵੇਲਾ"}
@@ -179,11 +177,6 @@ pa{
             lg{"ਚੀਨ ਵੇਲਾ"}
             ls{"ਚੀਨ ਮਿਆਰੀ ਵੇਲਾ"}
         }
-        "meta:Choibalsan"{
-            ld{"ਚੌਇਬਾਲਸਨ ਗਰਮੀਆਂ ਦਾ ਵੇਲਾ"}
-            lg{"ਚੌਇਬਾਲਸਨ ਵੇਲਾ"}
-            ls{"ਚੌਇਬਾਲਸਨ ਮਿਆਰੀ ਵੇਲਾ"}
-        }
         "meta:Christmas"{
             ls{"ਕ੍ਰਿਸਮਸ ਆਈਲੈਂਡ ਵੇਲਾ"}
         }
@@ -292,6 +285,9 @@ pa{
         "meta:Guyana"{
             ls{"ਗੁਯਾਨਾ ਵੇਲਾ"}
         }
+        "meta:Hawaii"{
+            ls{"ਹਵਾਈ-ਅਲੇਯੂਸ਼ਿਅਨ ਮਿਆਰੀ ਵੇਲਾ"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"ਹਵਾਈ-ਅਲੇਯੂਸ਼ਿਅਨ ਪ੍ਰਕਾਸ਼ ਵੇਲਾ"}
             lg{"ਹਵਾਈ-ਅਲੇਯੂਸ਼ਿਅਨ ਵੇਲਾ"}
@@ -346,6 +342,9 @@ pa{
             lg{"ਜਪਾਨ ਵੇਲਾ"}
             ls{"ਜਪਾਨ ਮਿਆਰੀ ਵੇਲਾ"}
         }
+        "meta:Kazakhstan"{
+            ls{"ਕਜ਼ਾਖ਼ਸਤਾਨ ਵੇਲਾ"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"ਪੂਰਬੀ ਕਜ਼ਾਖ਼ਸਤਾਨ ਵੇਲਾ"}
         }
@@ -384,9 +383,6 @@ pa{
             lg{"ਮਕਾਉ ਸਮਾਂ"}
             ls{"ਮਕਾਉ ਮਿਆਰੀ ਸਮਾਂ"}
         }
-        "meta:Macquarie"{
-            ls{"ਮੈਕਕਵੇਰੀ ਆਈਲੈਂਡ ਵੇਲਾ"}
-        }
         "meta:Magadan"{
             ld{"ਮੈਗੇਡਨ ਗਰਮੀਆਂ ਦਾ ਵੇਲਾ"}
             lg{"ਮੈਗੇਡਨ ਵੇਲਾ"}
@@ -411,11 +407,6 @@ pa{
         }
         "meta:Mawson"{
             ls{"ਮੌਸਨ ਵੇਲਾ"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"ਉੱਤਰ ਪੱਛਮੀ ਮੈਕਸੀਕੋ ਪ੍ਰਕਾਸ਼ ਵੇਲਾ"}
-            lg{"ਉੱਤਰ ਪੱਛਮੀ ਮੈਕਸੀਕੋ ਵੇਲਾ"}
-            ls{"ਉੱਤਰ ਪੱਛਮੀ ਮੈਕਸੀਕੋ ਮਿਆਰੀ ਵੇਲਾ"}
         }
         "meta:Mexico_Pacific"{
             ld{"ਮੈਕਸੀਕਨ ਪੈਸਿਫਿਕ ਪ੍ਰਕਾਸ਼ ਵੇਲਾ"}
@@ -460,7 +451,9 @@ pa{
             ls{"ਨੀਊ ਵੇਲਾ"}
         }
         "meta:Norfolk"{
-            ls{"ਨੋਰਫੌਕ ਆਈਲੈਂਡ ਵੇਲਾ"}
+            ld{"ਨੋਰਫੌਕ ਆਈਲੈਂਡ ਪ੍ਰਕਾਸ਼ ਵੇਲਾ"}
+            lg{"ਨੋਰਫੌਕ ਆਈਲੈਂਡ ਵੇਲਾ"}
+            ls{"ਨੋਰਫੌਕ ਆਈਲੈਂਡ ਮਿਆਰੀ ਵੇਲਾ"}
         }
         "meta:Noronha"{
             ld{"ਫਰਨਾਂਡੋ ਡੇ ਨੋਰੋਨਹਾ ਗਰਮੀਆਂ ਦਾ ਵੇਲਾ"}
@@ -639,10 +632,9 @@ pa{
             lg{"ਯਕੇਤਰਿਨਬਰਗ ਵੇਲਾ"}
             ls{"ਯਕੇਤਰਿਨਬਰਗ ਮਿਆਰੀ ਵੇਲਾ"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"ਯੂਕੋਨ ਸਮਾਂ"}
+        }
         regionFormat{"{0} ਵੇਲਾ"}
         regionFormatDaylight{"{0} ਪ੍ਰਕਾਸ਼ ਵੇਲਾ"}
         regionFormatStandard{"{0} ਮਿਆਰੀ ਵੇਲਾ"}

@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 tk{
-    Version{"2.1.43.65"}
     zoneStrings{
         "Etc:UTC"{
             ls{"Utgaşdyrylýan ähliumumy wagt"}
@@ -11,6 +11,11 @@ tk{
         }
         "Europe:London"{
             ld{"Beýik Britaniýa tomusky wagty"}
+        }
+        "meta:Acre"{
+            ld{"Akri tomusky wagty"}
+            lg{"Akri wagty"}
+            ls{"Akri standart wagty"}
         }
         "meta:Afghanistan"{
             ls{"Owganystan wagty"}
@@ -25,9 +30,7 @@ tk{
             ls{"Günorta Afrika standart wagty"}
         }
         "meta:Africa_Western"{
-            ld{"Günbatar Afrika tomusky wagty"}
-            lg{"Günbatar Afrika wagty"}
-            ls{"Günbatar Afrika standart wagty"}
+            ls{"Günbatar Afrika wagty"}
         }
         "meta:Alaska"{
             ld{"Alýaska tomusky wagty"}
@@ -58,6 +61,10 @@ tk{
             ld{"Demirgazyk Amerika Ýuwaş umman tomusky wagty"}
             lg{"Demirgazyk Amerika Ýuwaş umman wagty"}
             ls{"Demirgazyk Amerika Ýuwaş umman standart wagty"}
+        }
+        "meta:Anadyr"{
+            ld{"Anadyr tomusky wagty"}
+            lg{"Anadyr wagty"}
         }
         "meta:Apia"{
             ld{"Apia tomusky wagty"}
@@ -161,11 +168,6 @@ tk{
             lg{"Hytaý wagty"}
             ls{"Hytaý standart wagty"}
         }
-        "meta:Choibalsan"{
-            ld{"Çoýbalsan tomusky wagt"}
-            lg{"Çoýbalsan wagty"}
-            ls{"Çoýbalsan standart wagty"}
-        }
         "meta:Christmas"{
             ls{"Roždestwo adasy wagty"}
         }
@@ -239,7 +241,7 @@ tk{
             ls{"Fransuz Günorta we Antarktika ýerleri wagty"}
         }
         "meta:GMT"{
-            ls{"Grinwiç boýunça orta wagt"}
+            ls{"Grinwiç ortaça wagty"}
         }
         "meta:Galapagos"{
             ls{"Galapagos adalary wagty"}
@@ -253,7 +255,7 @@ tk{
             ls{"Gruziýa standart wagty"}
         }
         "meta:Gilbert_Islands"{
-            ls{"Gilberta adalary wagty"}
+            ls{"Gilbert adalary wagty"}
         }
         "meta:Greenland_Eastern"{
             ld{"Gündogar Grenlandiýa tomusky wagty"}
@@ -270,6 +272,9 @@ tk{
         }
         "meta:Guyana"{
             ls{"Gaýana wagty"}
+        }
+        "meta:Hawaii"{
+            ls{"Gawaý-Aleut standart wagty"}
         }
         "meta:Hawaii_Aleutian"{
             ld{"Gawaý-Aleut tomusky wagty"}
@@ -324,6 +329,13 @@ tk{
             lg{"Ýaponiýa wagty"}
             ls{"Ýaponiýa standart wagty"}
         }
+        "meta:Kamchatka"{
+            ld{"Kamçatka tomusky wagty"}
+            lg{"Petropavlowsk-Kamçatskiý wagty"}
+        }
+        "meta:Kazakhstan"{
+            ls{"Gazagystan wagty"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Gündogar Gazagystan wagty"}
         }
@@ -354,9 +366,6 @@ tk{
             lg{"Lord-Hau wagty"}
             ls{"Lord-Hau standart wagty"}
         }
-        "meta:Macquarie"{
-            ls{"Makkuori adasy wagty"}
-        }
         "meta:Magadan"{
             ld{"Magadan tomusky wagty"}
             lg{"Magadan wagty"}
@@ -381,11 +390,6 @@ tk{
         }
         "meta:Mawson"{
             ls{"Mouson wagty"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Demirgazyk-günbatar Meksika tomusky wagty"}
-            lg{"Demirgazyk-günbatar Meksika wagty"}
-            ls{"Demirgazyk-günbatar Meksika standart wagty"}
         }
         "meta:Mexico_Pacific"{
             ld{"Meksikan Ýuwaş umman tomusky wagty"}
@@ -430,7 +434,9 @@ tk{
             ls{"Niue wagty"}
         }
         "meta:Norfolk"{
-            ls{"Norfolk adasy wagty"}
+            ld{"Norfolk adasy tomusky wagty"}
+            lg{"Norfolk adasy wagty"}
+            ls{"Norfolk adasy standart wagty"}
         }
         "meta:Noronha"{
             ld{"Fernandu-di-Noronýa tomusky wagty"}
@@ -500,6 +506,10 @@ tk{
             ld{"Sahalin tomusky wagty"}
             lg{"Sahalin wagty"}
             ls{"Sahalin standart wagty"}
+        }
+        "meta:Samara"{
+            ld{"Samara tomusky wagty"}
+            lg{"Samara wagty"}
         }
         "meta:Samoa"{
             ld{"Samoa tomusky wagty"}
@@ -601,10 +611,9 @@ tk{
             lg{"Ýekaterinburg wagty"}
             ls{"Ýekaterinburg standart wagty"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"Ýukon wagty"}
+        }
         regionFormat{"{0} wagty"}
         regionFormatDaylight{"{0} tomusky wagty"}
         regionFormatStandard{"{0} standart wagty"}

@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 de{
-    Version{"2.1.44.91"}
     zoneStrings{
         "Etc:UTC"{
             ls{"Koordinierte Weltzeit"}
@@ -30,9 +30,7 @@ de{
             ls{"Südafrikanische Zeit"}
         }
         "meta:Africa_Western"{
-            ld{"Westafrikanische Sommerzeit"}
-            lg{"Westafrikanische Zeit"}
-            ls{"Westafrikanische Normalzeit"}
+            ls{"Westafrikanische Zeit"}
         }
         "meta:Alaska"{
             ld{"Alaska-Sommerzeit"}
@@ -50,9 +48,9 @@ de{
             ls{"Amazonas-Normalzeit"}
         }
         "meta:America_Central"{
-            ld{"Nordamerikanische Inland-Sommerzeit"}
-            lg{"Nordamerikanische Inlandzeit"}
-            ls{"Nordamerikanische Inland-Normalzeit"}
+            ld{"Nordamerikanische Zentral-Sommerzeit"}
+            lg{"Nordamerikanische Zentralzeit"}
+            ls{"Nordamerikanische Zentral-Normalzeit"}
         }
         "meta:America_Eastern"{
             ld{"Nordamerikanische Ostküsten-Sommerzeit"}
@@ -60,9 +58,9 @@ de{
             ls{"Nordamerikanische Ostküsten-Normalzeit"}
         }
         "meta:America_Mountain"{
-            ld{"Rocky-Mountain-Sommerzeit"}
-            lg{"Rocky-Mountain-Zeit"}
-            ls{"Rocky Mountain-Normalzeit"}
+            ld{"Rocky-Mountains-Sommerzeit"}
+            lg{"Rocky-Mountains-Zeit"}
+            ls{"Rocky-Mountains-Normalzeit"}
         }
         "meta:America_Pacific"{
             ld{"Nordamerikanische Westküsten-Sommerzeit"}
@@ -189,11 +187,6 @@ de{
             lg{"Chinesische Zeit"}
             ls{"Chinesische Normalzeit"}
         }
-        "meta:Choibalsan"{
-            ld{"Tschoibalsan-Sommerzeit"}
-            lg{"Tschoibalsan-Zeit"}
-            ls{"Tschoibalsan-Normalzeit"}
-        }
         "meta:Christmas"{
             ls{"Weihnachtsinsel-Zeit"}
         }
@@ -273,7 +266,7 @@ de{
             ls{"Französisch-Guayana-Zeit"}
         }
         "meta:French_Southern"{
-            ls{"Französische Süd- und Antarktisgebiete-Zeit"}
+            ls{"Französische-Süd-und-Antarktisgebiete-Zeit"}
         }
         "meta:GMT"{
             ls{"Mittlere Greenwich-Zeit"}
@@ -311,6 +304,9 @@ de{
         "meta:Guyana"{
             ls{"Guyana-Zeit"}
         }
+        "meta:Hawaii"{
+            ls{"Hawaii-Aleuten-Normalzeit"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Hawaii-Aleuten-Sommerzeit"}
             lg{"Hawaii-Aleuten-Zeit"}
@@ -327,10 +323,10 @@ de{
             ls{"Chowd-Normalzeit"}
         }
         "meta:India"{
-            ls{"Indische Zeit"}
+            ls{"Indische Normalzeit"}
         }
         "meta:Indian_Ocean"{
-            ls{"Indischer Ozean-Zeit"}
+            ls{"Indischer-Ozean-Zeit"}
         }
         "meta:Indochina"{
             ls{"Indochina-Zeit"}
@@ -350,9 +346,9 @@ de{
             ls{"Iranische Normalzeit"}
         }
         "meta:Irkutsk"{
-            ld{"Irkutsk-Sommerzeit"}
-            lg{"Irkutsk-Zeit"}
-            ls{"Irkutsk-Normalzeit"}
+            ld{"Irkutsker Sommerzeit"}
+            lg{"Irkutsker Zeit"}
+            ls{"Irkutsker Normalzeit"}
         }
         "meta:Israel"{
             ld{"Israelische Sommerzeit"}
@@ -369,6 +365,9 @@ de{
             lg{"Kamtschatka-Zeit"}
             ls{"Kamtschatka-Normalzeit"}
         }
+        "meta:Kazakhstan"{
+            ls{"Kasachische Zeit"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Ostkasachische Zeit"}
         }
@@ -384,12 +383,12 @@ de{
             ls{"Kosrae-Zeit"}
         }
         "meta:Krasnoyarsk"{
-            ld{"Krasnojarsk-Sommerzeit"}
-            lg{"Krasnojarsk-Zeit"}
-            ls{"Krasnojarsk-Normalzeit"}
+            ld{"Krasnojarsker Sommerzeit"}
+            lg{"Krasnojarsker Zeit"}
+            ls{"Krasnojarsker Normalzeit"}
         }
         "meta:Kyrgystan"{
-            ls{"Kirgisistan-Zeit"}
+            ls{"Kirgisische Zeit"}
         }
         "meta:Lanka"{
             ls{"Sri-Lanka-Zeit"}
@@ -406,9 +405,6 @@ de{
             ld{"Macau-Sommerzeit"}
             lg{"Macau-Zeit"}
             ls{"Macau-Normalzeit"}
-        }
-        "meta:Macquarie"{
-            ls{"Macquarieinsel-Zeit"}
         }
         "meta:Magadan"{
             ld{"Magadan-Sommerzeit"}
@@ -435,15 +431,10 @@ de{
         "meta:Mawson"{
             ls{"Mawson-Zeit"}
         }
-        "meta:Mexico_Northwest"{
-            ld{"Mexiko Nordwestliche Zone-Sommerzeit"}
-            lg{"Mexiko Nordwestliche Zone-Zeit"}
-            ls{"Mexiko Nordwestliche Zone-Normalzeit"}
-        }
         "meta:Mexico_Pacific"{
-            ld{"Mexiko Pazifikzone-Sommerzeit"}
-            lg{"Mexiko Pazifikzone-Zeit"}
-            ls{"Mexiko Pazifikzone-Normalzeit"}
+            ld{"Mexikanische Pazifik-Sommerzeit"}
+            lg{"Mexikanische Pazifikzeit"}
+            ls{"Mexikanische Pazifik-Normalzeit"}
         }
         "meta:Mongolia"{
             ld{"Ulaanbaatar-Sommerzeit"}
@@ -483,25 +474,27 @@ de{
             ls{"Niue-Zeit"}
         }
         "meta:Norfolk"{
-            ls{"Norfolkinsel-Zeit"}
+            ld{"Norfolkinsel-Sommerzeit"}
+            lg{"Norfolkinsel-Zeit"}
+            ls{"Norfolkinsel-Normalzeit"}
         }
         "meta:Noronha"{
-            ld{"Fernando de Noronha-Sommerzeit"}
-            lg{"Fernando de Noronha-Zeit"}
-            ls{"Fernando de Noronha-Normalzeit"}
+            ld{"Fernando-de-Noronha-Sommerzeit"}
+            lg{"Fernando-de-Noronha-Zeit"}
+            ls{"Fernando-de-Noronha-Normalzeit"}
         }
         "meta:North_Mariana"{
             ls{"Nördliche-Marianen-Zeit"}
         }
         "meta:Novosibirsk"{
-            ld{"Nowosibirsk-Sommerzeit"}
-            lg{"Nowosibirsk-Zeit"}
-            ls{"Nowosibirsk-Normalzeit"}
+            ld{"Nowosibirsker Sommerzeit"}
+            lg{"Nowosibirsker Zeit"}
+            ls{"Nowosibirsker Normalzeit"}
         }
         "meta:Omsk"{
-            ld{"Omsk-Sommerzeit"}
-            lg{"Omsk-Zeit"}
-            ls{"Omsk-Normalzeit"}
+            ld{"Omsker Sommerzeit"}
+            lg{"Omsker Zeit"}
+            ls{"Omsker Normalzeit"}
         }
         "meta:Pakistan"{
             ld{"Pakistanische Sommerzeit"}
@@ -515,9 +508,9 @@ de{
             ls{"Papua-Neuguinea-Zeit"}
         }
         "meta:Paraguay"{
-            ld{"Paraguayanische Sommerzeit"}
-            lg{"Paraguayanische Zeit"}
-            ls{"Paraguayanische Normalzeit"}
+            ld{"Paraguayische Sommerzeit"}
+            lg{"Paraguayische Zeit"}
+            ls{"Paraguayische Normalzeit"}
         }
         "meta:Peru"{
             ld{"Peruanische Sommerzeit"}
@@ -541,7 +534,7 @@ de{
             ls{"Pitcairninseln-Zeit"}
         }
         "meta:Ponape"{
-            ls{"Ponape-Zeit"}
+            ls{"Pohnpei-Zeit"}
         }
         "meta:Pyongyang"{
             ls{"Pjöngjang-Zeit"}
@@ -576,7 +569,7 @@ de{
             ls{"Seychellen-Zeit"}
         }
         "meta:Singapore"{
-            ls{"Singapur-Zeit"}
+            ls{"Singapurische Normalzeit"}
         }
         "meta:Solomon"{
             ls{"Salomonen-Zeit"}
@@ -599,36 +592,41 @@ de{
             ls{"Taipeh-Normalzeit"}
         }
         "meta:Tajikistan"{
-            ls{"Tadschikistan-Zeit"}
+            ls{"Tadschikische Zeit"}
         }
         "meta:Tokelau"{
             ls{"Tokelau-Zeit"}
         }
         "meta:Tonga"{
-            ld{"Tonganische Sommerzeit"}
-            lg{"Tonganische Zeit"}
-            ls{"Tonganische Normalzeit"}
+            ld{"Tongaische Sommerzeit"}
+            lg{"Tongaische Zeit"}
+            ls{"Tongaische Normalzeit"}
         }
         "meta:Truk"{
             ls{"Chuuk-Zeit"}
         }
+        "meta:Turkey"{
+            ld{"Türkische Sommerzeit"}
+            lg{"Türkische Zeit"}
+            ls{"Türkische Normalzeit"}
+        }
         "meta:Turkmenistan"{
-            ld{"Turkmenistan-Sommerzeit"}
+            ld{"Turkmenische Sommerzeit"}
             lg{"Turkmenistan-Zeit"}
-            ls{"Turkmenistan-Normalzeit"}
+            ls{"Turkmenische Normalzeit"}
         }
         "meta:Tuvalu"{
             ls{"Tuvalu-Zeit"}
         }
         "meta:Uruguay"{
-            ld{"Uruguayanische Sommerzeit"}
-            lg{"Uruguayanische Zeit"}
-            ls{"Uruguyanische Normalzeit"}
+            ld{"Uruguayische Sommerzeit"}
+            lg{"Uruguayische Zeit"}
+            ls{"Uruguayische Normalzeit"}
         }
         "meta:Uzbekistan"{
-            ld{"Usbekistan-Sommerzeit"}
-            lg{"Usbekistan-Zeit"}
-            ls{"Usbekistan-Normalzeit"}
+            ld{"Usbekische Sommerzeit"}
+            lg{"Usbekische Zeit"}
+            ls{"Usbekische Normalzeit"}
         }
         "meta:Vanuatu"{
             ld{"Vanuatu-Sommerzeit"}
@@ -639,14 +637,14 @@ de{
             ls{"Venezuela-Zeit"}
         }
         "meta:Vladivostok"{
-            ld{"Wladiwostok-Sommerzeit"}
-            lg{"Wladiwostok-Zeit"}
-            ls{"Wladiwostok-Normalzeit"}
+            ld{"Wladiwostoker Sommerzeit"}
+            lg{"Wladiwostoker Zeit"}
+            ls{"Wladiwostoker Normalzeit"}
         }
         "meta:Volgograd"{
-            ld{"Wolgograd-Sommerzeit"}
-            lg{"Wolgograd-Zeit"}
-            ls{"Wolgograd-Normalzeit"}
+            ld{"Wolgograder Sommerzeit"}
+            lg{"Wolgograder Zeit"}
+            ls{"Wolgograder Normalzeit"}
         }
         "meta:Vostok"{
             ls{"Wostok-Zeit"}
@@ -658,21 +656,20 @@ de{
             ls{"Wallis-und-Futuna-Zeit"}
         }
         "meta:Yakutsk"{
-            ld{"Jakutsk-Sommerzeit"}
-            lg{"Jakutsk-Zeit"}
-            ls{"Jakutsk-Normalzeit"}
+            ld{"Jakutsker Sommerzeit"}
+            lg{"Jakutsker Zeit"}
+            ls{"Jakutsker Normalzeit"}
         }
         "meta:Yekaterinburg"{
-            ld{"Jekaterinburg-Sommerzeit"}
-            lg{"Jekaterinburg-Zeit"}
-            ls{"Jekaterinburg-Normalzeit"}
+            ld{"Jekaterinburger Sommerzeit"}
+            lg{"Jekaterinburger Zeit"}
+            ls{"Jekaterinburger Normalzeit"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
-        regionFormat{"{0} Zeit"}
-        regionFormatDaylight{"{0} Sommerzeit"}
-        regionFormatStandard{"{0} Normalzeit"}
+        "meta:Yukon"{
+            ls{"Yukon-Zeit"}
+        }
+        regionFormat{"{0} (Ortszeit)"}
+        regionFormatDaylight{"{0} (Sommerzeit)"}
+        regionFormatStandard{"{0} (Normalzeit)"}
     }
 }

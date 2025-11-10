@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 si{
-    Version{"2.1.43.50"}
     zoneStrings{
         "Etc:UTC"{
             ls{"සමකක්ෂ සාර්ව වේලාව"}
@@ -25,9 +25,7 @@ si{
             ls{"දකුණු අප්‍රිකානු වේලාව"}
         }
         "meta:Africa_Western"{
-            ld{"බටහිර අප්‍රිකානු ග්‍රීෂ්ම කාලය"}
-            lg{"බටහිර අප්‍රිකානු වේලාව"}
-            ls{"බටහිර අප්‍රිකානු සම්මත වේලාව"}
+            ls{"බටහිර අප්‍රිකානු වේලාව"}
         }
         "meta:Alaska"{
             ld{"ඇලස්කා දිවාආලෝක වේලාව"}
@@ -161,11 +159,6 @@ si{
             lg{"චීන වේලාව"}
             ls{"චීන සම්මත වේලාව"}
         }
-        "meta:Choibalsan"{
-            ld{"චොයිබල්සාන් ග්‍රීෂ්ම වේලාව"}
-            lg{"චොයිබල්සාන් වේලාව"}
-            ls{"චොයිබල්සාන් සම්මත වේලාව"}
-        }
         "meta:Christmas"{
             ls{"ක්‍රිස්මස් දුපත් වේලාව"}
         }
@@ -271,6 +264,9 @@ si{
         "meta:Guyana"{
             ls{"ගයනා වේලාව"}
         }
+        "meta:Hawaii"{
+            ls{"හවායි-අලෙයුතියාන් සම්මත වේලාව"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"හවායි-අලෙයුතියාන් දිවාආලෝක වේලාව"}
             lg{"හවායි-අලෙයුතියාන් වේලාව"}
@@ -324,6 +320,9 @@ si{
             lg{"ජපාන වේලාව"}
             ls{"ජපාන සම්මත වේලාව"}
         }
+        "meta:Kazakhstan"{
+            ls{"කසකස්තාන වේලාව"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"නැගෙනහිර කසකස්තාන වේලාව"}
         }
@@ -357,9 +356,6 @@ si{
             lg{"ලෝර්ඩ් හෝව් වේලාව"}
             ls{"ලෝර්ඩ් හෝව් සම්මත වේලාව"}
         }
-        "meta:Macquarie"{
-            ls{"මැක්කුඅරි දුපත් වේලාව"}
-        }
         "meta:Magadan"{
             ld{"මෙගඩන් ග්‍රීෂ්ම වේලාව"}
             lg{"මෙගඩන් වේලාව"}
@@ -384,11 +380,6 @@ si{
         }
         "meta:Mawson"{
             ls{"මොව්සන් වේලාව"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"වයඹ මෙක්සිකෝ දිවාආලෝක වේලාව"}
-            lg{"වයඹ මෙක්සිකෝ වේලාව"}
-            ls{"වයඹ මෙක්සිකෝ සම්මත වේලාව"}
         }
         "meta:Mexico_Pacific"{
             ld{"මෙක්සිකෝ පැසිෆික් දිවාආලෝක වේලාව"}
@@ -433,7 +424,9 @@ si{
             ls{"නියු වේලාව"}
         }
         "meta:Norfolk"{
-            ls{"නොෆොල්ක් දුපත් වේලාව"}
+            ld{"නොෆොල්ක් දුපත් ග්‍රීෂ්ම වේලාව"}
+            lg{"නොෆොල්ක් දුපත් වේලාව"}
+            ls{"නොෆොල්ක් දුපත් සම්මත වේලාව"}
         }
         "meta:Noronha"{
             ld{"ෆර්නැන්ඩෝ ඩි නොරොන්හා ග්‍රීෂ්ම කාලය"}
@@ -604,8 +597,11 @@ si{
             lg{"යෙකටෙරින්බර්ග් වේලාව"}
             ls{"යෙකටෙරින්බර්ග් සම්මත වේලාව"}
         }
-        fallbackFormat{"{1} ({0})"}
+        "meta:Yukon"{
+            ls{"යුකොන් වේලාව"}
+        }
         gmtFormat{"ග්‍රිමවේ{0}"}
+        gmtUnknownFormat{"ග්‍රිමවේ+?"}
         gmtZeroFormat{"ග්‍රිමවේ"}
         hourFormat{"+HH.mm;-HH.mm"}
         regionFormat{"{0} වේලාව"}

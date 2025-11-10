@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 as{
-    Version{"2.1.43.94"}
     zoneStrings{
         "Etc:UTC"{
             ls{"সমন্বিত সাৰ্বজনীন সময়"}
@@ -25,9 +25,7 @@ as{
             ls{"দক্ষিণ আফ্ৰিকাৰ মান সময়"}
         }
         "meta:Africa_Western"{
-            ld{"পশ্চিম আফ্ৰিকাৰ গ্ৰীষ্মকালীন সময়"}
-            lg{"পশ্চিম আফ্ৰিকাৰ সময়"}
-            ls{"পশ্চিম আফ্ৰিকাৰ মান সময়"}
+            ls{"পশ্চিম আফ্ৰিকাৰ সময়"}
         }
         "meta:Alaska"{
             ld{"আলাস্কাৰ ডেলাইট সময়"}
@@ -161,11 +159,6 @@ as{
             lg{"চীনৰ সময়"}
             ls{"চীনৰ মান সময়"}
         }
-        "meta:Choibalsan"{
-            ld{"কোইবাল্ছনৰ গ্ৰীষ্মকালীন সময়"}
-            lg{"কোইবাল্ছনৰ সময়"}
-            ls{"কোইবাল্ছনৰ মান সময়"}
-        }
         "meta:Christmas"{
             ls{"খ্ৰীষ্টমাছ দ্বীপৰ সময়"}
         }
@@ -271,6 +264,9 @@ as{
         "meta:Guyana"{
             ls{"গায়ানাৰ সময়"}
         }
+        "meta:Hawaii"{
+            ls{"হাৱাই-এলিউশ্বনৰ মান সময়"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"হাৱাই-এলিউশ্বনৰ ডেলাইট সময়"}
             lg{"হাৱাই-এলিউশ্বনৰ সময়"}
@@ -325,6 +321,9 @@ as{
             lg{"জাপানৰ সময়"}
             ls{"জাপানৰ মান সময়"}
         }
+        "meta:Kazakhstan"{
+            ls{"কাজাখস্তানৰ সময়"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"পূব কাজাখস্তানৰ সময়"}
         }
@@ -355,9 +354,6 @@ as{
             lg{"লৰ্ড হাওৰ সময়"}
             ls{"লৰ্ড হাওৰ মান সময়"}
         }
-        "meta:Macquarie"{
-            ls{"মেক্‌কুৱেৰী দ্বীপৰ সময়"}
-        }
         "meta:Magadan"{
             ld{"মাগাদানৰ গ্ৰীষ্মকালীন সময়"}
             lg{"মাগাদানৰ সময়"}
@@ -382,11 +378,6 @@ as{
         }
         "meta:Mawson"{
             ls{"মাউছনৰ সময়"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"উত্তৰ-পশ্চিম মেক্সিকোৰ ডেলাইট সময়"}
-            lg{"উত্তৰ-পশ্চিম মেক্সিকোৰ সময়"}
-            ls{"উত্তৰ-পশ্চিম মেক্সিকোৰ মান সময়"}
         }
         "meta:Mexico_Pacific"{
             ld{"মেক্সিকোৰ প্ৰশান্ত ডেলাইট সময়"}
@@ -431,7 +422,9 @@ as{
             ls{"নিয়ুৰ সময়"}
         }
         "meta:Norfolk"{
-            ls{"ন’ৰফ’ক দ্বীপৰ সময়"}
+            ld{"ন’ৰফ’ক দ্বীপৰ গ্ৰীষ্মকালীন সময়"}
+            lg{"ন’ৰফ’ক দ্বীপৰ সময়"}
+            ls{"ন’ৰফ’ক দ্বীপৰ মান্য সময়"}
         }
         "meta:Noronha"{
             ld{"ফাৰ্নাণ্ডো ডে নোৰোন্‌হাৰ গ্ৰীষ্মকালীন সময়"}
@@ -602,10 +595,9 @@ as{
             lg{"য়েকাটেৰিণবাৰ্গৰ সময়"}
             ls{"য়েকাটেৰিণবাৰ্গৰ মান সময়"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"য়ুকোন সময়"}
+        }
         regionFormat{"{0} সময়"}
         regionFormatDaylight{"{0} (+1) ডেলাইট সময়"}
         regionFormatStandard{"{0} (+0) মান সময়"}

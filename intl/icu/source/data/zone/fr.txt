@@ -1,10 +1,10 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 fr{
-    Version{"2.1.44.91"}
     zoneStrings{
         "Etc:UTC"{
-            ls{"Temps universel coordonné"}
+            ls{"temps universel coordonné"}
         }
         "Europe:Dublin"{
             ld{"heure d’été irlandaise"}
@@ -30,9 +30,7 @@ fr{
             ls{"heure normale d’Afrique méridionale"}
         }
         "meta:Africa_Western"{
-            ld{"heure d’été d’Afrique de l’Ouest"}
-            lg{"heure d’Afrique de l’Ouest"}
-            ls{"heure normale d’Afrique de l’Ouest"}
+            ls{"heure d’Afrique de l’Ouest"}
         }
         "meta:Alaska"{
             ld{"heure d’été de l’Alaska"}
@@ -50,12 +48,12 @@ fr{
             ls{"heure normale de l’Amazonie"}
         }
         "meta:America_Central"{
-            ld{"heure d’été du Centre"}
+            ld{"heure d’été du centre nord-américain"}
             lg{"heure du centre nord-américain"}
             ls{"heure normale du centre nord-américain"}
         }
         "meta:America_Eastern"{
-            ld{"heure d’été de l’Est"}
+            ld{"heure d’été de l’Est nord-américain"}
             lg{"heure de l’Est nord-américain"}
             ls{"heure normale de l’Est nord-américain"}
         }
@@ -65,7 +63,7 @@ fr{
             ls{"heure normale des Rocheuses"}
         }
         "meta:America_Pacific"{
-            ld{"heure d’été du Pacifique"}
+            ld{"heure d’été du Pacifique nord-américain"}
             lg{"heure du Pacifique nord-américain"}
             ls{"heure normale du Pacifique nord-américain"}
         }
@@ -161,7 +159,7 @@ fr{
             ls{"heure normale de Brasilia"}
         }
         "meta:Brunei"{
-            ls{"heure du Brunéi"}
+            ls{"heure du Brunei"}
         }
         "meta:Cape_Verde"{
             ld{"heure d’été du Cap-Vert"}
@@ -185,11 +183,6 @@ fr{
             ld{"heure d’été de Chine"}
             lg{"heure de la Chine"}
             ls{"heure normale de la Chine"}
-        }
-        "meta:Choibalsan"{
-            ld{"heure d’été de Choibalsan"}
-            lg{"heure de Choibalsan"}
-            ls{"heure normale de Choibalsan"}
         }
         "meta:Christmas"{
             ls{"heure de l’île Christmas"}
@@ -299,10 +292,13 @@ fr{
         "meta:Guyana"{
             ls{"heure du Guyana"}
         }
+        "meta:Hawaii"{
+            ls{"heure normale d’Hawaï - Aléoutiennes"}
+        }
         "meta:Hawaii_Aleutian"{
-            ld{"heure d’été d’Hawaii - Aléoutiennes"}
-            lg{"heure d’Hawaii - Aléoutiennes"}
-            ls{"heure normale d’Hawaii - Aléoutiennes"}
+            ld{"heure d’été d’Hawaï - Aléoutiennes"}
+            lg{"heure d’Hawaï - Aléoutiennes"}
+            ls{"heure normale d’Hawaï - Aléoutiennes"}
         }
         "meta:Hong_Kong"{
             ld{"heure d’été de Hong Kong"}
@@ -357,6 +353,9 @@ fr{
             lg{"heure de Petropavlovsk-Kamchatski"}
             ls{"heure normale de Petropavlovsk-Kamchatski"}
         }
+        "meta:Kazakhstan"{
+            ls{"heure du Kazakhstan"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"heure de l’Est du Kazakhstan"}
         }
@@ -387,9 +386,6 @@ fr{
             lg{"heure de Lord Howe"}
             ls{"heure normale de Lord Howe"}
         }
-        "meta:Macquarie"{
-            ls{"heure de l’île Macquarie"}
-        }
         "meta:Magadan"{
             ld{"heure d’été de Magadan"}
             lg{"heure de Magadan"}
@@ -414,11 +410,6 @@ fr{
         }
         "meta:Mawson"{
             ls{"heure de Mawson"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"heure d’été du Nord-Ouest du Mexique"}
-            lg{"heure du Nord-Ouest du Mexique"}
-            ls{"heure normale du Nord-Ouest du Mexique"}
         }
         "meta:Mexico_Pacific"{
             ld{"heure d’été du Pacifique mexicain"}
@@ -460,10 +451,12 @@ fr{
             ls{"heure normale de Terre-Neuve"}
         }
         "meta:Niue"{
-            ls{"heure de Nioué"}
+            ls{"heure de Niue"}
         }
         "meta:Norfolk"{
-            ls{"heure de l’île Norfolk"}
+            ld{"heure d’été de l’île Norfolk"}
+            lg{"heure de l’île Norfolk"}
+            ls{"heure normale de l’île Norfolk"}
         }
         "meta:Noronha"{
             ld{"heure d’été de Fernando de Noronha"}
@@ -587,6 +580,11 @@ fr{
         "meta:Truk"{
             ls{"heure de Chuuk"}
         }
+        "meta:Turkey"{
+            ld{"heure avancée de Turquie"}
+            lg{"heure de Turquie"}
+            ls{"heure normale de Turquie"}
+        }
         "meta:Turkmenistan"{
             ld{"heure d’été du Turkménistan"}
             lg{"heure du Turkménistan"}
@@ -642,7 +640,9 @@ fr{
             lg{"heure d’Ekaterinbourg"}
             ls{"heure normale d’Ekaterinbourg"}
         }
-        fallbackFormat{"{1} ({0})"}
+        "meta:Yukon"{
+            ls{"heure normale du Yukon"}
+        }
         gmtFormat{"UTC{0}"}
         gmtZeroFormat{"UTC"}
         hourFormat{"+HH:mm;−HH:mm"}

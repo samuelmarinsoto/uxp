@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 ru{
-    Version{"2.1.45.15"}
     zoneStrings{
         "Etc:UTC"{
             ls{"Всемирное координированное время"}
@@ -30,9 +30,7 @@ ru{
             ls{"Южная Африка"}
         }
         "meta:Africa_Western"{
-            ld{"Западная Африка, летнее время"}
-            lg{"Западная Африка"}
-            ls{"Западная Африка, стандартное время"}
+            ls{"Западная Африка"}
         }
         "meta:Alaska"{
             ld{"Аляска, летнее время"}
@@ -189,11 +187,6 @@ ru{
             lg{"Китай"}
             ls{"Китай, стандартное время"}
         }
-        "meta:Choibalsan"{
-            ld{"Чойбалсан, летнее время"}
-            lg{"Чойбалсан"}
-            ls{"Чойбалсан, стандартное время"}
-        }
         "meta:Christmas"{
             ls{"о-в Рождества"}
         }
@@ -243,7 +236,7 @@ ru{
             ls{"Восточная Европа, стандартное время"}
         }
         "meta:Europe_Further_Eastern"{
-            ls{"Минское время"}
+            ls{"Московское время"}
         }
         "meta:Europe_Western"{
             ld{"Западная Европа, летнее время"}
@@ -301,6 +294,9 @@ ru{
         }
         "meta:Guyana"{
             ls{"Гайана"}
+        }
+        "meta:Hawaii"{
+            ls{"Гавайско-алеутское стандартное время"}
         }
         "meta:Hawaii_Aleutian"{
             ld{"Гавайско-алеутское летнее время"}
@@ -360,6 +356,9 @@ ru{
             lg{"Петропавловск-Камчатский"}
             ls{"Петропавловск-Камчатский, стандартное время"}
         }
+        "meta:Kazakhstan"{
+            ls{"Казахстан"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Восточный Казахстан"}
         }
@@ -398,9 +397,6 @@ ru{
             lg{"Макао"}
             ls{"Макао, стандартное время"}
         }
-        "meta:Macquarie"{
-            ls{"Маккуори"}
-        }
         "meta:Magadan"{
             ld{"Магадан, летнее время"}
             lg{"Магадан"}
@@ -425,11 +421,6 @@ ru{
         }
         "meta:Mawson"{
             ls{"Моусон"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Северо-западное мексиканское летнее время"}
-            lg{"Северо-западное мексиканское время"}
-            ls{"Северо-западное мексиканское стандартное время"}
         }
         "meta:Mexico_Pacific"{
             ld{"Тихоокеанское мексиканское летнее время"}
@@ -474,7 +465,9 @@ ru{
             ls{"Ниуэ"}
         }
         "meta:Norfolk"{
-            ls{"Норфолк"}
+            ld{"Норфолк, летнее время"}
+            lg{"Норфолк"}
+            ls{"Норфолк, стандартное время"}
         }
         "meta:Noronha"{
             ld{"Фернанду-ди-Норонья, летнее время"}
@@ -603,6 +596,11 @@ ru{
         "meta:Truk"{
             ls{"Трук"}
         }
+        "meta:Turkey"{
+            ld{"Турецкое летнее время"}
+            lg{"Турецкое время"}
+            ls{"Турецкое стандартное время"}
+        }
         "meta:Turkmenistan"{
             ld{"Туркменистан, летнее время"}
             lg{"Туркменистан"}
@@ -658,11 +656,9 @@ ru{
             lg{"Екатеринбург"}
             ls{"Екатеринбург, стандартное время"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
-        regionFormat{"{0}"}
+        "meta:Yukon"{
+            ls{"Юкон"}
+        }
         regionFormatDaylight{"{0}, летнее время"}
         regionFormatStandard{"{0}, стандартное время"}
     }

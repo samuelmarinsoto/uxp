@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 fur{
-    Version{"2.1.38.69"}
     zoneStrings{
         "meta:Europe_Central"{
             ld{"Ore estive de Europe centrâl"}
@@ -35,8 +35,5 @@ fur{
             lg{"Ore di Mosche"}
             ls{"Ore standard di Mosche"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        hourFormat{"+HH:mm;-HH:mm"}
     }
 }

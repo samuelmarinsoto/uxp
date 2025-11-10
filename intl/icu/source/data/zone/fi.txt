@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 fi{
-    Version{"2.1.44.91"}
     zoneStrings{
         "America:Godthab"{
             ec%secondary{"Godthåb"}
@@ -42,9 +42,7 @@ fi{
             ls{"Etelä-Afrikan aika"}
         }
         "meta:Africa_Western"{
-            ld{"Länsi-Afrikan kesäaika"}
-            lg{"Länsi-Afrikan aika"}
-            ls{"Länsi-Afrikan normaaliaika"}
+            ls{"Länsi-Afrikan aika"}
         }
         "meta:Alaska"{
             ld{"Alaskan kesäaika"}
@@ -201,11 +199,6 @@ fi{
             lg{"Kiinan aika"}
             ls{"Kiinan normaaliaika"}
         }
-        "meta:Choibalsan"{
-            ld{"Tšoibalsan kesäaika"}
-            lg{"Tšoibalsan aika"}
-            ls{"Tšoibalsan normaaliaika"}
-        }
         "meta:Christmas"{
             ls{"Joulusaaren aika"}
         }
@@ -314,6 +307,9 @@ fi{
         "meta:Guyana"{
             ls{"Guyanan aika"}
         }
+        "meta:Hawaii"{
+            ls{"Havaijin-Aleuttien normaaliaika"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Havaijin-Aleuttien kesäaika"}
             lg{"Havaijin-Aleuttien aika"}
@@ -372,6 +368,9 @@ fi{
             lg{"Kamtšatkan aika"}
             ls{"Kamtšatkan normaaliaika"}
         }
+        "meta:Kazakhstan"{
+            ls{"Kazakstanin aika"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Itä-Kazakstanin aika"}
         }
@@ -410,9 +409,6 @@ fi{
             lg{"Macaon aika"}
             ls{"Macaon normaaliaika"}
         }
-        "meta:Macquarie"{
-            ls{"Macquariensaaren aika"}
-        }
         "meta:Magadan"{
             ld{"Magadanin kesäaika"}
             lg{"Magadanin aika"}
@@ -437,11 +433,6 @@ fi{
         }
         "meta:Mawson"{
             ls{"Mawsonin aika"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Luoteis-Meksikon kesäaika"}
-            lg{"Luoteis-Meksikon aika"}
-            ls{"Luoteis-Meksikon normaaliaika"}
         }
         "meta:Mexico_Pacific"{
             ld{"Meksikon Tyynenmeren kesäaika"}
@@ -486,7 +477,9 @@ fi{
             ls{"Niuen aika"}
         }
         "meta:Norfolk"{
-            ls{"Norfolkinsaaren aika"}
+            ld{"Norfolkinsaaren kesäaika"}
+            lg{"Norfolkinsaaren aika"}
+            ls{"Norfolkinsaaren normaaliaika"}
         }
         "meta:Noronha"{
             ld{"Fernando de Noronhan kesäaika"}
@@ -615,6 +608,11 @@ fi{
         "meta:Truk"{
             ls{"Chuukin aika"}
         }
+        "meta:Turkey"{
+            ld{"Turkin kesäaika"}
+            lg{"Turkin aika"}
+            ls{"Turkin normaaliaika"}
+        }
         "meta:Turkmenistan"{
             ld{"Turkmenistanin kesäaika"}
             lg{"Turkmenistanin aika"}
@@ -670,7 +668,9 @@ fi{
             lg{"Jekaterinburgin aika"}
             ls{"Jekaterinburgin normaaliaika"}
         }
-        fallbackFormat{"{1} ({0})"}
+        "meta:Yukon"{
+            ls{"Yukonin aika"}
+        }
         gmtFormat{"UTC{0}"}
         gmtZeroFormat{"UTC"}
         hourFormat{"+H.mm;-H.mm"}

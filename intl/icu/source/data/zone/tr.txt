@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 tr{
-    Version{"2.1.44.91"}
     zoneStrings{
         "Etc:UTC"{
             ls{"Eş Güdümlü Evrensel Zaman"}
@@ -30,9 +30,7 @@ tr{
             ls{"Güney Afrika Standart Saati"}
         }
         "meta:Africa_Western"{
-            ld{"Batı Afrika Yaz Saati"}
-            lg{"Batı Afrika Saati"}
-            ls{"Batı Afrika Standart Saati"}
+            ls{"Batı Afrika Saati"}
         }
         "meta:Alaska"{
             ld{"Alaska Yaz Saati"}
@@ -189,11 +187,6 @@ tr{
             lg{"Çin Saati"}
             ls{"Çin Standart Saati"}
         }
-        "meta:Choibalsan"{
-            ld{"Çoybalsan Yaz Saati"}
-            lg{"Çoybalsan Saati"}
-            ls{"Çoybalsan Standart Saati"}
-        }
         "meta:Christmas"{
             ls{"Christmas Adası Saati"}
         }
@@ -302,6 +295,9 @@ tr{
         "meta:Guyana"{
             ls{"Guyana Saati"}
         }
+        "meta:Hawaii"{
+            ls{"Hawaii-Aleut Standart Saati"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Hawaii-Aleut Yaz Saati"}
             lg{"Hawaii-Aleut Saati"}
@@ -360,6 +356,9 @@ tr{
             lg{"Petropavlovsk-Kamçatski Saati"}
             ls{"Petropavlovsk-Kamçatski Standart Saati"}
         }
+        "meta:Kazakhstan"{
+            ls{"Kazakistan Saati"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"Doğu Kazakistan Saati"}
         }
@@ -398,9 +397,6 @@ tr{
             lg{"Makao Saati"}
             ls{"Makao Standart Saati"}
         }
-        "meta:Macquarie"{
-            ls{"Macquarie Adası Saati"}
-        }
         "meta:Magadan"{
             ld{"Magadan Yaz Saati"}
             lg{"Magadan Saati"}
@@ -425,11 +421,6 @@ tr{
         }
         "meta:Mawson"{
             ls{"Mawson Saati"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"Kuzeybatı Meksika Yaz Saati"}
-            lg{"Kuzeybatı Meksika Saati"}
-            ls{"Kuzeybatı Meksika Standart Saati"}
         }
         "meta:Mexico_Pacific"{
             ld{"Meksika Pasifik Kıyısı Yaz Saati"}
@@ -474,7 +465,9 @@ tr{
             ls{"Niue Saati"}
         }
         "meta:Norfolk"{
-            ls{"Norfolk Adası Saati"}
+            ld{"Norfolk Adası Yaz Saati"}
+            lg{"Norfolk Adası Saati"}
+            ls{"Norfolk Adası Standart Saati"}
         }
         "meta:Noronha"{
             ld{"Fernando de Noronha Yaz Saati"}
@@ -603,6 +596,12 @@ tr{
         "meta:Truk"{
             ls{"Chuuk Saati"}
         }
+        "meta:Turkey"{
+            ld{"Türkiye Yaz Saati"}
+            lg{"Türkiye Saati"}
+            ls{"Türkiye Standart Saati"}
+            sg{"TSİ"}
+        }
         "meta:Turkmenistan"{
             ld{"Türkmenistan Yaz Saati"}
             lg{"Türkmenistan Saati"}
@@ -658,10 +657,9 @@ tr{
             lg{"Yekaterinburg Saati"}
             ls{"Yekaterinburg Standart Saati"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"Yukon Saati"}
+        }
         regionFormat{"{0} Saati"}
         regionFormatDaylight{"{0} Yaz Saati"}
         regionFormatStandard{"{0} Standart Saati"}

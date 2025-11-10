@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 ar{
-    Version{"2.1.43.50"}
     zoneStrings{
         "Etc:UTC"{
             ls{"التوقيت العالمي المنسق"}
@@ -25,9 +25,7 @@ ar{
             ls{"توقيت جنوب أفريقيا"}
         }
         "meta:Africa_Western"{
-            ld{"توقيت غرب أفريقيا الصيفي"}
-            lg{"توقيت غرب أفريقيا"}
-            ls{"توقيت غرب أفريقيا الرسمي"}
+            ls{"توقيت غرب أفريقيا"}
         }
         "meta:Alaska"{
             ld{"توقيت ألاسكا الصيفي"}
@@ -166,11 +164,6 @@ ar{
             lg{"توقيت الصين"}
             ls{"توقيت الصين الرسمي"}
         }
-        "meta:Choibalsan"{
-            ld{"التوقيت الصيفي لشويبالسان"}
-            lg{"توقيت شويبالسان"}
-            ls{"توقيت شويبالسان الرسمي"}
-        }
         "meta:Christmas"{
             ls{"توقيت جزر الكريسماس"}
         }
@@ -279,6 +272,9 @@ ar{
         "meta:Guyana"{
             ls{"توقيت غيانا"}
         }
+        "meta:Hawaii"{
+            ls{"توقيت هاواي ألوتيان الرسمي"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"توقيت هاواي ألوتيان الصيفي"}
             lg{"توقيت هاواي ألوتيان"}
@@ -337,6 +333,9 @@ ar{
             lg{"توقيت كامشاتكا"}
             ls{"توقيت بيتروبافلوفسك-كامتشاتسكي"}
         }
+        "meta:Kazakhstan"{
+            ls{"توقيت كازاخستان"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"توقيت شرق كازاخستان"}
         }
@@ -367,9 +366,6 @@ ar{
             lg{"توقيت لورد هاو"}
             ls{"توقيت لورد هاو الرسمي"}
         }
-        "meta:Macquarie"{
-            ls{"توقيت ماكواري"}
-        }
         "meta:Magadan"{
             ld{"توقيت ماغادان الصيفي"}
             lg{"توقيت ماغادان"}
@@ -394,11 +390,6 @@ ar{
         }
         "meta:Mawson"{
             ls{"توقيت ماوسون"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"التوقيت الصيفي لشمال غرب المكسيك"}
-            lg{"توقيت شمال غرب المكسيك"}
-            ls{"التوقيت الرسمي لشمال غرب المكسيك"}
         }
         "meta:Mexico_Pacific"{
             ld{"توقيت المحيط الهادي الصيفي للمكسيك"}
@@ -443,7 +434,9 @@ ar{
             ls{"توقيت نيوي"}
         }
         "meta:Norfolk"{
-            ls{"توقيت جزيرة نورفولك"}
+            ld{"توقيت جزيرة نورفولك الصيفي"}
+            lg{"توقيت جزيرة نورفولك"}
+            ls{"توقيت جزيرة نورفولك الرسمي"}
         }
         "meta:Noronha"{
             ld{"توقيت فرناندو دي نورونها الصيفي"}
@@ -622,10 +615,12 @@ ar{
             lg{"توقيت يكاترينبورغ"}
             ls{"توقيت يكاترينبورغ الرسمي"}
         }
-        fallbackFormat{"{1} ({0})"}
+        "meta:Yukon"{
+            ls{"توقيت يوكون"}
+        }
         gmtFormat{"غرينتش{0}"}
+        gmtUnknownFormat{"غرينتش+?"}
         gmtZeroFormat{"غرينتش"}
-        hourFormat{"+HH:mm;-HH:mm"}
         regionFormat{"توقيت {0}"}
         regionFormatDaylight{"توقيت {0} الصيفي"}
         regionFormatStandard{"توقيت {0} الرسمي"}

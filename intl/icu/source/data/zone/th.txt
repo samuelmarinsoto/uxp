@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 th{
-    Version{"2.1.43.89"}
     zoneStrings{
         "Etc:UTC"{
             ls{"เวลาสากลเชิงพิกัด"}
@@ -30,9 +30,7 @@ th{
             ls{"เวลาแอฟริกาใต้"}
         }
         "meta:Africa_Western"{
-            ld{"เวลาฤดูร้อนแอฟริกาตะวันตก"}
-            lg{"เวลาแอฟริกาตะวันตก"}
-            ls{"เวลามาตรฐานแอฟริกาตะวันตก"}
+            ls{"เวลาแอฟริกาตะวันตก"}
         }
         "meta:Alaska"{
             ld{"เวลาออมแสงของอะแลสกา"}
@@ -189,11 +187,6 @@ th{
             lg{"เวลาจีน"}
             ls{"เวลามาตรฐานจีน"}
         }
-        "meta:Choibalsan"{
-            ld{"เวลาฤดูร้อนชอยปาลชาน"}
-            lg{"เวลาชอยปาลชาน"}
-            ls{"เวลามาตรฐานชอยปาลชาน"}
-        }
         "meta:Christmas"{
             ls{"เวลาเกาะคริสต์มาส"}
         }
@@ -302,6 +295,9 @@ th{
         "meta:Guyana"{
             ls{"เวลากายอานา"}
         }
+        "meta:Hawaii"{
+            ls{"เวลามาตรฐานฮาวาย-อะลูเชียน"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"เวลาออมแสงฮาวาย-อะลูเชียน"}
             lg{"เวลาฮาวาย-อะลูเชียน"}
@@ -360,6 +356,9 @@ th{
             lg{"เวลาคัมชัตคา"}
             ls{"เวลาเปโตรปัฟลอฟสค์-คัมชัตสกี"}
         }
+        "meta:Kazakhstan"{
+            ls{"เวลาคาซัคสถาน"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"เวลาคาซัคสถานตะวันออก"}
         }
@@ -398,9 +397,6 @@ th{
             lg{"เวลามาเก๊า"}
             ls{"เวลามาตรฐานมาเก๊า"}
         }
-        "meta:Macquarie"{
-            ls{"เวลาเกาะแมกควอรี"}
-        }
         "meta:Magadan"{
             ld{"เวลาฤดูร้อนมากาดาน"}
             lg{"เวลามากาดาน"}
@@ -425,11 +421,6 @@ th{
         }
         "meta:Mawson"{
             ls{"เวลามอว์สัน"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"เวลาออมแสงเม็กซิโกตะวันตกเฉียงเหนือ"}
-            lg{"เวลาเม็กซิโกตะวันตกเฉียงเหนือ"}
-            ls{"เวลามาตรฐานเม็กซิโกตะวันตกเฉียงเหนือ"}
         }
         "meta:Mexico_Pacific"{
             ld{"เวลาออมแสงแปซิฟิกเม็กซิโก"}
@@ -474,7 +465,9 @@ th{
             ls{"เวลานีอูเอ"}
         }
         "meta:Norfolk"{
-            ls{"เวลาเกาะนอร์ฟอล์ก"}
+            ld{"เวลาออมแสงเกาะนอร์ฟอล์ก"}
+            lg{"เวลาเกาะนอร์ฟอล์ก"}
+            ls{"เวลามาตรฐานเกาะนอร์ฟอล์ก"}
         }
         "meta:Noronha"{
             ld{"เวลาฤดูร้อนของหมู่เกาะเฟอร์นันโด"}
@@ -603,6 +596,11 @@ th{
         "meta:Truk"{
             ls{"เวลาชุก"}
         }
+        "meta:Turkey"{
+            ld{"เวลาฤดูร้อนตุรกี"}
+            lg{"เวลาตุรกี"}
+            ls{"เวลามาตรฐานตุรกี"}
+        }
         "meta:Turkmenistan"{
             ld{"เวลาฤดูร้อนเติร์กเมนิสถาน"}
             lg{"เวลาเติร์กเมนิสถาน"}
@@ -658,10 +656,9 @@ th{
             lg{"เวลาเยคาเตรินบูร์ก"}
             ls{"เวลามาตรฐานเยคาเตรินบูร์ก"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"เวลายูคอน"}
+        }
         regionFormat{"เวลา{0}"}
         regionFormatDaylight{"เวลาออมแสง{0}"}
         regionFormatStandard{"เวลามาตรฐาน{0}"}

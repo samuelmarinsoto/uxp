@@ -1,10 +1,10 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 jv{
-    Version{"2.1.44.15"}
     zoneStrings{
         "Etc:UTC"{
-            ls{"Wektu Kordinat Universal"}
+            ls{"Wektu Universal Kakoordhinasi"}
         }
         "Europe:Dublin"{
             ld{"Wektu Standar Irlandia"}
@@ -25,9 +25,7 @@ jv{
             ls{"Wektu Standar Afrika Kidul"}
         }
         "meta:Africa_Western"{
-            ld{"Wektu Ketigo Afrika Kulon"}
-            lg{"Wektu Afrika Kulon"}
-            ls{"Wektu Standar Afrika Kulon"}
+            ls{"Wektu Afrika Kulon"}
         }
         "meta:Alaska"{
             ld{"Wektu Ketigo Alaska"}
@@ -60,9 +58,9 @@ jv{
             ls{"Wektu Standar Pasifik"}
         }
         "meta:Apia"{
-            ld{"Wektu Ketigo Apia"}
+            ld{"Wektu Ketiga Samoa"}
             lg{"Wektu Apia"}
-            ls{"Wektu Standar Apia"}
+            ls{"Wektu Standar Samoa"}
         }
         "meta:Arabian"{
             ld{"Wektu Ketigo Arab"}
@@ -136,7 +134,7 @@ jv{
             ls{"Wektu Standar Brasilia"}
         }
         "meta:Brunei"{
-            ls{"Wektu Brunai Darussalam"}
+            ls{"Wektu Brunei"}
         }
         "meta:Cape_Verde"{
             ld{"Wektu Ketigo Tanjung Verde"}
@@ -144,7 +142,7 @@ jv{
             ls{"Wektu Standar Tanjung Verde"}
         }
         "meta:Chamorro"{
-            ls{"Wektu Standar Chamorro"}
+            ls{"Wektu Chamorro"}
         }
         "meta:Chatham"{
             ld{"Wektu Ketigo Chatham"}
@@ -157,14 +155,9 @@ jv{
             ls{"Wektu Standar Chili"}
         }
         "meta:China"{
-            ld{"Wektu Ketigo Cina"}
+            ld{"Wektu Ketiga Cina"}
             lg{"Wektu Cina"}
             ls{"Wektu Standar Cina"}
-        }
-        "meta:Choibalsan"{
-            ld{"WEktu Ketigo Choibalsan"}
-            lg{"Wektu Choibalsan"}
-            ls{"Wektu Standar Choibalsan"}
         }
         "meta:Christmas"{
             ls{"Wektu Pulo Natal"}
@@ -178,7 +171,7 @@ jv{
             ls{"Wektu Standar Kolombia"}
         }
         "meta:Cook"{
-            ld{"Wektu Ketigo Kepuloan Cook"}
+            ld{"Wektu Ketiga Kepuloan Cook"}
             lg{"Wektu Kepuloan Cook"}
             ls{"Wektu Standar Kepuloan Cook"}
         }
@@ -191,10 +184,10 @@ jv{
             ls{"Wektu Davis"}
         }
         "meta:DumontDUrville"{
-            ls{"Wektu Dumont-d’Urville"}
+            ls{"Wektu Dumont d’Urville"}
         }
         "meta:East_Timor"{
-            ls{"Wektu Timor Leste"}
+            ls{"Wektu Timor-Leste"}
         }
         "meta:Easter"{
             ld{"Wektu Ketigo Pulo Paskah"}
@@ -271,18 +264,21 @@ jv{
         "meta:Guyana"{
             ls{"Wektu Guyana"}
         }
+        "meta:Hawaii"{
+            ls{"Wektu Standar Hawaii-Aleutian"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"Wektu Ketigo Hawaii-Aleutian"}
             lg{"Wektu Hawaii-Aleutian"}
             ls{"Wektu Standar Hawaii-Aleutian"}
         }
         "meta:Hong_Kong"{
-            ld{"Wektu Ketigo Hong Kong"}
+            ld{"Wektu Ketiga Hong Kong"}
             lg{"Wektu Hong Kong"}
             ls{"Wektu Standar Hong Kong"}
         }
         "meta:Hovd"{
-            ld{"Wektu Ketigo Hovd"}
+            ld{"Wektu Ketiga Hovd"}
             lg{"Wektu Hovd"}
             ls{"Wektu Standar Hovd"}
         }
@@ -320,9 +316,12 @@ jv{
             ls{"Wektu Standar Israel"}
         }
         "meta:Japan"{
-            ld{"Wektu Ketigo Jepang"}
+            ld{"Wektu Ketiga Jepang"}
             lg{"Wektu Jepang"}
             ls{"Wektu Standar Jepang"}
+        }
+        "meta:Kazakhstan"{
+            ls{"Wektu Kazakhstan"}
         }
         "meta:Kazakhstan_Eastern"{
             ls{"Wektu Kazakhstan Wetan"}
@@ -331,7 +330,7 @@ jv{
             ls{"Wektu Kazakhstan Kulon"}
         }
         "meta:Korea"{
-            ld{"Wektu Ketigo Korea"}
+            ld{"Wektu Ketiga Korea"}
             lg{"Wektu Korea"}
             ls{"Wektu Standar Korea"}
         }
@@ -353,9 +352,6 @@ jv{
             ld{"Wektu Ketigo Lord Howe"}
             lg{"Wektu Lord Howe"}
             ls{"Wektu Standar Lord Howe"}
-        }
-        "meta:Macquarie"{
-            ls{"Wektu Pulo Macquarie"}
         }
         "meta:Magadan"{
             ld{"Wektu Ketigo Magadan"}
@@ -382,18 +378,13 @@ jv{
         "meta:Mawson"{
             ls{"Wektu Mawson"}
         }
-        "meta:Mexico_Northwest"{
-            ld{"Wektu Ketigo Meksiko Lor-Kulon"}
-            lg{"Wektu Meksiko Lor-Kulon"}
-            ls{"Wektu Standar Meksiko Lor-Kulon"}
-        }
         "meta:Mexico_Pacific"{
             ld{"Wektu Ketigo Pasifik Meksiko"}
             lg{"Wektu Pasifik Meksiko"}
             ls{"Wektu Standar Pasifik Meksiko"}
         }
         "meta:Mongolia"{
-            ld{"Wektu Ketigo Ulaanbaatar"}
+            ld{"Wektu Ketiga Ulaanbaatar"}
             lg{"Wektu Ulaanbaatar"}
             ls{"Wektu Standar Ulaanbaatar"}
         }
@@ -430,7 +421,9 @@ jv{
             ls{"Wektu Niue"}
         }
         "meta:Norfolk"{
-            ls{"Wektu Pulo Norfolk"}
+            ld{"Wektu Ketigo Pulo Norfolk"}
+            lg{"Wektu Pulo Norfolk"}
+            ls{"Wektu Standar Pulo Norfolk"}
         }
         "meta:Noronha"{
             ld{"Wektu Ketigo Fernando de Noronha"}
@@ -485,10 +478,10 @@ jv{
             ls{"Wektu Pitcairn"}
         }
         "meta:Ponape"{
-            ls{"Wektu Ponape"}
+            ls{"Wektu Pohnpei"}
         }
         "meta:Pyongyang"{
-            ls{"Wektu Pyongyang"}
+            ls{"Wektu Korea Lor"}
         }
         "meta:Reunion"{
             ls{"Wektu Reunion"}
@@ -502,15 +495,15 @@ jv{
             ls{"Wektu Standar Sakhalin"}
         }
         "meta:Samoa"{
-            ld{"Wektu Ketigo Samoa"}
-            lg{"Wektu Samoa"}
-            ls{"Wektu Standar Samoa"}
+            ld{"Wektu Ketiga Samoa Amerika"}
+            lg{"Wektu Samoa Amerika"}
+            ls{"Wektu Standar Samoa Amerika"}
         }
         "meta:Seychelles"{
             ls{"Wektu Seichelles"}
         }
         "meta:Singapore"{
-            ls{"Wektu Standar Singapura"}
+            ls{"Wektu Singapura"}
         }
         "meta:Solomon"{
             ls{"Wektu Kepuloan Solomon"}
@@ -528,9 +521,9 @@ jv{
             ls{"Wektu Tahiti"}
         }
         "meta:Taipei"{
-            ld{"Wektu Ketigo Taipei"}
-            lg{"Wektu Taipei"}
-            ls{"Wektu Standar Taipei"}
+            ld{"Wektu Awan Taiwan"}
+            lg{"Wektu Taiwan"}
+            ls{"Wektu Standar Taiwan"}
         }
         "meta:Tajikistan"{
             ls{"Wektu Tajikistan"}
@@ -601,10 +594,9 @@ jv{
             lg{"Wektu Yekaterinburg"}
             ls{"Wektu Standar Yekaterinburg"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"Wektu Yukon"}
+        }
         regionFormat{"Wektu {0}"}
         regionFormatDaylight{"Wektu Ketigo {0}"}
         regionFormatStandard{"Wektu Standar {0}"}

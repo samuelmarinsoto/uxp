@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 mt{
-    Version{"2.1.43.94"}
     zoneStrings{
         "meta:Europe_Central"{
             ld{"Ħin Ċentrali Ewropew tas-Sajf"}
@@ -22,14 +22,10 @@ mt{
             ss{"WET"}
         }
         "meta:GMT"{
+            ls{"Greenwich Mean Time"}
             ss{"GMT"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
         regionFormat{"Ħin ta’ {0}"}
-        regionFormatDaylight{"{0} (+1)"}
         regionFormatStandard{"{0} Ħin Standard"}
     }
 }

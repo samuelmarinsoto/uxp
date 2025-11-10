@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 dz{
-    Version{"2.1.41.34"}
     zoneStrings{
         "Europe:Dublin"{
             ld{"ཨཱ་ཡརིཤ་བྱཱར་དུས་ཆུ་ཚོད"}
@@ -22,9 +22,7 @@ dz{
             ls{"ལྷོ་ཕྱོགས་ཨཕ་རི་ཀཱ་ཆུ་ཚོད"}
         }
         "meta:Africa_Western"{
-            ld{"ནུབ་ཕྱོགས་ཨཕ་རི་ཀཱ་བྱཱར་དུས་ཆུ་ཚོད"}
-            lg{"ནུབ་ཕྱོགས་ཨཕ་རི་ཀཱ་ཆུ་ཚོད"}
-            ls{"ནུབ་ཕྱོགས་ཨཕ་རི་ཀཱ་ཚད་ལྡན་ཆུ་ཚོད"}
+            ls{"ནུབ་ཕྱོགས་ཨཕ་རི་ཀཱ་ཆུ་ཚོད"}
         }
         "meta:Alaska"{
             ld{"ཨ་ལསི་ཀ་ཉིན་སྲུང་ཆུ་ཚོད"}
@@ -213,6 +211,9 @@ dz{
         "meta:Guyana"{
             ls{"གུ་ཡ་ན་ཆུ་ཚོད"}
         }
+        "meta:Hawaii"{
+            ls{"ཧ་ཝའི་-ཨེ་ལིའུ་ཤེན་ཚད་ལྡན་ཆུ་ཚོད"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"ཧ་ཝའི་-ཨེ་ལིའུ་ཤེན་ཉིན་སྲུང་ཆུ་ཚོད"}
             lg{"ཧ་ཝའི་-ཨེ་ལིའུ་ཤེན་ཆུ་ཚོད"}
@@ -377,7 +378,6 @@ dz{
         fallbackFormat{"{1}། ({0}་)"}
         gmtFormat{"ཇི་ཨེམ་ཏི་{0}"}
         gmtZeroFormat{"ཇི་ཨེམ་ཊི་"}
-        hourFormat{"+HH:mm;-HH:mm"}
         regionFormat{"{0}་ཆུ་ཚོད།"}
     }
 }

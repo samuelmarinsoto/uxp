@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 es{
-    Version{"2.1.44.88"}
     zoneStrings{
         "Etc:UTC"{
             ls{"tiempo universal coordinado"}
@@ -30,9 +30,7 @@ es{
             ls{"hora de Sudáfrica"}
         }
         "meta:Africa_Western"{
-            ld{"hora de verano de África occidental"}
-            lg{"hora de África occidental"}
-            ls{"hora estándar de África occidental"}
+            ls{"hora de África occidental"}
         }
         "meta:Alaska"{
             ld{"hora de verano de Alaska"}
@@ -181,11 +179,6 @@ es{
             lg{"hora de China"}
             ls{"hora estándar de China"}
         }
-        "meta:Choibalsan"{
-            ld{"hora de verano de Choibalsan"}
-            lg{"hora de Choibalsan"}
-            ls{"hora estándar de Choibalsan"}
-        }
         "meta:Christmas"{
             ls{"hora de la Isla de Navidad"}
         }
@@ -265,7 +258,7 @@ es{
             ls{"hora de la Guayana Francesa"}
         }
         "meta:French_Southern"{
-            ls{"hora de las Tierras Australes y Antárticas Francesas"}
+            ls{"hora de Antártida y Territorios Australes Franceses"}
         }
         "meta:GMT"{
             ls{"hora del meridiano de Greenwich"}
@@ -303,6 +296,9 @@ es{
         }
         "meta:Guyana"{
             ls{"hora de Guyana"}
+        }
+        "meta:Hawaii"{
+            ls{"hora estándar de Hawái-Aleutianas"}
         }
         "meta:Hawaii_Aleutian"{
             ld{"hora de verano de Hawái-Aleutianas"}
@@ -362,6 +358,9 @@ es{
             lg{"hora de Kamchatka"}
             ls{"hora estándar de Kamchatka"}
         }
+        "meta:Kazakhstan"{
+            ls{"hora de Kazajistán"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"hora de Kazajistán oriental"}
         }
@@ -400,9 +399,6 @@ es{
             lg{"Hora de Macao"}
             ls{"Hora estándar de Macao"}
         }
-        "meta:Macquarie"{
-            ls{"hora de la isla Macquarie"}
-        }
         "meta:Magadan"{
             ld{"hora de verano de Magadán"}
             lg{"hora de Magadán"}
@@ -428,11 +424,6 @@ es{
         "meta:Mawson"{
             ls{"hora de Mawson"}
         }
-        "meta:Mexico_Northwest"{
-            ld{"hora de verano del noroeste de México"}
-            lg{"hora del noroeste de México"}
-            ls{"hora estándar del noroeste de México"}
-        }
         "meta:Mexico_Pacific"{
             ld{"hora de verano del Pacífico de México"}
             lg{"hora del Pacífico de México"}
@@ -449,7 +440,7 @@ es{
             ls{"hora estándar de Moscú"}
         }
         "meta:Myanmar"{
-            ls{"hora de Myanmar (Birmania)"}
+            ls{"hora de Myanmar"}
         }
         "meta:Nauru"{
             ls{"hora de Nauru"}
@@ -476,7 +467,9 @@ es{
             ls{"hora de Niue"}
         }
         "meta:Norfolk"{
-            ls{"hora de la isla Norfolk"}
+            ld{"hora de verano de la isla Norfolk"}
+            lg{"hora de la isla Norfolk"}
+            ls{"hora estándar de la isla Norfolk"}
         }
         "meta:Noronha"{
             ld{"hora de verano de Fernando de Noronha"}
@@ -605,6 +598,11 @@ es{
         "meta:Truk"{
             ls{"hora de Chuuk"}
         }
+        "meta:Turkey"{
+            ld{"Hora de verano de Turquía"}
+            lg{"Hora de Turquía"}
+            ls{"Hora estándar de Turquía"}
+        }
         "meta:Turkmenistan"{
             ld{"hora de verano de Turkmenistán"}
             lg{"hora de Turkmenistán"}
@@ -660,10 +658,9 @@ es{
             lg{"hora de Ekaterimburgo"}
             ls{"hora estándar de Ekaterimburgo"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"hora de Yukón"}
+        }
         regionFormat{"hora de {0}"}
         regionFormatDaylight{"horario de verano de {0}"}
         regionFormatStandard{"horario estándar de {0}"}

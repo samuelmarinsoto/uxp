@@ -1,7 +1,7 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 am{
-    Version{"2.1.43.65"}
     zoneStrings{
         "Etc:UTC"{
             ls{"የተቀነባበረ ሁለገብ ሰዓት"}
@@ -25,9 +25,7 @@ am{
             ls{"የደቡብ አፍሪካ መደበኛ ሰዓት"}
         }
         "meta:Africa_Western"{
-            ld{"የምዕራብ አፍሪካ ክረምት ሰዓት"}
-            lg{"የምዕራብ አፍሪካ ሰዓት"}
-            ls{"የምዕራብ አፍሪካ መደበኛ ሰዓት"}
+            ls{"የምዕራብ አፍሪካ ሰዓት"}
         }
         "meta:Alaska"{
             ld{"የአላስካ የቀን ሰዓት አቆጣጠር"}
@@ -80,7 +78,7 @@ am{
             ls{"የአርጀንቲና መደበኛ ሰዓት አቆጣጠር"}
         }
         "meta:Argentina_Western"{
-            ld{"የአርጀንቲና ምስራቃዊ በጋ ሰዓት አቆጣጠር"}
+            ld{"የምዕራባዊ አርጀንቲና የበጋ ሰዓት አቆጣጠር"}
             lg{"የአርጀንቲና ምስራቃዊ ሰዓት አቆጣጠር"}
             ls{"የምዕራባዊ አርጀንቲና መደበኛ ሰዓት አቆጣጠር"}
         }
@@ -165,11 +163,6 @@ am{
             ld{"የቻይና የቀን ብርሃን ሰዓት"}
             lg{"የቻይና ሰዓት"}
             ls{"የቻይና መደበኛ ሰዓት"}
-        }
-        "meta:Choibalsan"{
-            ld{"የቾይባልሳን የበጋ የሰዓት አቆጣጠር"}
-            lg{"የቾይባልሳ ሰዓት አቆጣጠር"}
-            ls{"የቾይባልሳን መደበኛ የሰዓት አቆጣጠር"}
         }
         "meta:Christmas"{
             ls{"የገና ደሴት ሰዓት"}
@@ -276,6 +269,9 @@ am{
         "meta:Guyana"{
             ls{"የጉያና ሰዓት"}
         }
+        "meta:Hawaii"{
+            ls{"የሃዋይ አሌኡት መደበኛ ሰዓት አቆጣጠር"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"የሃዋይ አሌኡት የቀን ሰዓት አቆጣጠር"}
             lg{"የሃዋይ አሌኡት ሰዓት አቆጣጠር"}
@@ -334,6 +330,9 @@ am{
             lg{"የካምቻትካ ሰዓት አቆጣጠር"}
             ls{"የፔትሮፓቭሎስኪ - ካምቻትስኪ ሰዓት አቆጣጠር"}
         }
+        "meta:Kazakhstan"{
+            ls{"ካዛኪስታን ሰዓት"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"የምስራቅ ካዛኪስታን ሰዓት"}
         }
@@ -364,9 +363,6 @@ am{
             lg{"የሎርድ ሆዌ የሰዓት አቆጣጠር"}
             ls{"የሎርድ ሆዌ መደበኛ የሰዓት አቆጣጠር"}
         }
-        "meta:Macquarie"{
-            ls{"የማከሪ ደሴት ሰዓት"}
-        }
         "meta:Magadan"{
             ld{"የማጋዳን በጋ ሰዓት አቆጣጠር"}
             lg{"የማጋዳን የሰዓት አቆጣጠር"}
@@ -391,11 +387,6 @@ am{
         }
         "meta:Mawson"{
             ls{"የማውሰን ሰዓት"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"ሰሜናዊ ምእራብ የሜክሲኮ የቀን ሰዓት አቆጣጠር"}
-            lg{"ሰሜናዊ ምእራብ የሜክሲኮ ሰዓት አቆጣጠር"}
-            ls{"ሰሜናዊ ምእራብ የሜክሲኮ መደበኛ ሰዓት አቆጣጠር"}
         }
         "meta:Mexico_Pacific"{
             ld{"የሜክሲኮ ፓሲፊክ የቀን ሰዓት አቆጣጠር"}
@@ -440,7 +431,9 @@ am{
             ls{"የኒዩዌ ሰዓት"}
         }
         "meta:Norfolk"{
-            ls{"የኖርፎልክ ደሴቶች ሰዓት"}
+            ld{"የኖርፎልክ ደሴቶች የቀን የሰዓት አቆጣጠር"}
+            lg{"የኖርፎልክ ደሴቶች ሰዓት"}
+            ls{"የኖርፎልክ ደሴቶች መደበኛ የሰዓት አቆጣጠር"}
         }
         "meta:Noronha"{
             ld{"የፈርናንዶ ዲ ኖሮንሃ የበጋ የሰዓት አቆጣጠር"}
@@ -616,11 +609,14 @@ am{
             lg{"የየካተሪንበርግ ሰዓት አቆጣጠር"}
             ls{"የየካተሪንበርግ መደበኛ ሰዓት አቆጣጠር"}
         }
-        fallbackFormat{"{1} ({0})"}
+        "meta:Yukon"{
+            ls{"የዩኮን ጊዜ"}
+        }
         gmtFormat{"ጂ ኤም ቲ{0}"}
+        gmtUnknownFormat{"ጂ ኤም ቲ+"}
         gmtZeroFormat{"ጂ ኤም ቲ"}
         hourFormat{"+HHmm;-HHmm"}
-        regionFormat{"{0} ጊዜ"}
+        regionFormat{"{0} ሰዓት"}
         regionFormatDaylight{"{0} የቀን ብርሃን ሰዓት"}
         regionFormatStandard{"{0} መደበኛ ሰዓት"}
     }

@@ -1,8 +1,11 @@
 ﻿// © 2016 and later: Unicode, Inc. and others.
-// License & terms of use: http://www.unicode.org/copyright.html#License
+// License & terms of use: http://www.unicode.org/copyright.html
+// Generated using tools/cldr/cldr-to-icu/
 hsb{
-    Version{"2.1.41.34"}
     zoneStrings{
+        "Etc:UTC"{
+            ls{"koordinowany swětowy čas"}
+        }
         "Europe:Dublin"{
             ld{"Irski lětni čas"}
         }
@@ -22,9 +25,7 @@ hsb{
             ls{"južnoafriski čas"}
         }
         "meta:Africa_Western"{
-            ld{"zapadoafriski lětni čas"}
-            lg{"zapadoafriski čas"}
-            ls{"zapadoafriski standardny čas"}
+            ls{"zapadoafriski čas"}
         }
         "meta:Alaska"{
             ld{"alaskaski lětni čas"}
@@ -158,11 +159,6 @@ hsb{
             lg{"chinski čas"}
             ls{"chinski standardny čas"}
         }
-        "meta:Choibalsan"{
-            ld{"Čojbalsanski lětni čas"}
-            lg{"Čojbalsanski čas"}
-            ls{"Čojbalsanski standardny čas"}
-        }
         "meta:Christmas"{
             ls{"čas Hodowneje kupy"}
         }
@@ -277,6 +273,9 @@ hsb{
         "meta:Guyana"{
             ls{"guyanski čas"}
         }
+        "meta:Hawaii"{
+            ls{"hawaiisko-aleutski standardny čas"}
+        }
         "meta:Hawaii_Aleutian"{
             ld{"hawaiisko-aleutski lětni čas"}
             lg{"hawaiisko-aleutski čas"}
@@ -330,6 +329,9 @@ hsb{
             lg{"japanski čas"}
             ls{"japanski standardny čas"}
         }
+        "meta:Kazakhstan"{
+            ls{"kazachski čas"}
+        }
         "meta:Kazakhstan_Eastern"{
             ls{"wuchodnokazachski čas"}
         }
@@ -360,9 +362,6 @@ hsb{
             lg{"čas kupy Lord-Howe"}
             ls{"standardny čas kupy Lord-Howe"}
         }
-        "meta:Macquarie"{
-            ls{"čas kupy Macquarie"}
-        }
         "meta:Magadan"{
             ld{"Magadanski lětni čas"}
             lg{"Magadanski čas"}
@@ -387,11 +386,6 @@ hsb{
         }
         "meta:Mawson"{
             ls{"Mawsonski čas"}
-        }
-        "meta:Mexico_Northwest"{
-            ld{"mexiski sewjerozapadny lětni čas"}
-            lg{"mexiski sewjerozapadny čas"}
-            ls{"mexiski sewjerozapadny standardny čas"}
         }
         "meta:Mexico_Pacific"{
             ld{"mexiski pacifiski lětni čas"}
@@ -436,7 +430,9 @@ hsb{
             ls{"niueski čas"}
         }
         "meta:Norfolk"{
-            ls{"čas kupy Norfolk"}
+            ld{"lětni čas kupy Norfolk"}
+            lg{"čas kupy Norfolk"}
+            ls{"standardny čas kupy Norfolk"}
         }
         "meta:Noronha"{
             ld{"lětni čas kupow Fernando de Noronha"}
@@ -492,6 +488,9 @@ hsb{
         }
         "meta:Ponape"{
             ls{"ponapeski čas"}
+        }
+        "meta:Pyongyang"{
+            ls{"Pjöngjangski čas"}
         }
         "meta:Reunion"{
             ls{"reunionski čas"}
@@ -604,10 +603,9 @@ hsb{
             lg{"Jekaterinburgski čas"}
             ls{"Jekaterinburgski standardny čas"}
         }
-        fallbackFormat{"{1} ({0})"}
-        gmtFormat{"GMT{0}"}
-        gmtZeroFormat{"GMT"}
-        hourFormat{"+HH:mm;-HH:mm"}
+        "meta:Yukon"{
+            ls{"Yukonowy čas"}
+        }
         regionFormat{"časowe pasmo {0}"}
         regionFormatDaylight{"{0} lětni čas"}
         regionFormatStandard{"{0} zymski čas"}
