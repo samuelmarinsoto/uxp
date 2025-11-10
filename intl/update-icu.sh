@@ -45,9 +45,9 @@ git -C ${tmpclonedir} log -1 > ${icu_dir}/GIT-INFO
 rm -rf ${tmpclonedir}
 
 # remove layoutex, tests, and samples, but leave makefiles in place
-find ${icu_dir}/source/layoutex -name '*Makefile.in' -prune -or -type f -print | xargs rm
-find ${icu_dir}/source/test -name '*Makefile.in' -prune -or -type f -print | xargs rm
-find ${icu_dir}/source/samples -name '*Makefile.in' -prune -or -type f -print | xargs rm
+find ${icu_dir}/source/layoutex \( -name '*Makefile.in' -o -name '*sources.txt' -o -name '*BUILDRULES.py' \) -prune -or -type f -print | xargs rm
+find ${icu_dir}/source/test \( -name '*Makefile.in' -o -name '*sources.txt' -o -name '*BUILDRULES.py' \) -prune -or -type f -print | xargs rm
+find ${icu_dir}/source/samples \( -name '*Makefile.in' -o -name '*sources.txt' -o -name '*BUILDRULES.py' \) -prune -or -type f -print | xargs rm
 
 # remove data that we currently don't need
 rm -rf ${icu_dir}/source/data/brkitr/*
