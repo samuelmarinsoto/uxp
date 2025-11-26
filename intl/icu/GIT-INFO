@@ -1,8 +1,5 @@
-commit 049e0d6a420629ac7db77256987d083a563287b5
+commit b33869b304cff387d544eaa5e820b93a39e737bf
 Author: Fredrik Roubert <roubert@google.com>
-Date:   Wed Oct 29 16:30:26 2025 +0100
+Date:   Fri Nov 7 11:53:21 2025 -0800
 
-    ICU-23243 Bugfix: Don't call std::string_view::front() when empty.
-    
-    Doing this just happens to work in most builds (which is why this bug
-    hasn't been found until now), but it's actually undefined behavior.
+    ICU-23261 Bugfix: Correctly propagate errors to the caller.
