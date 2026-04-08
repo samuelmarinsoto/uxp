@@ -122,54 +122,6 @@ gfxImageSurface::gfxImageSurface(const IntSize& size, gfxImageFormat format, boo
     AllocateAndInit(0, 0, aClear);
 }
 
-// SSE2-optimized memset for large aligned buffers
-#ifdef MOZILLA_MAY_SUPPORT_SSE2
-static inline void
-MemsetSSE2(unsigned char* aData, int aValue, size_t aSize)
-{
-    if (aSize < 128 || !mozilla::supports_sse2()) {
-        memset(aData, aValue, aSize);
-        return;
-    }
-
-    unsigned char* ptr = aData;
-    
-    // Align to 16-byte boundary
-    size_t alignedStart = 16 - (NS_PTR_TO_UINT32(ptr) & 0xf);
-    if (alignedStart < 16) {
-        memset(ptr, aValue, alignedStart);
-        ptr += alignedStart;
-        aSize -= alignedStart;
-    }
-
-    // Fill with SSE2 (16 bytes at a time)
-    if (aValue == 0) {
-        __m128i zero = _mm_setzero_si128();
-        size_t sse2Bytes = (aSize / 16) * 16;
-        for (size_t i = 0; i < sse2Bytes; i += 16) {
-            _mm_stream_si128((__m128i*)(ptr + i), zero);
-        }
-        ptr += sse2Bytes;
-        aSize -= sse2Bytes;
-    } else {
-        // For non-zero values, replicate to fill 16 bytes
-        uint32_t pattern = aValue | (aValue << 8) | (aValue << 16) | (aValue << 24);
-        __m128i fillValue = _mm_set_epi32(pattern, pattern, pattern, pattern);
-        size_t sse2Bytes = (aSize / 16) * 16;
-        for (size_t i = 0; i < sse2Bytes; i += 16) {
-            _mm_stream_si128((__m128i*)(ptr + i), fillValue);
-        }
-        ptr += sse2Bytes;
-        aSize -= sse2Bytes;
-    }
-
-    // Handle remaining bytes
-    if (aSize > 0) {
-        memset(ptr, aValue, aSize);
-    }
-}
-#endif // MOZILLA_MAY_SUPPORT_SSE2
-
 void 
 gfxImageSurface::AllocateAndInit(long aStride, int32_t aMinimalAllocation,
                                  bool aClear)
@@ -194,14 +146,8 @@ gfxImageSurface::AllocateAndInit(long aStride, int32_t aMinimalAllocation,
         mData = (unsigned char *) TryAllocAlignedBytes(aMinimalAllocation);
         if (!mData)
             return;
-       if (aClear) {
-        #ifdef MOZILLA_MAY_SUPPORT_SSE2
-            MemsetSSE2(mData, 0, aMinimalAllocation);
-        #else
+       if (aClear)
             memset(mData, 0, aMinimalAllocation);
-        #endif
-        }
-
     }
 
     mOwnsData = true;
