@@ -61,12 +61,15 @@ typedef enum _KWAIT_REASON {
     MaximumWaitReason = 37
 } KWAIT_REASON, *PKWAIT_REASON;
 
-typedef struct _CLIENT_ID {
+typedef struct _CLIENT_ID2 {
     HANDLE UniqueProcess;
     HANDLE UniqueThread;
-} CLIENT_ID, *PCLIENT_ID;
+} CLIENT_ID2, *PCLIENT_ID2;
 
-typedef struct _SYSTEM_THREAD_INFORMATION {
+#define CLIENT_ID CLIENT_ID2
+#define PCLIENT_ID PCLIENT_ID2
+
+typedef struct _SYSTEM_THREAD_INFORMATION2 {
     LARGE_INTEGER KernelTime;
     LARGE_INTEGER UserTime;
     LARGE_INTEGER CreateTime;
@@ -78,7 +81,10 @@ typedef struct _SYSTEM_THREAD_INFORMATION {
     ULONG ContextSwitches;
     ULONG ThreadState;
     KWAIT_REASON WaitReason;
-} SYSTEM_THREAD_INFORMATION, *PSYSTEM_THREAD_INFORMATION;
+} SYSTEM_THREAD_INFORMATION2, *PSYSTEM_THREAD_INFORMATION2;
+
+#define SYSTEM_THREAD_INFORMATION SYSTEM_THREAD_INFORMATION2
+#define PSYSTEM_THREAD_INFORMATION PSYSTEM_THREAD_INFORMATION2
 
 typedef struct _TEB *PTEB;
 
@@ -186,7 +192,7 @@ typedef enum _PROCESSINFOCLASS2 {
     ProcessTimes,
     ProcessBasePriority,
     ProcessRaisePriority,
-    ProcessDebugPort,
+    _ProcessDebugPort,
     ProcessExceptionPort,
     ProcessAccessToken,
     ProcessLdtInformation,
@@ -207,9 +213,9 @@ typedef enum _PROCESSINFOCLASS2 {
     ProcessForegroundInformation,
     _ProcessWow64Information,
     /* added after XP+ */
-    ProcessImageFileName,
+    _ProcessImageFileName,
     ProcessLUIDDeviceMapsEnabled,
-    ProcessBreakOnTermination,
+    _ProcessBreakOnTermination,
     ProcessDebugObjectHandle,
     ProcessDebugFlags,
     ProcessHandleTracing,
@@ -224,5 +230,8 @@ typedef enum _PROCESSINFOCLASS2 {
 #define PROCESSINFOCLASS PROCESSINFOCLASS2
 #define ProcessBasicInformation _ProcessBasicInformation
 #define ProcessWow64Information _ProcessWow64Information
+#define ProcessDebugPort _ProcessDebugPort
+#define ProcessImageFileName _ProcessImageFileName
+#define ProcessBreakOnTermination _ProcessBreakOnTermination
 
 #endif // __NTEXTAPI_H__
