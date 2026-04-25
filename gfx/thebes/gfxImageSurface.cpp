@@ -235,9 +235,6 @@ gfxImageSurface::SizeOfIsMeasured() const
 static void
 CopyForStride(unsigned char* aDest, unsigned char* aSrc, const IntSize& aSize, long aDestStride, long aSrcStride)
 {
-#ifdef MOZILLA_MAY_SUPPORT_SSE2
-CopyForStrideSSE2(aDest, aSrc, aSize, aDestStride, aSrcStride);
-#else
     if (aDestStride == aSrcStride) {
         memcpy (aDest, aSrc, aSrcStride * aSize.height);
     } else {
