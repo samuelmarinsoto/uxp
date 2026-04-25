@@ -261,6 +261,22 @@ public:
   }
 
 private:
+  template<typename Func>
+  void
+  MutateURI(Func aFunc)
+  {
+    nsCOMPtr<nsIURI> uri;
+    if (NS_FAILED(mURI->Clone(getter_AddRefs(uri))) || !uri) {
+      return;
+    }
+
+    if (NS_FAILED(aFunc(uri.get()))) {
+      return;
+    }
+
+    mURI = uri;
+  }
+
   ~URLMainThread()
   {
     MOZ_ASSERT(NS_IsMainThread());
@@ -444,26 +460,22 @@ URLMainThread::SetProtocol(const nsAString& aProtocol, ErrorResult& aRv)
   // Changing the protocol of a URL, changes the "nature" of the URI
   // implementation. In order to do this properly, we have to serialize the
   // existing URL and reparse it in a new object.
-  nsCOMPtr<nsIURI> clone;
-  nsresult rv = mURI->Clone(getter_AddRefs(clone));
-  if (NS_WARN_IF(NS_FAILED(rv)) || !clone) {
-    return;
-  }
-
-  rv = clone->SetScheme(NS_ConvertUTF16toUTF8(Substring(start, iter)));
-  if (NS_WARN_IF(NS_FAILED(rv))) {
-    return;
-  }
-
   nsAutoCString href;
-  rv = clone->GetSpec(href);
-  if (NS_WARN_IF(NS_FAILED(rv))) {
+  nsresult rv = mURI->GetSpec(href);
+  if (NS_FAILED(rv)) {
     return;
   }
+
+  int32_t colon = href.FindChar(':');
+  if (colon < 0) {
+    return;
+  }
+
+  href.Replace(0, colon, NS_ConvertUTF16toUTF8(Substring(start, iter)));
 
   nsCOMPtr<nsIURI> uri;
   rv = NS_NewURI(getter_AddRefs(uri), href);
-  if (NS_WARN_IF(NS_FAILED(rv))) {
+  if (NS_FAILED(rv)) {
     return;
   }
 
@@ -487,7 +499,10 @@ URLMainThread::GetUsername(nsAString& aUsername, ErrorResult& aRv) const
 void
 URLMainThread::SetUsername(const nsAString& aUsername, ErrorResult& aRv)
 {
-  mURI->SetUsername(NS_ConvertUTF16toUTF8(aUsername));
+  NS_ConvertUTF16toUTF8 username(aUsername);
+  MutateURI([&username](nsIURI* aURI) {
+    return aURI->SetUsername(username);
+  });
 }
 
 void
@@ -499,7 +514,10 @@ URLMainThread::GetPassword(nsAString& aPassword, ErrorResult& aRv) const
 void
 URLMainThread::SetPassword(const nsAString& aPassword, ErrorResult& aRv)
 {
-  mURI->SetPassword(NS_ConvertUTF16toUTF8(aPassword));
+  NS_ConvertUTF16toUTF8 password(aPassword);
+  MutateURI([&password](nsIURI* aURI) {
+    return aURI->SetPassword(password);
+  });
 }
 
 void
@@ -511,7 +529,10 @@ URLMainThread::GetHost(nsAString& aHost, ErrorResult& aRv) const
 void
 URLMainThread::SetHost(const nsAString& aHost, ErrorResult& aRv)
 {
-  mURI->SetHostPort(NS_ConvertUTF16toUTF8(aHost));
+  NS_ConvertUTF16toUTF8 host(aHost);
+  MutateURI([&host](nsIURI* aURI) {
+    return aURI->SetHostPort(host);
+  });
 }
 
 void
@@ -545,7 +566,10 @@ URLMainThread::SetHostname(const nsAString& aHostname, ErrorResult& aRv)
 {
   // nsStandardURL returns NS_ERROR_UNEXPECTED for an empty hostname
   // The return code is silently ignored
-  mURI->SetHost(NS_ConvertUTF16toUTF8(aHostname));
+  NS_ConvertUTF16toUTF8 hostname(aHostname);
+  MutateURI([&hostname](nsIURI* aURI) {
+    return aURI->SetHost(hostname);
+  });
 }
 
 void
@@ -577,7 +601,9 @@ URLMainThread::SetPort(const nsAString& aPort, ErrorResult& aRv)
     }
   }
 
-  mURI->SetPort(port);
+  MutateURI([port](nsIURI* aURI) {
+    return aURI->SetPort(port);
+  });
 }
 
 void
@@ -600,7 +626,10 @@ URLMainThread::SetPathname(const nsAString& aPathname, ErrorResult& aRv)
 {
   // Do not throw!
 
-  mURI->SetFilePath(NS_ConvertUTF16toUTF8(aPathname));
+  NS_ConvertUTF16toUTF8 pathname(aPathname);
+  MutateURI([&pathname](nsIURI* aURI) {
+    return aURI->SetFilePath(pathname);
+  });
 }
 
 void
@@ -639,7 +668,10 @@ URLMainThread::GetHash(nsAString& aHash, ErrorResult& aRv) const
 void
 URLMainThread::SetHash(const nsAString& aHash, ErrorResult& aRv)
 {
-  mURI->SetRef(NS_ConvertUTF16toUTF8(aHash));
+  NS_ConvertUTF16toUTF8 hash(aHash);
+  MutateURI([&hash](nsIURI* aURI) {
+    return aURI->SetRef(hash);
+  });
 }
 
 void
@@ -647,7 +679,10 @@ URLMainThread::SetSearchInternal(const nsAString& aSearch, ErrorResult& aRv)
 {
   // Ignore failures to be compatible with NS4.
 
-  mURI->SetQuery(NS_ConvertUTF16toUTF8(aSearch));
+  NS_ConvertUTF16toUTF8 search(aSearch);
+  MutateURI([&search](nsIURI* aURI) {
+    return aURI->SetQuery(search);
+  });
 }
 
 } // anonymous namespace
