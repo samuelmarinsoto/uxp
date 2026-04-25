@@ -3710,7 +3710,7 @@ class CGWrapWithCacheMethod(CGAbstractMethod):
         failureCode = dedent(
             """
             aCache->ReleaseWrapper(aObject);
-            aCache->ClearWrapper();
+            aCache->ClearWrapperOnWrapFailure();
             return false;
             """)
 
@@ -4679,7 +4679,7 @@ def getJSToNativeConversionInfo(type, descriptorProvider, failureCode=None,
                                         declArgs=declArgs)
 
     def incrementNestingLevel():
-        if nestingLevel is "":
+        if nestingLevel == "":
             return 1
         return nestingLevel + 1
 
