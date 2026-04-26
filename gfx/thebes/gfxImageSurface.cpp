@@ -136,10 +136,7 @@ gfxImageSurface::AllocateAndInit(long aStride, int32_t aMinimalAllocation,
         mData = (unsigned char *) TryAllocAlignedBytes(aMinimalAllocation);
         if (!mData)
             return;
-       if (aClear)
             memset(mData, 0, aMinimalAllocation);
-        #endif
-        }
 
     }
 
