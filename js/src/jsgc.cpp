@@ -4768,8 +4768,10 @@ GCRuntime::beginSweepPhase(bool destroyingRuntime, AutoLockForExclusiveAccess& l
 
     gcstats::AutoPhase ap(stats, gcstats::PHASE_SWEEP);
 
+    // GC tracing only records events; it should not force sweeping back onto
+    // the foreground when helper threads are available.
     sweepOnBackgroundThread =
-        !destroyingRuntime && !TraceEnabled() && CanUseExtraThreads();
+        !destroyingRuntime && CanUseExtraThreads();
 
     releaseObservedTypes = shouldReleaseObservedTypes();
 
