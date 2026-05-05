@@ -675,6 +675,10 @@ img[usemap], object[usemap] {
   color: blue;
 }
 
+img.absolute {
+  position: absolute;
+}
+
 frameset {
   display: block ! important;
   overflow: clip;
