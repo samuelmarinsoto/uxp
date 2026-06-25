@@ -10,6 +10,7 @@
 #include "jscntxt.h"
 
 #include "gc/Heap.h"
+#include "vm/GlobalObject.h"
 #include "vm/SelfHosting.h"
 
 #include "jsobjinlines.h"
@@ -438,6 +439,12 @@ RejectNonGenericMethod(JSContext* cx, const CallArgs& args,
     return ReturnPromiseRejectedWithPendingError(cx, args);
 }
 
+static bool
+ReadableStreamAsyncIterator_next(JSContext* cx, unsigned argc, Value* vp);
+
+static bool
+ReadableStreamAsyncIterator_return(JSContext* cx, unsigned argc, Value* vp);
+
 [[nodiscard]] inline static NativeObject*
 SetNewList(JSContext* cx, HandleNativeObject container, uint32_t slot)
 {
@@ -809,6 +816,151 @@ const Class TeeState::class_ = {
     "TeeState",
     JSCLASS_HAS_RESERVED_SLOTS(SlotCount)
 };
+
+class ReadableStreamAsyncIterator : public NativeObject
+{
+  private:
+    enum Slots {
+        Slot_Reader = 0,
+        Slot_PreventCancel,
+        Slot_Done,
+        Slot_OngoingPromise,
+        SlotCount
+    };
+
+  public:
+    static const Class class_;
+
+    bool hasReader() const { return !getFixedSlot(Slot_Reader).isUndefined(); }
+    ReadableStreamDefaultReader* reader() {
+        return &getFixedSlot(Slot_Reader).toObject().as<ReadableStreamDefaultReader>();
+    }
+    void clearReader() { setFixedSlot(Slot_Reader, UndefinedValue()); }
+
+    bool preventCancel() const { return getFixedSlot(Slot_PreventCancel).toBoolean(); }
+    bool done() const { return getFixedSlot(Slot_Done).toBoolean(); }
+    void setDone() { setFixedSlot(Slot_Done, BooleanValue(true)); }
+
+    PromiseObject* ongoingPromise() {
+        return &getFixedSlot(Slot_OngoingPromise).toObject().as<PromiseObject>();
+    }
+    bool hasPendingOperation() {
+        if (getFixedSlot(Slot_OngoingPromise).isUndefined())
+            return false;
+
+        PromiseObject* promise = ongoingPromise();
+        if (promise->state() == JS::PromiseState::Pending)
+            return true;
+
+        setFixedSlot(Slot_OngoingPromise, UndefinedValue());
+        return false;
+    }
+    void setOngoingPromise(HandleObject promise) {
+        MOZ_ASSERT(promise->is<PromiseObject>());
+        setFixedSlot(Slot_OngoingPromise, ObjectValue(*promise));
+    }
+
+    static ReadableStreamAsyncIterator*
+    create(JSContext* cx, Handle<ReadableStreamDefaultReader*> reader, bool preventCancel)
+    {
+        RootedObject proto(cx);
+        proto = GlobalObject::getOrCreateReadableStreamAsyncIteratorPrototype(cx, cx->global());
+        if (!proto)
+            return nullptr;
+
+        RootedObject obj(cx, NewNativeObjectWithGivenProto(cx, &class_, proto));
+        if (!obj)
+            return nullptr;
+
+        Handle<ReadableStreamAsyncIterator*> iterator = obj.as<ReadableStreamAsyncIterator>();
+        iterator->setFixedSlot(Slot_Reader, ObjectValue(*reader));
+        iterator->setFixedSlot(Slot_PreventCancel, BooleanValue(preventCancel));
+        iterator->setFixedSlot(Slot_Done, BooleanValue(false));
+        iterator->setFixedSlot(Slot_OngoingPromise, UndefinedValue());
+        return iterator;
+    }
+};
+
+const Class ReadableStreamAsyncIterator::class_ = {
+    "ReadableStreamAsyncIterator",
+    JSCLASS_HAS_RESERVED_SLOTS(SlotCount)
+};
+
+class ReadableStreamAsyncIteratorRequest : public NativeObject
+{
+  public:
+    enum Kind {
+        Kind_Next,
+        Kind_Return
+    };
+
+  private:
+    enum Slots {
+        Slot_Iterator = 0,
+        Slot_Kind,
+        Slot_Value,
+        SlotCount
+    };
+
+  public:
+    static const Class class_;
+
+    ReadableStreamAsyncIterator* iterator() {
+        return &getFixedSlot(Slot_Iterator).toObject().as<ReadableStreamAsyncIterator>();
+    }
+    Kind kind() const { return static_cast<Kind>(getFixedSlot(Slot_Kind).toInt32()); }
+    Value value() const { return getFixedSlot(Slot_Value); }
+
+    static ReadableStreamAsyncIteratorRequest*
+    create(JSContext* cx, Handle<ReadableStreamAsyncIterator*> iterator, Kind kind,
+           HandleValue value)
+    {
+        Rooted<ReadableStreamAsyncIteratorRequest*> request(cx);
+        request = NewObjectWithClassProto<ReadableStreamAsyncIteratorRequest>(cx);
+        if (!request)
+            return nullptr;
+
+        request->setFixedSlot(Slot_Iterator, ObjectValue(*iterator));
+        request->setFixedSlot(Slot_Kind, Int32Value(kind));
+        request->setFixedSlot(Slot_Value, value);
+        return request;
+    }
+};
+
+const Class ReadableStreamAsyncIteratorRequest::class_ = {
+    "ReadableStreamAsyncIteratorRequest",
+    JSCLASS_HAS_RESERVED_SLOTS(SlotCount)
+};
+
+static const JSFunctionSpec ReadableStreamAsyncIterator_methods[] = {
+    JS_FN("next",   ReadableStreamAsyncIterator_next,   0, JSPROP_ENUMERATE),
+    JS_FN("return", ReadableStreamAsyncIterator_return, 1, JSPROP_ENUMERATE),
+    JS_FS_END
+};
+
+/* static */ NativeObject*
+GlobalObject::getOrCreateReadableStreamAsyncIteratorPrototype(JSContext* cx,
+                                                              Handle<GlobalObject*> global)
+{
+    Value protoVal = global->getReservedSlot(READABLE_STREAM_ASYNC_ITERATOR_PROTO);
+    if (protoVal.isObject())
+        return &protoVal.toObject().as<NativeObject>();
+
+    RootedObject asyncIteratorProto(cx, getOrCreateAsyncIteratorPrototype(cx, global));
+    if (!asyncIteratorProto)
+        return nullptr;
+
+    RootedNativeObject proto(cx);
+    proto = createBlankPrototypeInheriting(cx, global, &PlainObject::class_, asyncIteratorProto);
+    if (!proto)
+        return nullptr;
+
+    if (!DefinePropertiesAndFunctions(cx, proto, nullptr, ReadableStreamAsyncIterator_methods))
+        return nullptr;
+
+    global->setReservedSlot(READABLE_STREAM_ASYNC_ITERATOR_PROTO, ObjectValue(*proto));
+    return proto;
+}
 
 class PipeToState : public NativeObject
 {
@@ -1206,6 +1358,9 @@ CreateReadableStreamDefaultReader(JSContext* cx, Handle<ReadableStream*> stream)
 [[nodiscard]] static ReadableStreamBYOBReader*
 CreateReadableStreamBYOBReader(JSContext* cx, Handle<ReadableStream*> stream);
 
+[[nodiscard]] static JSObject*
+ReadableStreamReaderGenericCancel(JSContext* cx, HandleNativeObject reader, HandleValue reason);
+
 [[nodiscard]] static bool
 ReadableStreamReaderGenericRelease(JSContext* cx, HandleNativeObject reader);
 
@@ -1271,6 +1426,293 @@ ReadableStream_getReader(JSContext* cx, unsigned argc, Value* vp)
     // Step 1: If ! IsReadableStream(this) is false, throw a TypeError exception.
     CallArgs args = CallArgsFromVp(argc, vp);
     return CallNonGenericMethod<Is<ReadableStream>, ReadableStream_getReader_impl>(cx, args);
+}
+
+[[nodiscard]] static JSObject*
+ReadableStreamAsyncIteratorResultPromise(JSContext* cx, HandleValue value, bool done)
+{
+    RootedObject result(cx, CreateIterResultObject(cx, value, done));
+    if (!result)
+        return nullptr;
+
+    RootedValue resultVal(cx, ObjectValue(*result));
+    return PromiseObject::unforgeableResolve(cx, resultVal);
+}
+
+[[nodiscard]] static bool
+ReadableStreamAsyncIteratorReleaseReader(JSContext* cx,
+                                         Handle<ReadableStreamAsyncIterator*> iterator)
+{
+    if (!iterator->hasReader())
+        return true;
+
+    Rooted<ReadableStreamDefaultReader*> reader(cx, iterator->reader());
+    if (!ReadableStreamReaderGenericRelease(cx, reader))
+        return false;
+
+    iterator->clearReader();
+    return true;
+}
+
+static bool
+ReadableStreamAsyncIteratorReadFulfilledHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<ReadableStreamAsyncIterator*> iterator(cx);
+    iterator = TargetFromHandler<ReadableStreamAsyncIterator>(args.callee());
+
+    RootedValue resultVal(cx, args.get(0));
+    if (!resultVal.isObject()) {
+        JS_ReportErrorASCII(cx, "ReadableStream reader returned a non-object result");
+        return false;
+    }
+
+    RootedObject result(cx, &resultVal.toObject());
+    RootedValue doneVal(cx);
+    if (!GetProperty(cx, result, result, cx->names().done, &doneVal))
+        return false;
+
+    if (ToBoolean(doneVal)) {
+        iterator->setDone();
+        if (!ReadableStreamAsyncIteratorReleaseReader(cx, iterator))
+            return false;
+    }
+
+    args.rval().set(resultVal);
+    return true;
+}
+
+static bool
+ReadableStreamAsyncIteratorReadRejectedHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<ReadableStreamAsyncIterator*> iterator(cx);
+    iterator = TargetFromHandler<ReadableStreamAsyncIterator>(args.callee());
+
+    RootedValue error(cx, args.get(0));
+    iterator->setDone();
+    if (!ReadableStreamAsyncIteratorReleaseReader(cx, iterator))
+        return false;
+
+    JS_SetPendingException(cx, error);
+    return false;
+}
+
+[[nodiscard]] static JSObject*
+ReadableStreamAsyncIteratorPerformNext(JSContext* cx,
+                                       Handle<ReadableStreamAsyncIterator*> iterator)
+{
+    if (iterator->done() || !iterator->hasReader())
+        return ReadableStreamAsyncIteratorResultPromise(cx, UndefinedHandleValue, true);
+
+    Rooted<ReadableStreamDefaultReader*> reader(cx, iterator->reader());
+    RootedObject readPromise(cx, ReadableStreamDefaultReader::read(cx, reader));
+    if (!readPromise)
+        return nullptr;
+
+    RootedObject onFulfilled(cx);
+    onFulfilled = NewHandler(cx, ReadableStreamAsyncIteratorReadFulfilledHandler, iterator);
+    if (!onFulfilled)
+        return nullptr;
+
+    RootedObject onRejected(cx);
+    onRejected = NewHandler(cx, ReadableStreamAsyncIteratorReadRejectedHandler, iterator);
+    if (!onRejected)
+        return nullptr;
+
+    return JS::CallOriginalPromiseThen(cx, readPromise, onFulfilled, onRejected);
+}
+
+static bool
+ReadableStreamAsyncIteratorReturnFulfilledHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<ReadableStreamAsyncIteratorRequest*> request(cx);
+    request = TargetFromHandler<ReadableStreamAsyncIteratorRequest>(args.callee());
+
+    RootedValue value(cx, request->value());
+    RootedObject result(cx, CreateIterResultObject(cx, value, true));
+    if (!result)
+        return false;
+
+    args.rval().setObject(*result);
+    return true;
+}
+
+[[nodiscard]] static JSObject*
+ReadableStreamAsyncIteratorPerformReturn(JSContext* cx,
+                                         Handle<ReadableStreamAsyncIterator*> iterator,
+                                         HandleValue value)
+{
+    if (iterator->done() || !iterator->hasReader())
+        return ReadableStreamAsyncIteratorResultPromise(cx, value, true);
+
+    iterator->setDone();
+
+    Rooted<ReadableStreamDefaultReader*> reader(cx, iterator->reader());
+    RootedObject cancelPromise(cx);
+    if (!iterator->preventCancel()) {
+        cancelPromise = ReadableStreamReaderGenericCancel(cx, reader, value);
+        if (!cancelPromise)
+            return nullptr;
+    }
+
+    if (!ReadableStreamAsyncIteratorReleaseReader(cx, iterator))
+        return nullptr;
+
+    if (iterator->preventCancel())
+        return ReadableStreamAsyncIteratorResultPromise(cx, value, true);
+
+    Rooted<ReadableStreamAsyncIteratorRequest*> request(cx);
+    request = ReadableStreamAsyncIteratorRequest::create(cx, iterator,
+                                                         ReadableStreamAsyncIteratorRequest::Kind_Return,
+                                                         value);
+    if (!request)
+        return nullptr;
+
+    RootedObject onFulfilled(cx);
+    onFulfilled = NewHandler(cx, ReadableStreamAsyncIteratorReturnFulfilledHandler, request);
+    if (!onFulfilled)
+        return nullptr;
+
+    return JS::CallOriginalPromiseThen(cx, cancelPromise, onFulfilled, nullptr);
+}
+
+static bool
+ReadableStreamAsyncIteratorOperationHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<ReadableStreamAsyncIteratorRequest*> request(cx);
+    request = TargetFromHandler<ReadableStreamAsyncIteratorRequest>(args.callee());
+
+    Rooted<ReadableStreamAsyncIterator*> iterator(cx, request->iterator());
+    RootedValue value(cx, request->value());
+    RootedObject promise(cx);
+    if (request->kind() == ReadableStreamAsyncIteratorRequest::Kind_Next)
+        promise = ReadableStreamAsyncIteratorPerformNext(cx, iterator);
+    else
+        promise = ReadableStreamAsyncIteratorPerformReturn(cx, iterator, value);
+    if (!promise)
+        return false;
+
+    args.rval().setObject(*promise);
+    return true;
+}
+
+[[nodiscard]] static JSObject*
+ReadableStreamAsyncIteratorEnqueueOperation(JSContext* cx,
+                                            Handle<ReadableStreamAsyncIterator*> iterator,
+                                            ReadableStreamAsyncIteratorRequest::Kind kind,
+                                            HandleValue value)
+{
+    if (!iterator->hasPendingOperation()) {
+        RootedObject promise(cx);
+        if (kind == ReadableStreamAsyncIteratorRequest::Kind_Next)
+            promise = ReadableStreamAsyncIteratorPerformNext(cx, iterator);
+        else
+            promise = ReadableStreamAsyncIteratorPerformReturn(cx, iterator, value);
+        if (!promise)
+            return nullptr;
+
+        iterator->setOngoingPromise(promise);
+        return promise;
+    }
+
+    Rooted<ReadableStreamAsyncIteratorRequest*> request(cx);
+    request = ReadableStreamAsyncIteratorRequest::create(cx, iterator, kind, value);
+    if (!request)
+        return nullptr;
+
+    RootedObject onSettled(cx);
+    onSettled = NewHandler(cx, ReadableStreamAsyncIteratorOperationHandler, request);
+    if (!onSettled)
+        return nullptr;
+
+    RootedObject ongoingPromise(cx, iterator->ongoingPromise());
+    RootedObject promise(cx);
+    promise = JS::CallOriginalPromiseThen(cx, ongoingPromise, onSettled, onSettled);
+    if (!promise)
+        return nullptr;
+
+    iterator->setOngoingPromise(promise);
+    return promise;
+}
+
+static bool
+ReadableStreamAsyncIterator_next(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    if (!Is<ReadableStreamAsyncIterator>(args.thisv()))
+        return RejectNonGenericMethod(cx, args, "ReadableStreamAsyncIterator", "next");
+
+    Rooted<ReadableStreamAsyncIterator*> iterator(cx);
+    iterator = &args.thisv().toObject().as<ReadableStreamAsyncIterator>();
+    RootedObject promise(cx);
+    promise = ReadableStreamAsyncIteratorEnqueueOperation(cx, iterator,
+                                                          ReadableStreamAsyncIteratorRequest::Kind_Next,
+                                                          UndefinedHandleValue);
+    if (!promise)
+        return false;
+
+    args.rval().setObject(*promise);
+    return true;
+}
+
+static bool
+ReadableStreamAsyncIterator_return(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    if (!Is<ReadableStreamAsyncIterator>(args.thisv()))
+        return RejectNonGenericMethod(cx, args, "ReadableStreamAsyncIterator", "return");
+
+    Rooted<ReadableStreamAsyncIterator*> iterator(cx);
+    iterator = &args.thisv().toObject().as<ReadableStreamAsyncIterator>();
+    RootedValue value(cx, args.get(0));
+    RootedObject promise(cx);
+    promise = ReadableStreamAsyncIteratorEnqueueOperation(cx, iterator,
+                                                          ReadableStreamAsyncIteratorRequest::Kind_Return,
+                                                          value);
+    if (!promise)
+        return false;
+
+    args.rval().setObject(*promise);
+    return true;
+}
+
+// Streams spec, 4.2.5. Asynchronous iteration
+[[nodiscard]] static bool
+ReadableStream_values_impl(JSContext* cx, const CallArgs& args)
+{
+    Rooted<ReadableStream*> stream(cx, &args.thisv().toObject().as<ReadableStream>());
+
+    bool preventCancel = false;
+    HandleValue optionsVal = args.get(0);
+    if (!optionsVal.isUndefined()) {
+        RootedValue option(cx);
+        if (!GetProperty(cx, optionsVal, cx->names().preventCancel, &option))
+            return false;
+        preventCancel = ToBoolean(option);
+    }
+
+    Rooted<ReadableStreamDefaultReader*> reader(cx);
+    reader = CreateReadableStreamDefaultReader(cx, stream);
+    if (!reader)
+        return false;
+
+    Rooted<ReadableStreamAsyncIterator*> iterator(cx);
+    iterator = ReadableStreamAsyncIterator::create(cx, reader, preventCancel);
+    if (!iterator)
+        return false;
+
+    args.rval().setObject(*iterator);
+    return true;
+}
+
+static bool
+ReadableStream_values(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    return CallNonGenericMethod<Is<ReadableStream>, ReadableStream_values_impl>(cx, args);
 }
 
 // Streams spec, 3.2.4.4. pipeThrough({ writable, readable }, options)
@@ -1471,6 +1913,8 @@ static const JSFunctionSpec ReadableStream_methods[] = {
     JS_FN("pipeThrough",    ReadableStream_pipeThrough, 2, 0),
     JS_FN("pipeTo",         ReadableStream_pipeTo,      1, 0),
     JS_FN("tee",            ReadableStream_tee,         0, 0),
+    JS_FN("values",         ReadableStream_values,      0, 0),
+    JS_SYM_FN(asyncIterator, ReadableStream_values,      0, 0),
     JS_FS_END
 };
 
