@@ -37,6 +37,7 @@
     macro(AsyncGeneratorFunction, AsyncGeneratorFunction, "AsyncGeneratorFunction") \
     macro(AsyncWrapped, AsyncWrapped, "AsyncWrapped") \
     macro(async, async, "async") \
+    macro(abort, abort, "abort") \
     macro(autoAllocateChunkSize, autoAllocateChunkSize, "autoAllocateChunkSize") \
     macro(await, await, "await") \
     macro(bigint64, bigint64, "bigint64") \
@@ -132,6 +133,7 @@
     macro(era, era, "era") \
     macro(ErrorToStringWithTrailingNewline, ErrorToStringWithTrailingNewline, "ErrorToStringWithTrailingNewline") \
     macro(errors, errors, "errors") \
+    macro(error, error, "error") \
     macro(escape, escape, "escape") \
     macro(eval, eval, "eval") \
     macro(exec, exec, "exec") \
@@ -370,6 +372,7 @@
           "ReadableStreamDefaultReader_releaseLock") \
     macro(ReadableStreamTee, ReadableStreamTee, "ReadableStreamTee") \
     macro(reason, reason, "reason") \
+    macro(ready, ready, "ready") \
     macro(RegExpFlagsGetter, RegExpFlagsGetter, "RegExpFlagsGetter") \
     macro(RegExpStringIterator, RegExpStringIterator, "RegExp String Iterator") \
     macro(region, region, "region") \
@@ -475,6 +478,7 @@
     macro(weekendStart, weekendStart, "weekendStart") \
     macro(while, while_, "while") \
     macro(with, with, "with") \
+    macro(write, write, "write") \
     macro(writable, writable, "writable") \
     macro(year, year, "year") \
     macro(yield, yield, "yield") \
