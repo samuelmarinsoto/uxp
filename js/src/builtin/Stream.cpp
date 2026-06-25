@@ -810,6 +810,140 @@ const Class TeeState::class_ = {
     JSCLASS_HAS_RESERVED_SLOTS(SlotCount)
 };
 
+class PipeToState : public NativeObject
+{
+  public:
+    enum Slots {
+        Slot_Flags = 0,
+        Slot_Source,
+        Slot_Dest,
+        Slot_Reader,
+        Slot_Writer,
+        Slot_Promise,
+        Slot_StoredError,
+        Slot_Signal,
+        Slot_AbortAlgorithm,
+        Slot_PendingAction,
+        Slot_PendingWrites,
+        SlotCount
+    };
+
+  private:
+    enum Flags {
+        Flag_PreventClose = 1 << 0,
+        Flag_PreventAbort = 1 << 1,
+        Flag_PreventCancel = 1 << 2,
+        Flag_ShuttingDown = 1 << 3,
+        Flag_Reading = 1 << 4,
+        Flag_HasError = 1 << 5,
+    };
+
+  public:
+    enum PendingAction {
+        Action_None,
+        Action_AbortDest,
+        Action_CancelSource,
+        Action_CloseDest
+    };
+
+    static const Class class_;
+
+    uint32_t flags() const { return getFixedSlot(Slot_Flags).toInt32(); }
+    void setFlags(uint32_t flags) { setFixedSlot(Slot_Flags, Int32Value(flags)); }
+    bool preventClose() const { return flags() & Flag_PreventClose; }
+    bool preventAbort() const { return flags() & Flag_PreventAbort; }
+    bool preventCancel() const { return flags() & Flag_PreventCancel; }
+    bool shuttingDown() const { return flags() & Flag_ShuttingDown; }
+    bool reading() const { return flags() & Flag_Reading; }
+    bool hasError() const { return flags() & Flag_HasError; }
+    void setShuttingDown() { setFlags(flags() | Flag_ShuttingDown); }
+    void setReading() { setFlags(flags() | Flag_Reading); }
+    void clearReading() { setFlags(flags() & ~Flag_Reading); }
+    void setError(HandleValue error) {
+        setFixedSlot(Slot_StoredError, error);
+        setFlags(flags() | Flag_HasError);
+    }
+
+    ReadableStream* source() {
+        return &getFixedSlot(Slot_Source).toObject().as<ReadableStream>();
+    }
+    WritableStream* dest() {
+        return &getFixedSlot(Slot_Dest).toObject().as<WritableStream>();
+    }
+    ReadableStreamDefaultReader* reader() {
+        return &getFixedSlot(Slot_Reader).toObject().as<ReadableStreamDefaultReader>();
+    }
+    WritableStreamDefaultWriter* writer() {
+        return &getFixedSlot(Slot_Writer).toObject().as<WritableStreamDefaultWriter>();
+    }
+    PromiseObject* promise() {
+        return &getFixedSlot(Slot_Promise).toObject().as<PromiseObject>();
+    }
+    Value storedError() const { return getFixedSlot(Slot_StoredError); }
+    Value signal() const { return getFixedSlot(Slot_Signal); }
+    Value abortAlgorithm() const { return getFixedSlot(Slot_AbortAlgorithm); }
+    void setAbortAlgorithm(HandleObject handler) {
+        setFixedSlot(Slot_AbortAlgorithm, ObjectValue(*handler));
+    }
+    PendingAction pendingAction() const {
+        return static_cast<PendingAction>(getFixedSlot(Slot_PendingAction).toInt32());
+    }
+    void setPendingAction(PendingAction action) {
+        setFixedSlot(Slot_PendingAction, Int32Value(action));
+    }
+    uint32_t pendingWrites() const {
+        return getFixedSlot(Slot_PendingWrites).toInt32();
+    }
+    void addPendingWrite() {
+        setFixedSlot(Slot_PendingWrites, Int32Value(pendingWrites() + 1));
+    }
+    void finishPendingWrite() {
+        MOZ_ASSERT(pendingWrites() > 0);
+        setFixedSlot(Slot_PendingWrites, Int32Value(pendingWrites() - 1));
+    }
+
+    static PipeToState* create(JSContext* cx, Handle<ReadableStream*> source,
+                               Handle<WritableStream*> dest, HandleObject reader,
+                               HandleObject writer, bool preventClose,
+                               bool preventAbort, bool preventCancel,
+                               HandleValue signal)
+    {
+        Rooted<PipeToState*> state(cx, NewObjectWithClassProto<PipeToState>(cx));
+        if (!state)
+            return nullptr;
+
+        Rooted<PromiseObject*> promise(cx, PromiseObject::createSkippingExecutor(cx));
+        if (!promise)
+            return nullptr;
+
+        uint32_t flags = 0;
+        if (preventClose)
+            flags |= Flag_PreventClose;
+        if (preventAbort)
+            flags |= Flag_PreventAbort;
+        if (preventCancel)
+            flags |= Flag_PreventCancel;
+
+        state->setFixedSlot(Slot_Flags, Int32Value(flags));
+        state->setFixedSlot(Slot_Source, ObjectValue(*source));
+        state->setFixedSlot(Slot_Dest, ObjectValue(*dest));
+        state->setFixedSlot(Slot_Reader, ObjectValue(*reader));
+        state->setFixedSlot(Slot_Writer, ObjectValue(*writer));
+        state->setFixedSlot(Slot_Promise, ObjectValue(*promise));
+        state->setFixedSlot(Slot_StoredError, UndefinedValue());
+        state->setFixedSlot(Slot_Signal, signal);
+        state->setFixedSlot(Slot_AbortAlgorithm, UndefinedValue());
+        state->setFixedSlot(Slot_PendingAction, Int32Value(Action_None));
+        state->setFixedSlot(Slot_PendingWrites, Int32Value(0));
+        return state;
+    }
+};
+
+const Class PipeToState::class_ = {
+    "PipeToState",
+    JSCLASS_HAS_RESERVED_SLOTS(PipeToState::SlotCount)
+};
+
 #define CLASS_SPEC(cls, nCtorArgs, nSlots, specFlags, classFlags, classOps) \
 const ClassSpec cls::classSpec_ = { \
     GenericCreateConstructor<cls::constructor, nCtorArgs, gc::AllocKind::FUNCTION>, \
@@ -1081,6 +1215,11 @@ CreateWritableStreamDefaultWriter(JSContext* cx, Handle<WritableStream*> stream)
 static bool
 ReturnUndefined(JSContext* cx, unsigned argc, Value* vp);
 
+[[nodiscard]] static JSObject*
+ReadableStreamPipeTo(JSContext* cx, Handle<ReadableStream*> source, Handle<WritableStream*> dest,
+                     bool preventClose, bool preventAbort, bool preventCancel,
+                     HandleValue signal);
+
 // Streams spec, 3.2.4.3. getReader()
 [[nodiscard]] static bool
 ReadableStream_getReader_impl(JSContext* cx, const CallArgs& args)
@@ -1138,23 +1277,156 @@ ReadableStream_getReader(JSContext* cx, unsigned argc, Value* vp)
 [[nodiscard]] static bool
 ReadableStream_pipeThrough(JSContext* cx, unsigned argc, Value* vp)
 {
-    JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr,
-                              JSMSG_READABLESTREAM_METHOD_NOT_IMPLEMENTED, "pipeThrough");
-    return false;
-    // // Step 1: Perform ? Invoke(this, "pipeTo", « writable, options »).
+    CallArgs args = CallArgsFromVp(argc, vp);
 
-    // // Step 2: Return readable.
-    // return readable;
+    // Step 1: If ! IsReadableStream(this) is false, throw a TypeError exception.
+    if (!Is<ReadableStream>(args.thisv())) {
+        ReportValueError3(cx, JSMSG_INCOMPATIBLE_PROTO, JSDVG_SEARCH_STACK, args.thisv(),
+                          nullptr, "pipeThrough", "");
+        return false;
+    }
+
+    Rooted<ReadableStream*> stream(cx, &args.thisv().toObject().as<ReadableStream>());
+
+    // Step 2: Let readable be ? GetV(transform, "readable").
+    // Step 3: Let writable be ? GetV(transform, "writable").
+    RootedValue transform(cx, args.get(0));
+    RootedValue readableVal(cx);
+    RootedValue writableVal(cx);
+    if (!GetProperty(cx, transform, cx->names().readable, &readableVal))
+        return false;
+    if (!GetProperty(cx, transform, cx->names().writable, &writableVal))
+        return false;
+
+    // Step 4: Let promise be ? ReadableStreamPipeTo(this, writable, ...).
+    if (!Is<WritableStream>(writableVal)) {
+        ReportArgTypeError(cx, "ReadableStream.pipeThrough", "WritableStream", writableVal);
+        return false;
+    }
+    if (!Is<ReadableStream>(readableVal)) {
+        ReportArgTypeError(cx, "ReadableStream.pipeThrough", "ReadableStream", readableVal);
+        return false;
+    }
+
+    bool preventClose = false;
+    bool preventAbort = false;
+    bool preventCancel = false;
+    RootedValue signal(cx, UndefinedValue());
+    HandleValue optionsVal = args.get(1);
+    if (!optionsVal.isUndefined()) {
+        RootedValue option(cx);
+        if (!GetProperty(cx, optionsVal, cx->names().preventClose, &option))
+            return false;
+        preventClose = ToBoolean(option);
+        if (!GetProperty(cx, optionsVal, cx->names().preventAbort, &option))
+            return false;
+        preventAbort = ToBoolean(option);
+        if (!GetProperty(cx, optionsVal, cx->names().preventCancel, &option))
+            return false;
+        preventCancel = ToBoolean(option);
+        if (!GetProperty(cx, optionsVal, cx->names().signal, &signal))
+            return false;
+    }
+
+    Rooted<WritableStream*> writable(cx, &writableVal.toObject().as<WritableStream>());
+    if (stream->locked()) {
+        JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr, JSMSG_READABLESTREAM_LOCKED);
+        return false;
+    }
+
+    if (writable->locked()) {
+        JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr, JSMSG_WRITABLESTREAM_LOCKED);
+        return false;
+    }
+
+    RootedObject ignoredPromise(cx);
+    ignoredPromise = ReadableStreamPipeTo(cx, stream, writable, preventClose, preventAbort,
+                                          preventCancel, signal);
+    if (!ignoredPromise)
+        return false;
+
+    // Step 5: Set promise.[[PromiseIsHandled]] to true.
+    RootedAtom funName(cx, cx->names().empty);
+    RootedFunction onRejected(cx, NewNativeFunction(cx, ReturnUndefined, 0, funName));
+    if (!onRejected)
+        return false;
+    if (!JS::AddPromiseReactions(cx, ignoredPromise, nullptr, onRejected))
+        return false;
+
+    // Step 6: Return readable.
+    args.rval().set(readableVal);
+    return true;
 }
 
 // Streams spec, 3.2.4.5. pipeTo(dest, { preventClose, preventAbort, preventCancel } = {})
-// TODO: Unimplemented since spec is not complete yet.
 [[nodiscard]] static bool
 ReadableStream_pipeTo(JSContext* cx, unsigned argc, Value* vp)
 {
-    JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr,
-                              JSMSG_READABLESTREAM_METHOD_NOT_IMPLEMENTED, "pipeTo");
-    return false;
+    CallArgs args = CallArgsFromVp(argc, vp);
+
+    // Step 1: If ! IsReadableStream(this) is false, return a promise rejected
+    //         with a TypeError exception.
+    if (!Is<ReadableStream>(args.thisv())) {
+        ReportValueError3(cx, JSMSG_INCOMPATIBLE_PROTO, JSDVG_SEARCH_STACK, args.thisv(),
+                          nullptr, "pipeTo", "");
+        return ReturnPromiseRejectedWithPendingError(cx, args);
+    }
+
+    Rooted<ReadableStream*> stream(cx, &args.thisv().toObject().as<ReadableStream>());
+    HandleValue destVal = args.get(0);
+
+    // Step 2: If ! IsWritableStream(destination) is false, return a promise
+    //         rejected with a TypeError exception.
+    if (!Is<WritableStream>(destVal)) {
+        ReportArgTypeError(cx, "ReadableStream.pipeTo", "WritableStream", destVal);
+        return ReturnPromiseRejectedWithPendingError(cx, args);
+    }
+
+    bool preventClose = false;
+    bool preventAbort = false;
+    bool preventCancel = false;
+    RootedValue signal(cx, UndefinedValue());
+    HandleValue optionsVal = args.get(1);
+    if (!optionsVal.isUndefined()) {
+        RootedValue option(cx);
+        if (!GetProperty(cx, optionsVal, cx->names().preventClose, &option))
+            return ReturnPromiseRejectedWithPendingError(cx, args);
+        preventClose = ToBoolean(option);
+        if (!GetProperty(cx, optionsVal, cx->names().preventAbort, &option))
+            return ReturnPromiseRejectedWithPendingError(cx, args);
+        preventAbort = ToBoolean(option);
+        if (!GetProperty(cx, optionsVal, cx->names().preventCancel, &option))
+            return ReturnPromiseRejectedWithPendingError(cx, args);
+        preventCancel = ToBoolean(option);
+        if (!GetProperty(cx, optionsVal, cx->names().signal, &signal))
+            return ReturnPromiseRejectedWithPendingError(cx, args);
+    }
+
+    // Step 6: If ! IsReadableStreamLocked(this) is true, return a promise
+    //         rejected with a TypeError exception.
+    if (stream->locked()) {
+        JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr, JSMSG_READABLESTREAM_LOCKED);
+        return ReturnPromiseRejectedWithPendingError(cx, args);
+    }
+
+    Rooted<WritableStream*> dest(cx, &destVal.toObject().as<WritableStream>());
+
+    // Step 7: If ! IsWritableStreamLocked(destination) is true, return a
+    //         promise rejected with a TypeError exception.
+    if (dest->locked()) {
+        JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr, JSMSG_WRITABLESTREAM_LOCKED);
+        return ReturnPromiseRejectedWithPendingError(cx, args);
+    }
+
+    // Step 8: Return ! ReadableStreamPipeTo(this, destination, ...).
+    RootedObject pipePromise(cx);
+    pipePromise = ReadableStreamPipeTo(cx, stream, dest, preventClose, preventAbort,
+                                       preventCancel, signal);
+    if (!pipePromise)
+        return false;
+
+    args.rval().setObject(*pipePromise);
+    return true;
 }
 
 [[nodiscard]] static bool
@@ -2559,6 +2831,528 @@ static const JSFunctionSpec WritableStreamDefaultController_methods[] = {
 
 CLASS_SPEC(WritableStreamDefaultController, 0, WritableControllerSlotCount,
            ClassSpec::DontDefineConstructor, 0, JS_NULL_CLASS_OPS);
+
+[[nodiscard]] static bool
+PipeToStep(JSContext* cx, Handle<PipeToState*> state);
+
+[[nodiscard]] static bool
+PipeToFinalize(JSContext* cx, Handle<PipeToState*> state, HandleValue error, bool hasError)
+{
+    RootedValue signal(cx, state->signal());
+    RootedValue abortAlgorithm(cx, state->abortAlgorithm());
+    if (signal.isObject() && abortAlgorithm.isObject()) {
+        RootedValue removeListener(cx);
+        if (!GetProperty(cx, signal, cx->names().removeEventListener, &removeListener))
+            return false;
+        if (!removeListener.isUndefined()) {
+            RootedValue eventType(cx, StringValue(cx->names().abort));
+            RootedValue rval(cx);
+            if (!Call(cx, removeListener, signal, eventType, abortAlgorithm, &rval))
+                return false;
+        }
+    }
+
+    Rooted<WritableStreamDefaultWriter*> writer(cx, state->writer());
+    if (!writer->getFixedSlot(WritableWriterSlot_Stream).isUndefined()) {
+        if (!WritableStreamDefaultWriterRelease(cx, writer))
+            return false;
+    }
+
+    RootedNativeObject reader(cx, state->reader());
+    if (!reader->getFixedSlot(ReaderSlot_Stream).isUndefined()) {
+        if (!ReadableStreamReaderGenericRelease(cx, reader))
+            return false;
+    }
+
+    Rooted<PromiseObject*> promise(cx, state->promise());
+    if (hasError)
+        return PromiseObject::reject(cx, promise, error);
+    return PromiseObject::resolve(cx, promise, UndefinedHandleValue);
+}
+
+static bool
+PipeToActionFulfilledHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<PipeToState*> state(cx, TargetFromHandler<PipeToState>(args.callee()));
+    RootedValue error(cx, state->storedError());
+    if (!PipeToFinalize(cx, state, error, state->hasError()))
+        return false;
+    args.rval().setUndefined();
+    return true;
+}
+
+static bool
+PipeToActionRejectedHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<PipeToState*> state(cx, TargetFromHandler<PipeToState>(args.callee()));
+    if (!PipeToFinalize(cx, state, args.get(0), true))
+        return false;
+    args.rval().setUndefined();
+    return true;
+}
+
+[[nodiscard]] static bool
+PipeToWaitForAction(JSContext* cx, Handle<PipeToState*> state, HandleObject actionPromise,
+                    HandleValue error, bool hasError)
+{
+    if (hasError)
+        state->setError(error);
+
+    RootedObject onFulfilled(cx, NewHandler(cx, PipeToActionFulfilledHandler, state));
+    if (!onFulfilled)
+        return false;
+    RootedObject onRejected(cx, NewHandler(cx, PipeToActionRejectedHandler, state));
+    if (!onRejected)
+        return false;
+
+    return JS::AddPromiseReactions(cx, actionPromise, onFulfilled, onRejected);
+}
+
+[[nodiscard]] static bool
+PipeToPerformPendingAction(JSContext* cx, Handle<PipeToState*> state)
+{
+    PipeToState::PendingAction action = state->pendingAction();
+    state->setPendingAction(PipeToState::Action_None);
+
+    RootedValue error(cx, state->storedError());
+    RootedObject actionPromise(cx);
+
+    if (action == PipeToState::Action_AbortDest) {
+        Rooted<WritableStream*> dest(cx, state->dest());
+        actionPromise = WritableStreamAbort(cx, dest, error);
+    } else if (action == PipeToState::Action_CancelSource) {
+        Rooted<ReadableStream*> source(cx, state->source());
+        actionPromise = ReadableStream::cancel(cx, source, error);
+    } else if (action == PipeToState::Action_CloseDest) {
+        Rooted<WritableStreamDefaultWriter*> writer(cx, state->writer());
+        actionPromise = WritableStreamDefaultWriterCloseWithErrorPropagation(cx, writer);
+    } else {
+        return PipeToFinalize(cx, state, error, state->hasError());
+    }
+
+    if (!actionPromise)
+        return false;
+    return PipeToWaitForAction(cx, state, actionPromise, error, state->hasError());
+}
+
+[[nodiscard]] static bool
+PipeToShutdown(JSContext* cx, Handle<PipeToState*> state, HandleValue error, bool hasError,
+               PipeToState::PendingAction action)
+{
+    if (state->shuttingDown())
+        return true;
+
+    state->setShuttingDown();
+    if (hasError)
+        state->setError(error);
+    state->setPendingAction(action);
+
+    if (state->pendingWrites() > 0 && state->dest()->writable() &&
+        !WritableStreamCloseQueuedOrInFlight(state->dest()))
+    {
+        return true;
+    }
+
+    return PipeToPerformPendingAction(cx, state);
+}
+
+[[nodiscard]] static bool
+PipeToShutdown(JSContext* cx, Handle<PipeToState*> state)
+{
+    RootedValue error(cx, UndefinedValue());
+    return PipeToShutdown(cx, state, error, false, PipeToState::Action_None);
+}
+
+[[nodiscard]] static bool
+PipeToShutdownWithError(JSContext* cx, Handle<PipeToState*> state, HandleValue error)
+{
+    return PipeToShutdown(cx, state, error, true, PipeToState::Action_None);
+}
+
+[[nodiscard]] static bool
+PipeToShutdownWithTypeError(JSContext* cx, Handle<PipeToState*> state)
+{
+    RootedValue error(cx);
+    if (!GetAndClearException(cx, &error))
+        return false;
+    return PipeToShutdownWithError(cx, state, error);
+}
+
+[[nodiscard]] static bool
+PipeToGetWriterDesiredSize(JSContext* cx, Handle<WritableStreamDefaultWriter*> writer,
+                           bool* hasSize, double* size)
+{
+    Rooted<WritableStream*> stream(cx, StreamFromWriter(writer));
+    if (stream->errored() || stream->erroring()) {
+        *hasSize = false;
+        return true;
+    }
+    if (stream->closed()) {
+        *hasSize = true;
+        *size = 0;
+        return true;
+    }
+
+    *hasSize = true;
+    *size = WritableStreamDefaultControllerGetDesiredSize(WritableControllerFromStream(stream));
+    return true;
+}
+
+static bool
+PipeToReadyFulfilledHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<PipeToState*> state(cx, TargetFromHandler<PipeToState>(args.callee()));
+    if (!PipeToStep(cx, state))
+        return false;
+    args.rval().setUndefined();
+    return true;
+}
+
+static bool
+PipeToReadyRejectedHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<PipeToState*> state(cx, TargetFromHandler<PipeToState>(args.callee()));
+    if (!PipeToStep(cx, state))
+        return false;
+    args.rval().setUndefined();
+    return true;
+}
+
+static bool
+PipeToWriteFulfilledHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<PipeToState*> state(cx, TargetFromHandler<PipeToState>(args.callee()));
+    state->finishPendingWrite();
+
+    if (state->shuttingDown() && state->pendingWrites() == 0) {
+        if (!PipeToPerformPendingAction(cx, state))
+            return false;
+    } else if (!state->shuttingDown()) {
+        if (!PipeToStep(cx, state))
+            return false;
+    }
+
+    args.rval().setUndefined();
+    return true;
+}
+
+static bool
+PipeToWriteRejectedHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<PipeToState*> state(cx, TargetFromHandler<PipeToState>(args.callee()));
+    state->finishPendingWrite();
+
+    if (state->shuttingDown() && state->pendingWrites() == 0) {
+        if (!PipeToPerformPendingAction(cx, state))
+            return false;
+    } else if (!state->shuttingDown()) {
+        if (!PipeToStep(cx, state))
+            return false;
+    }
+
+    args.rval().setUndefined();
+    return true;
+}
+
+static bool
+PipeToReadFulfilledHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<PipeToState*> state(cx, TargetFromHandler<PipeToState>(args.callee()));
+    state->clearReading();
+
+    if (state->shuttingDown()) {
+        args.rval().setUndefined();
+        return true;
+    }
+
+    RootedValue resultVal(cx, args.get(0));
+    if (!resultVal.isObject()) {
+        JS_ReportErrorASCII(cx, "ReadableStream reader returned a non-object result");
+        return PipeToShutdownWithTypeError(cx, state);
+    }
+
+    RootedObject result(cx, &resultVal.toObject());
+    RootedValue doneVal(cx);
+    if (!GetProperty(cx, result, result, cx->names().done, &doneVal))
+        return false;
+    bool done = ToBoolean(doneVal);
+
+    if (done) {
+        if (state->preventClose())
+            return PipeToShutdown(cx, state);
+
+        RootedValue error(cx, UndefinedValue());
+        return PipeToShutdown(cx, state, error, false, PipeToState::Action_CloseDest);
+    }
+
+    RootedValue chunk(cx);
+    if (!GetProperty(cx, result, result, cx->names().value, &chunk))
+        return false;
+
+    Rooted<WritableStreamDefaultWriter*> writer(cx, state->writer());
+    RootedObject writePromise(cx, WritableStreamDefaultWriterWrite(cx, writer, chunk));
+    if (!writePromise)
+        return false;
+
+    state->addPendingWrite();
+
+    RootedObject onFulfilled(cx, NewHandler(cx, PipeToWriteFulfilledHandler, state));
+    if (!onFulfilled)
+        return false;
+    RootedObject onRejected(cx, NewHandler(cx, PipeToWriteRejectedHandler, state));
+    if (!onRejected)
+        return false;
+    if (!JS::AddPromiseReactions(cx, writePromise, onFulfilled, onRejected))
+        return false;
+
+    if (!PipeToStep(cx, state))
+        return false;
+
+    args.rval().setUndefined();
+    return true;
+}
+
+static bool
+PipeToReadRejectedHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<PipeToState*> state(cx, TargetFromHandler<PipeToState>(args.callee()));
+    state->clearReading();
+
+    if (state->preventAbort())
+        return PipeToShutdownWithError(cx, state, args.get(0));
+
+    return PipeToShutdown(cx, state, args.get(0), true, PipeToState::Action_AbortDest);
+}
+
+static bool
+PipeToClosedRejectedHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<PipeToState*> state(cx, TargetFromHandler<PipeToState>(args.callee()));
+    if (!PipeToStep(cx, state))
+        return false;
+    args.rval().setUndefined();
+    return true;
+}
+
+[[nodiscard]] static bool
+PipeToStep(JSContext* cx, Handle<PipeToState*> state)
+{
+    if (state->shuttingDown())
+        return true;
+
+    Rooted<ReadableStream*> source(cx, state->source());
+    Rooted<WritableStream*> dest(cx, state->dest());
+
+    // Errors propagate forward.
+    if (source->errored()) {
+        RootedValue storedError(cx, source->getFixedSlot(StreamSlot_StoredError));
+        if (state->preventAbort())
+            return PipeToShutdownWithError(cx, state, storedError);
+        return PipeToShutdown(cx, state, storedError, true, PipeToState::Action_AbortDest);
+    }
+
+    // Errors propagate backward.
+    if (dest->errored()) {
+        RootedValue storedError(cx, dest->getFixedSlot(WritableStreamSlot_StoredError));
+        if (state->preventCancel())
+            return PipeToShutdownWithError(cx, state, storedError);
+        return PipeToShutdown(cx, state, storedError, true, PipeToState::Action_CancelSource);
+    }
+
+    // Closing propagates forward.
+    if (source->closed()) {
+        if (state->preventClose())
+            return PipeToShutdown(cx, state);
+        RootedValue error(cx, UndefinedValue());
+        return PipeToShutdown(cx, state, error, false, PipeToState::Action_CloseDest);
+    }
+
+    // A closing/closed destination cancels the source.
+    if (WritableStreamCloseQueuedOrInFlight(dest) || dest->closed()) {
+        JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr,
+                                  JSMSG_WRITABLESTREAM_CLOSING_OR_CLOSED, "pipeTo");
+        RootedValue error(cx);
+        if (!GetAndClearException(cx, &error))
+            return false;
+        if (state->preventCancel())
+            return PipeToShutdownWithError(cx, state, error);
+        return PipeToShutdown(cx, state, error, true, PipeToState::Action_CancelSource);
+    }
+
+    if (state->reading())
+        return true;
+
+    Rooted<WritableStreamDefaultWriter*> writer(cx, state->writer());
+    bool hasSize;
+    double desiredSize;
+    if (!PipeToGetWriterDesiredSize(cx, writer, &hasSize, &desiredSize))
+        return false;
+    if (!hasSize || desiredSize <= 0) {
+        RootedValue readyVal(cx, writer->getFixedSlot(WritableWriterSlot_ReadyPromise));
+        RootedObject readyPromise(cx, &readyVal.toObject());
+        RootedObject onFulfilled(cx, NewHandler(cx, PipeToReadyFulfilledHandler, state));
+        if (!onFulfilled)
+            return false;
+        RootedObject onRejected(cx, NewHandler(cx, PipeToReadyRejectedHandler, state));
+        if (!onRejected)
+            return false;
+        return JS::AddPromiseReactions(cx, readyPromise, onFulfilled, onRejected);
+    }
+
+    state->setReading();
+    Rooted<ReadableStreamDefaultReader*> reader(cx, state->reader());
+    RootedObject readPromise(cx, ReadableStreamDefaultReader::read(cx, reader));
+    if (!readPromise)
+        return false;
+
+    RootedObject onFulfilled(cx, NewHandler(cx, PipeToReadFulfilledHandler, state));
+    if (!onFulfilled)
+        return false;
+    RootedObject onRejected(cx, NewHandler(cx, PipeToReadRejectedHandler, state));
+    if (!onRejected)
+        return false;
+
+    return JS::AddPromiseReactions(cx, readPromise, onFulfilled, onRejected);
+}
+
+[[nodiscard]] static bool
+PipeToAbort(JSContext* cx, Handle<PipeToState*> state)
+{
+    RootedValue signal(cx, state->signal());
+    RootedValue error(cx, UndefinedValue());
+    if (signal.isObject()) {
+        if (!GetProperty(cx, signal, cx->names().reason, &error))
+            return false;
+    }
+
+    JS::AutoObjectVector promises(cx);
+
+    if (!state->preventAbort() && state->dest()->writable()) {
+        Rooted<WritableStream*> dest(cx, state->dest());
+        RootedObject abortPromise(cx, WritableStreamAbort(cx, dest, error));
+        if (!abortPromise || !promises.append(abortPromise))
+            return false;
+    }
+
+    if (!state->preventCancel() && state->source()->readable()) {
+        Rooted<ReadableStream*> source(cx, state->source());
+        RootedObject cancelPromise(cx, ReadableStream::cancel(cx, source, error));
+        if (!cancelPromise || !promises.append(cancelPromise))
+            return false;
+    }
+
+    RootedObject actionPromise(cx);
+    if (promises.length() == 0) {
+        actionPromise = PromiseObject::unforgeableResolve(cx, UndefinedHandleValue);
+    } else {
+        actionPromise = js::GetWaitForAllPromise(cx, promises);
+    }
+    if (!actionPromise)
+        return false;
+
+    if (state->shuttingDown())
+        return true;
+    state->setShuttingDown();
+    return PipeToWaitForAction(cx, state, actionPromise, error, true);
+}
+
+static bool
+PipeToAbortHandler(JSContext* cx, unsigned argc, Value* vp)
+{
+    CallArgs args = CallArgsFromVp(argc, vp);
+    Rooted<PipeToState*> state(cx, TargetFromHandler<PipeToState>(args.callee()));
+    if (!PipeToAbort(cx, state))
+        return false;
+    args.rval().setUndefined();
+    return true;
+}
+
+[[nodiscard]] static bool
+PipeToFollowSignal(JSContext* cx, Handle<PipeToState*> state, HandleValue signal)
+{
+    if (!signal.isObject())
+        return true;
+
+    RootedValue abortedVal(cx);
+    if (!GetProperty(cx, signal, cx->names().aborted, &abortedVal))
+        return false;
+
+    RootedObject abortAlgorithm(cx, NewHandler(cx, PipeToAbortHandler, state));
+    if (!abortAlgorithm)
+        return false;
+    state->setAbortAlgorithm(abortAlgorithm);
+
+    if (ToBoolean(abortedVal))
+        return PipeToAbort(cx, state);
+
+    RootedValue addListener(cx);
+    if (!GetProperty(cx, signal, cx->names().addEventListener, &addListener))
+        return false;
+    if (addListener.isUndefined())
+        return true;
+
+    RootedValue eventType(cx, StringValue(cx->names().abort));
+    RootedValue handlerVal(cx, ObjectValue(*abortAlgorithm));
+    RootedValue rval(cx);
+    return Call(cx, addListener, signal, eventType, handlerVal, &rval);
+}
+
+[[nodiscard]] static JSObject*
+ReadableStreamPipeTo(JSContext* cx, Handle<ReadableStream*> source, Handle<WritableStream*> dest,
+                     bool preventClose, bool preventAbort, bool preventCancel,
+                     HandleValue signal)
+{
+    RootedObject reader(cx, CreateReadableStreamDefaultReader(cx, source));
+    if (!reader)
+        return nullptr;
+
+    RootedObject writer(cx, CreateWritableStreamDefaultWriter(cx, dest));
+    if (!writer)
+        return nullptr;
+
+    SetStreamState(source, StreamState(source) | ReadableStream::Disturbed);
+
+    Rooted<PipeToState*> state(cx);
+    state = PipeToState::create(cx, source, dest, reader, writer, preventClose, preventAbort,
+                                preventCancel, signal);
+    if (!state)
+        return nullptr;
+
+    RootedObject onClosedRejected(cx, NewHandler(cx, PipeToClosedRejectedHandler, state));
+    if (!onClosedRejected)
+        return nullptr;
+
+    RootedValue readerClosedVal(cx, state->reader()->getFixedSlot(ReaderSlot_ClosedPromise));
+    RootedObject readerClosed(cx, &readerClosedVal.toObject());
+    if (!JS::AddPromiseReactions(cx, readerClosed, nullptr, onClosedRejected))
+        return nullptr;
+
+    RootedObject onWriterClosedRejected(cx, NewHandler(cx, PipeToClosedRejectedHandler, state));
+    if (!onWriterClosedRejected)
+        return nullptr;
+
+    RootedValue writerClosedVal(cx, state->writer()->getFixedSlot(WritableWriterSlot_ClosedPromise));
+    RootedObject writerClosed(cx, &writerClosedVal.toObject());
+    if (!JS::AddPromiseReactions(cx, writerClosed, nullptr, onWriterClosedRejected))
+        return nullptr;
+
+    if (!PipeToFollowSignal(cx, state, signal))
+        return nullptr;
+
+    if (!state->shuttingDown() && !PipeToStep(cx, state))
+        return nullptr;
+
+    return state->promise();
+}
 
 // Streams spec, 3.3.1. AcquireReadableStreamBYOBReader ( stream )
 // Always inlined.

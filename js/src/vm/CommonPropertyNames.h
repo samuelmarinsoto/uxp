@@ -38,6 +38,8 @@
     macro(AsyncWrapped, AsyncWrapped, "AsyncWrapped") \
     macro(async, async, "async") \
     macro(abort, abort, "abort") \
+    macro(aborted, aborted, "aborted") \
+    macro(addEventListener, addEventListener, "addEventListener") \
     macro(autoAllocateChunkSize, autoAllocateChunkSize, "autoAllocateChunkSize") \
     macro(await, await, "await") \
     macro(bigint64, bigint64, "bigint64") \
@@ -319,6 +321,9 @@
     macro(preventExtensions, preventExtensions, "preventExtensions") \
     macro(private, private_, "private") \
     macro(promise, promise, "promise") \
+    macro(preventAbort, preventAbort, "preventAbort") \
+    macro(preventCancel, preventCancel, "preventCancel") \
+    macro(preventClose, preventClose, "preventClose") \
     macro(propertyIsEnumerable, propertyIsEnumerable, "propertyIsEnumerable") \
     macro(protected, protected_, "protected") \
     macro(proto, proto, "__proto__") \
@@ -327,6 +332,7 @@
     macro(public, public_, "public") \
     macro(pull, pull, "pull") \
     macro(raw, raw, "raw") \
+    macro(readable, readable, "readable") \
     macro(ReadableByteStreamControllerGetDesiredSize, \
           ReadableByteStreamControllerGetDesiredSize, \
           "ReadableByteStreamControllerGetDesiredSize") \
@@ -376,6 +382,7 @@
     macro(RegExpFlagsGetter, RegExpFlagsGetter, "RegExpFlagsGetter") \
     macro(RegExpStringIterator, RegExpStringIterator, "RegExp String Iterator") \
     macro(region, region, "region") \
+    macro(removeEventListener, removeEventListener, "removeEventListener") \
     macro(Reify, Reify, "Reify") \
     macro(reject, reject, "reject") \
     macro(rejected, rejected, "rejected") \
@@ -397,6 +404,7 @@
     macro(setPrefix, setPrefix, "set ") \
     macro(setPrototypeOf, setPrototypeOf, "setPrototypeOf") \
     macro(shape, shape, "shape") \
+    macro(signal, signal, "signal") \
     macro(size, size, "size") \
     macro(source, source, "source") \
     macro(SpeciesConstructor, SpeciesConstructor, "SpeciesConstructor") \
