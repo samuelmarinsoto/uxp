@@ -2325,8 +2325,12 @@ CreateWritableStreamDefaultWriter(JSContext* cx, Handle<WritableStream*> stream)
         return nullptr;
     }
 
+    RootedObject proto(cx);
+    if (!GetBuiltinPrototype(cx, JSProto_WritableStreamDefaultWriter, &proto))
+        return nullptr;
+
     Rooted<WritableStreamDefaultWriter*> writer(cx);
-    writer = NewBuiltinClassInstance<WritableStreamDefaultWriter>(cx);
+    writer = NewObjectWithClassProto<WritableStreamDefaultWriter>(cx, proto);
     if (!writer)
         return nullptr;
 
@@ -2392,8 +2396,12 @@ CreateWritableStreamDefaultController(JSContext* cx, Handle<WritableStream*> str
                                       HandleValue underlyingSink, HandleValue size,
                                       HandleValue highWaterMarkVal)
 {
+    RootedObject proto(cx);
+    if (!GetBuiltinPrototype(cx, JSProto_WritableStreamDefaultController, &proto))
+        return nullptr;
+
     Rooted<WritableStreamDefaultController*> controller(cx);
-    controller = NewBuiltinClassInstance<WritableStreamDefaultController>(cx);
+    controller = NewObjectWithClassProto<WritableStreamDefaultController>(cx, proto);
     if (!controller)
         return nullptr;
 
@@ -2479,7 +2487,11 @@ WritableStream::constructor(JSContext* cx, unsigned argc, Value* vp)
     if (highWaterMark.isUndefined())
         highWaterMark.setInt32(1);
 
-    Rooted<WritableStream*> stream(cx, NewObjectWithClassProto<WritableStream>(cx));
+    RootedObject proto(cx);
+    if (!GetBuiltinPrototype(cx, JSProto_WritableStream, &proto))
+        return false;
+
+    Rooted<WritableStream*> stream(cx, NewObjectWithClassProto<WritableStream>(cx, proto));
     if (!stream)
         return false;
 
@@ -2792,12 +2804,13 @@ static const JSFunctionSpec WritableStreamDefaultWriter_methods[] = {
 };
 
 CLASS_SPEC(WritableStreamDefaultWriter, 1, WritableWriterSlotCount,
-           ClassSpec::DontDefineConstructor, 0, JS_NULL_CLASS_OPS);
+           0, 0, JS_NULL_CLASS_OPS);
 
 bool
 WritableStreamDefaultController::constructor(JSContext* cx, unsigned argc, Value* vp)
 {
-    JS_ReportErrorASCII(cx, "WritableStreamDefaultController is not constructible");
+    JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr, JSMSG_NOT_CONSTRUCTOR,
+                              "WritableStreamDefaultController");
     return false;
 }
 
@@ -2830,7 +2843,7 @@ static const JSFunctionSpec WritableStreamDefaultController_methods[] = {
 };
 
 CLASS_SPEC(WritableStreamDefaultController, 0, WritableControllerSlotCount,
-           ClassSpec::DontDefineConstructor, 0, JS_NULL_CLASS_OPS);
+           0, 0, JS_NULL_CLASS_OPS);
 
 [[nodiscard]] static bool
 PipeToStep(JSContext* cx, Handle<PipeToState*> state);
@@ -4175,8 +4188,7 @@ static const JSPropertySpec ReadableStreamDefaultReader_properties[] = {
     JS_PS_END
 };
 
-CLASS_SPEC(ReadableStreamDefaultReader, 1, ReaderSlotCount, ClassSpec::DontDefineConstructor, 0,
-           JS_NULL_CLASS_OPS);
+CLASS_SPEC(ReadableStreamDefaultReader, 1, ReaderSlotCount, 0, 0, JS_NULL_CLASS_OPS);
 
 
 // Streams spec, 3.6.3 new ReadableStreamBYOBReader ( stream )
@@ -4390,7 +4402,7 @@ static const JSFunctionSpec ReadableStreamBYOBReader_methods[] = {
     JS_FS_END
 };
 
-CLASS_SPEC(ReadableStreamBYOBReader, 1, 3, ClassSpec::DontDefineConstructor, 0, JS_NULL_CLASS_OPS);
+CLASS_SPEC(ReadableStreamBYOBReader, 1, 3, 0, 0, JS_NULL_CLASS_OPS);
 
 [[nodiscard]] inline static bool
 ReadableStreamControllerCallPullIfNeeded(JSContext* cx, HandleNativeObject controller);
@@ -4705,43 +4717,12 @@ CreateReadableStreamDefaultController(JSContext* cx, Handle<ReadableStream*> str
     return controller;
 }
 
-// Streams spec, 3.8.3.
-// new ReadableStreamDefaultController( stream, underlyingSource, size,
-//                                      highWaterMark )
 bool
 ReadableStreamDefaultController::constructor(JSContext* cx, unsigned argc, Value* vp)
 {
-    CallArgs args = CallArgsFromVp(argc, vp);
-
-    if (!ThrowIfNotConstructing(cx, args, "ReadableStreamDefaultController"))
-        return false;
-
-    // Step 1: If ! IsReadableStream(stream) is false, throw a TypeError exception.
-    HandleValue streamVal = args.get(0);
-    if (!Is<ReadableStream>(streamVal)) {
-        ReportArgTypeError(cx, "ReadableStreamDefaultController", "ReadableStream",
-                           args.get(0));
-        return false;
-    }
-
-    Rooted<ReadableStream*> stream(cx, &streamVal.toObject().as<ReadableStream>());
-
-    // Step 2: If stream.[[readableStreamController]] is not undefined, throw a
-    //         TypeError exception.
-    if (HasController(stream)) {
-        JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr,
-                                  JSMSG_READABLESTREAM_CONTROLLER_SET);
-        return false;
-    }
-
-    // Steps 3-11.
-    RootedObject controller(cx, CreateReadableStreamDefaultController(cx, stream, args.get(1),
-                                                                      args.get(2), args.get(3)));
-    if (!controller)
-        return false;
-
-    args.rval().setObject(*controller);
-    return true;
+    JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr, JSMSG_NOT_CONSTRUCTOR,
+                              "ReadableStreamDefaultController");
+    return false;
 }
 
 [[nodiscard]] static double
@@ -4935,8 +4916,7 @@ static const JSFunctionSpec ReadableStreamDefaultController_methods[] = {
     JS_FS_END
 };
 
-CLASS_SPEC(ReadableStreamDefaultController, 4, 7, ClassSpec::DontDefineConstructor, 0,
-           JS_NULL_CLASS_OPS);
+CLASS_SPEC(ReadableStreamDefaultController, 0, 7, 0, 0, JS_NULL_CLASS_OPS);
 
 /**
  * Unified implementation of ReadableStream controllers' [[CancelSteps]] internal
@@ -5474,42 +5454,12 @@ ReadableByteStreamController::hasExternalSource() {
     return ControllerFlags(this) & ControllerFlag_ExternalSource;
 }
 
-// Streams spec, 3.10.3.
-// new ReadableByteStreamController ( stream, underlyingByteSource,
-//                                    highWaterMark )
 bool
 ReadableByteStreamController::constructor(JSContext* cx, unsigned argc, Value* vp)
 {
-    CallArgs args = CallArgsFromVp(argc, vp);
-
-    if (!ThrowIfNotConstructing(cx, args, "ReadableByteStreamController"))
-        return false;
-
-    // Step 1: If ! IsReadableStream(stream) is false, throw a TypeError exception.
-    HandleValue streamVal = args.get(0);
-    if (!Is<ReadableStream>(streamVal)) {
-        ReportArgTypeError(cx, "ReadableStreamDefaultController", "ReadableStream",
-                           args.get(0));
-        return false;
-    }
-
-    Rooted<ReadableStream*> stream(cx, &streamVal.toObject().as<ReadableStream>());
-
-    // Step 2: If stream.[[readableStreamController]] is not undefined, throw a
-    //         TypeError exception.
-    if (HasController(stream)) {
-        JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr,
-                                  JSMSG_READABLESTREAM_CONTROLLER_SET);
-        return false;
-    }
-
-    RootedObject controller(cx, CreateReadableByteStreamController(cx, stream, args.get(1),
-                                                                   args.get(2)));
-    if (!controller)
-        return false;
-
-    args.rval().setObject(*controller);
-    return true;
+    JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr, JSMSG_NOT_CONSTRUCTOR,
+                              "ReadableByteStreamController");
+    return false;
 }
 
 // Version of the ReadableByteStreamConstructor that's specialized for
@@ -5815,7 +5765,7 @@ static const ClassOps ReadableByteStreamControllerClassOps = {
     nullptr,        /* trace   */
 };
 
-CLASS_SPEC(ReadableByteStreamController, 3, 9, ClassSpec::DontDefineConstructor,
+CLASS_SPEC(ReadableByteStreamController, 0, 9, 0,
            JSCLASS_BACKGROUND_FINALIZE, &ReadableByteStreamControllerClassOps);
 
 // Streams spec, 3.10.5.1. [[PullSteps]] ()
@@ -5998,42 +5948,12 @@ CreateReadableStreamBYOBRequest(JSContext* cx, Handle<ReadableByteStreamControll
   return request;
 }
 
-// Streams spec, 3.11.3. new ReadableStreamBYOBRequest ( controller, view )
 bool
 ReadableStreamBYOBRequest::constructor(JSContext* cx, unsigned argc, Value* vp)
 {
-    CallArgs args = CallArgsFromVp(argc, vp);
-    HandleValue controllerVal = args.get(0);
-    HandleValue viewVal = args.get(1);
-
-    if (!ThrowIfNotConstructing(cx, args, "ReadableStreamBYOBRequest"))
-        return false;
-
-    // TODO: open PR against spec to add these checks.
-    // They're expected to have happened in code using requests.
-    if (!Is<ReadableByteStreamController>(controllerVal)) {
-        ReportArgTypeError(cx, "ReadableStreamBYOBRequest",
-                           "ReadableByteStreamController", args.get(0));
-        return false;
-    }
-
-    Rooted<ReadableByteStreamController*> controller(cx);
-    controller = &controllerVal.toObject().as<ReadableByteStreamController>();
-
-    if (!viewVal.isObject() || !JS_IsArrayBufferViewObject(&viewVal.toObject())) {
-        ReportArgTypeError(cx, "ReadableStreamBYOBRequest", "ArrayBuffer view",
-                           args.get(1));
-        return false;
-    }
-
-    RootedArrayBufferObject view(cx, &viewVal.toObject().as<ArrayBufferObject>());
-
-    RootedObject request(cx, CreateReadableStreamBYOBRequest(cx, controller, view));
-    if (!request)
-        return false;
-
-    args.rval().setObject(*request);
-    return true;
+    JS_ReportErrorNumberASCII(cx, GetErrorMessage, nullptr, JSMSG_NOT_CONSTRUCTOR,
+                              "ReadableStreamBYOBRequest");
+    return false;
 }
 
 // Streams spec, 3.11.4.1 get view
@@ -6168,8 +6088,7 @@ static const JSFunctionSpec ReadableStreamBYOBRequest_methods[] = {
     JS_FS_END
 };
 
-CLASS_SPEC(ReadableStreamBYOBRequest, 3, 2, ClassSpec::DontDefineConstructor, 0,
-           JS_NULL_CLASS_OPS);
+CLASS_SPEC(ReadableStreamBYOBRequest, 0, 2, 0, 0, JS_NULL_CLASS_OPS);
 
 // Streams spec, 3.12.1. IsReadableStreamBYOBRequest ( x )
 // Implemented via is<ReadableStreamBYOBRequest>()
