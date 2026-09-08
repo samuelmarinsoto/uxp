@@ -1736,6 +1736,8 @@ nsCSSRuleUtils::RelativeSelectorListMatches(
   // anchor's descendants, or in following sibling subtrees, back to a subtree
   // that contains the anchor.
   if (aTreeMatchContext.mForStyling) {
+    aAnchor->OwnerDoc()->SetProperty(nsGkAtoms::hasSelectorDependency,
+                                     reinterpret_cast<void*>(1));
     aAnchor->SetProperty(nsGkAtoms::hasSelectorDependency,
                          reinterpret_cast<void*>(1));
     nsIContent* parent = aAnchor->GetParent();

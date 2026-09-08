@@ -379,6 +379,12 @@ RestyleManager::AttributeChanged(Element* aElement,
 bool
 RestyleManager::RestyleForHasPseudoClassChange(nsINode* aNode)
 {
+  // Avoid walking the ancestor chain for the overwhelmingly common case where
+  // no :has() selector has been evaluated in this document.
+  if (!aNode->OwnerDoc()->GetProperty(nsGkAtoms::hasSelectorDependency)) {
+    return false;
+  }
+
   Element* affectedRoot = nullptr;
   for (nsINode* node = aNode; node; node = node->GetParentNode()) {
     if (!node->GetProperty(nsGkAtoms::hasSelectorDependency)) {
