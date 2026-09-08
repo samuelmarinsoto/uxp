@@ -12,6 +12,8 @@
 #include "nsLayoutUtils.h"
 #include "nsDOMClassInfoID.h"
 #include "nsIDOMHTMLElement.h"
+#include "nsCheapSets.h"
+#include "nsHashKeys.h"
 #include "nsIStyleSheetLinkingElement.h"
 #include "mozilla/dom/Element.h"
 #include "mozilla/dom/HTMLSlotElement.h"
@@ -343,22 +345,30 @@ ShadowRoot::AdoptedStyleSheetsChanged(
     const nsTArray<RefPtr<CSSStyleSheet>>& aOldSheets,
     const nsTArray<RefPtr<CSSStyleSheet>>& aNewSheets)
 {
+  if (aOldSheets == aNewSheets) {
+    return;
+  }
+
   OwnerDoc()->BeginUpdate(UPDATE_STYLE);
 
   bool applicableChange = false;
+  nsCheapSet<nsPtrHashKey<CSSStyleSheet>> seenSheets;
   for (size_t i = 0; i < aOldSheets.Length(); ++i) {
     CSSStyleSheet* sheet = aOldSheets[i];
-    if (aOldSheets.IndexOf(sheet) == i) {
+    if (!seenSheets.Contains(sheet)) {
+      seenSheets.Put(sheet);
       mProtoBinding->RemoveStyleSheet(sheet);
     }
     applicableChange = applicableChange || sheet->IsApplicable();
     sheet->RemoveAdopter(this);
   }
 
+  seenSheets.Clear();
   for (size_t i = 0; i < aNewSheets.Length(); ++i) {
     CSSStyleSheet* sheet = aNewSheets[i];
     sheet->AddAdopter(this);
-    if (aNewSheets.IndexOf(sheet) == i) {
+    if (!seenSheets.Contains(sheet)) {
+      seenSheets.Put(sheet);
       mProtoBinding->AppendStyleSheet(sheet);
     }
     applicableChange = applicableChange || sheet->IsApplicable();

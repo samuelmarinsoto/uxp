@@ -27,6 +27,7 @@
 
 #include "nsIInterfaceRequestor.h"
 #include "nsIInterfaceRequestorUtils.h"
+#include "nsHashKeys.h"
 #include "nsILoadContext.h"
 #include "nsITextControlFrame.h"
 #include "nsNumberControlFrame.h"
@@ -41,6 +42,7 @@
 #include "nsDocShellLoadTypes.h"
 #include "nsIDocShellTreeItem.h"
 #include "nsCOMArray.h"
+#include "nsCheapSets.h"
 #include "nsQueryObject.h"
 #include "nsDOMClassInfo.h"
 #include "mozilla/Services.h"
@@ -2216,8 +2218,10 @@ nsDocument::FillStyleSet(nsStyleSet* aStyleSet)
   AppendSheetsToStyleSet(aStyleSet, mAdditionalSheets[eAuthorSheet],
                          SheetType::Doc);
 
+  nsCheapSet<nsPtrHashKey<CSSStyleSheet>> seenAdoptedSheets;
   for (CSSStyleSheet* sheet : mAdoptedStyleSheets) {
-    if (sheet->IsApplicable()) {
+    if (sheet->IsApplicable() && !seenAdoptedSheets.Contains(sheet)) {
+      seenAdoptedSheets.Put(sheet);
       aStyleSet->AppendStyleSheet(SheetType::Doc, sheet);
     }
   }
@@ -3894,25 +3898,33 @@ nsDocument::AdoptedStyleSheetsChanged(
     const nsTArray<RefPtr<CSSStyleSheet>>& aOldSheets,
     const nsTArray<RefPtr<CSSStyleSheet>>& aNewSheets)
 {
+  if (aOldSheets == aNewSheets) {
+    return;
+  }
+
   BeginUpdate(UPDATE_STYLE);
 
   nsCOMPtr<nsIPresShell> shell = GetShell();
   nsStyleSet* styleSet = shell ? shell->StyleSet() : nullptr;
 
+  nsCheapSet<nsPtrHashKey<CSSStyleSheet>> seenSheets;
   for (size_t i = 0; i < aOldSheets.Length(); ++i) {
     CSSStyleSheet* sheet = aOldSheets[i];
     if (styleSet && sheet->IsApplicable() &&
-        aOldSheets.IndexOf(sheet) == i) {
+        !seenSheets.Contains(sheet)) {
+      seenSheets.Put(sheet);
       styleSet->RemoveStyleSheet(SheetType::Doc, sheet);
     }
     sheet->RemoveAdopter(this);
   }
 
+  seenSheets.Clear();
   for (size_t i = 0; i < aNewSheets.Length(); ++i) {
     CSSStyleSheet* sheet = aNewSheets[i];
     sheet->AddAdopter(this);
     if (styleSet && sheet->IsApplicable() &&
-        aNewSheets.IndexOf(sheet) == i) {
+        !seenSheets.Contains(sheet)) {
+      seenSheets.Put(sheet);
       styleSet->AppendStyleSheet(SheetType::Doc, sheet);
     }
   }

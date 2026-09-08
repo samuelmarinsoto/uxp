@@ -12,7 +12,9 @@
 #include "mozilla/CSSStyleSheet.h"
 
 #include "mozAutoDocUpdate.h"
+#include "nsCheapSets.h"
 #include "nsContentUtils.h"
+#include "nsHashKeys.h"
 #include "nsIMediaList.h"
 #include "nsNullPrincipal.h"
 #include "nsPIDOMWindow.h"
@@ -316,9 +318,10 @@ StyleSheet::RemoveAdopter(dom::ShadowRoot* aShadowRoot)
 void
 StyleSheet::NotifyAdopterRuleChanged()
 {
-  for (size_t i = 0; i < mAdopterShadowRoots.Length(); ++i) {
-    dom::ShadowRoot* shadowRoot = mAdopterShadowRoots[i];
-    if (mAdopterShadowRoots.IndexOf(shadowRoot) == i) {
+  nsCheapSet<nsPtrHashKey<dom::ShadowRoot>> notifiedRoots;
+  for (dom::ShadowRoot* shadowRoot : mAdopterShadowRoots) {
+    if (!notifiedRoots.Contains(shadowRoot)) {
+      notifiedRoots.Put(shadowRoot);
       shadowRoot->StyleSheetChanged();
     }
   }
