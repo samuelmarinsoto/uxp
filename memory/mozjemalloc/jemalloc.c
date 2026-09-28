@@ -298,6 +298,11 @@ typedef long ssize_t;
 #endif
 #include <unistd.h>
 
+#if defined(MOZ_MEMORY_LINUX) && !defined(__GLIBC__)
+#define PTHREAD_ADAPTIVE_MUTEX_INITIALIZER_NP PTHREAD_MUTEX_INITIALIZER
+#define PTHREAD_MUTEX_ADAPTIVE_NP PTHREAD_MUTEX_DEFAULT
+#endif
+
 #ifdef MOZ_MEMORY_DARWIN
 #include <libkern/OSAtomic.h>
 #include <mach/mach_error.h>
