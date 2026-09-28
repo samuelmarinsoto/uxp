@@ -34,6 +34,8 @@ elif CONFIG['OS_TARGET'] in ('DragonFly', 'FreeBSD', 'OpenBSD', 'NetBSD',
         LOCAL_INCLUDES += [ 'ports/bsd/include' ]
 else:
     DEFINES['HAVE_SYS_UIO_H'] = True
+    if CONFIG['OS_TARGET'] == 'Linux':
+        DEFINES['_LARGEFILE64_SOURCE'] = True
 
 DEFINES['FAKE_LOG_DEVICE'] = True
 SOURCES += [
