@@ -3,6 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+#ifdef MOZ_X11
 #include "nsGDKErrorHandler.h"
 
 #include <gtk/gtk.h>
@@ -98,3 +99,5 @@ InstallGdkErrorHandler()
     XSynchronize(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), True);
   }
 }
+
+#endif // MOZ_X11

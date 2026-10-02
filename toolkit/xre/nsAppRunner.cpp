@@ -3205,6 +3205,7 @@ XREMain::XRE_mainStartup(bool* aExitFlag)
   }
   gdk_display_manager_set_default_display (gdk_display_manager_get(),
                                            mGdkDisplay);
+#ifdef MOZ_X11
   if (GDK_IS_X11_DISPLAY(mGdkDisplay)) {
     if (saveDisplayArg) {
       SaveWordToEnv("DISPLAY", nsDependentCString(display_name));
@@ -3212,6 +3213,7 @@ XREMain::XRE_mainStartup(bool* aExitFlag)
   } else {
     mDisableRemote = true;
   }
+#endif // MOZ_X11
 #endif
 #ifdef MOZ_ENABLE_XREMOTE
   // handle --remote now that xpcom is fired up

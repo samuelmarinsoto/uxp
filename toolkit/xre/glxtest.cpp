@@ -17,6 +17,7 @@
 // which runs the glxtest() static function. This creates a X connection, a GL context, calls glGetString, and writes that
 // to the 'write' end of the pipe.
 
+#ifdef MOZ_X11
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -641,3 +642,5 @@ bool fire_glxtest_process()
 #endif
   return false;
 }
+
+#endif // MOZ_X11
