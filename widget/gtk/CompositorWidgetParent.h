@@ -13,14 +13,28 @@ namespace mozilla {
 namespace widget {
 
 class CompositorWidgetParent final
+#ifdef MOZ_X11
  : public PCompositorWidgetParent,
    public X11CompositorWidget
+#else
+ : public PCompositorWidgetParent,
+   public CompositorWidget
+#endif
 {
 public:
   explicit CompositorWidgetParent(const CompositorWidgetInitData& aInitData);
   ~CompositorWidgetParent() override;
 
   void ActorDestroy(ActorDestroyReason aWhy) override { }
+
+#ifndef MOZ_X11
+  LayoutDeviceIntSize GetClientSize() override
+  {
+    return LayoutDeviceIntSize();
+  }
+  nsIWidget* RealWidget() override { return nullptr; }
+  void NotifyClientSizeChanged(const LayoutDeviceIntSize& aClientSize) { }
+#endif
 
   void ObserveVsync(VsyncObserver* aObserver) override;
   RefPtr<VsyncObserver> GetVsyncObserver() const override;

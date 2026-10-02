@@ -4,6 +4,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+#ifdef MOZ_X11
 #include "WindowSurfaceProvider.h"
 
 #include "gfxPlatformGtk.h"
@@ -112,3 +113,5 @@ WindowSurfaceProvider::EndRemoteDrawingInRegion(gfx::DrawTarget* aDrawTarget,
 
 } // namespace mozilla
 } // namespace widget
+
+#endif // MOZ_X11

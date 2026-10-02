@@ -4,6 +4,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+#ifdef MOZ_X11
 #include "WindowSurfaceX11Image.h"
 
 #include "mozilla/gfx/2D.h"
@@ -117,3 +118,5 @@ WindowSurfaceX11Image::Commit(const LayoutDeviceIntRegion& aInvalidRegion)
 
 }  // namespace widget
 }  // namespace mozilla
+
+#endif // MOZ_X11

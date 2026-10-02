@@ -24,7 +24,6 @@
 #include "nsNativeMenuService.h"
 
 #include <gdk/gdk.h>
-#include <gdk/gdkx.h>
 #include <glib.h>
 #include <glib-object.h>
 
@@ -168,8 +167,13 @@ nsMenuBar::Init(nsIWidget* aParent) {
     nsAutoCString path;
     path.Append(NS_LITERAL_CSTRING("/com/canonical/menu/"));
     char xid[10];
+#ifdef MOZ_X11
     sprintf(xid, "%X", static_cast<uint32_t>(
         GDK_WINDOW_XID(gtk_widget_get_window(mTopLevel))));
+#else
+    sprintf(xid, "%X", static_cast<uint32_t>(
+        reinterpret_cast<uintptr_t>(mTopLevel)));
+#endif
     path.Append(xid);
 
     mServer = dbusmenu_server_new(path.get());
@@ -479,7 +483,11 @@ nsMenuBar::IsBeingDisplayed() const {
 
 uint32_t
 nsMenuBar::WindowId() const {
+#ifdef MOZ_X11
     return static_cast<uint32_t>(GDK_WINDOW_XID(gtk_widget_get_window(mTopLevel)));
+#else
+    return static_cast<uint32_t>(reinterpret_cast<uintptr_t>(mTopLevel));
+#endif
 }
 
 nsAdoptingCString

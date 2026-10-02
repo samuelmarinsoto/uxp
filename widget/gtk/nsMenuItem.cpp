@@ -36,7 +36,9 @@
 #if (MOZ_WIDGET_GTK == 3)
 #include <gdk/gdkkeysyms-compat.h>
 #endif
+#ifdef MOZ_X11
 #include <gdk/gdkx.h>
+#endif
 #include <gtk/gtk.h>
 
 #include "nsMenuItem.h"
@@ -324,8 +326,12 @@ nsMenuItem::item_activated_cb(DbusmenuMenuitem* menuitem,
 void
 nsMenuItem::Activate(uint32_t aTimestamp) {
     GdkWindow* window = gtk_widget_get_window(MenuBar()->TopLevelWindow());
+#ifdef MOZ_X11
     gdk_x11_window_set_user_time(
         window, std::min(aTimestamp, gdk_x11_get_server_time(window)));
+#else
+    (void)window;
+#endif
 
     // We do this to avoid mutating our view of the menu until
     // after we have finished

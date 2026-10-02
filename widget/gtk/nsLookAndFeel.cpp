@@ -28,7 +28,9 @@
 #include "mozilla/gfx/2D.h"
 
 #if MOZ_WIDGET_GTK != 2
+#ifdef CAIRO_HAS_GOBJECT_FUNCTIONS
 #include <cairo-gobject.h>
+#endif
 #include "WidgetStyleCache.h"
 #include "prenv.h"
 #endif
@@ -90,8 +92,10 @@ static bool
 GetGradientColors(const GValue* aValue,
                   GdkRGBA* aLightColor, GdkRGBA* aDarkColor)
 {
+#ifdef CAIRO_HAS_GOBJECT_FUNCTIONS
     if (!G_TYPE_CHECK_VALUE_TYPE(aValue, CAIRO_GOBJECT_TYPE_PATTERN))
         return false;
+#endif
 
     auto pattern = static_cast<cairo_pattern_t*>(g_value_get_boxed(aValue));
     if (!pattern)

@@ -10,11 +10,15 @@
 #include <gdk/gdkkeysyms.h>
 #include <algorithm>
 #include <gdk/gdk.h>
+#ifdef MOZ_X11
 #include <gdk/gdkx.h>
+#endif
 #if (MOZ_WIDGET_GTK == 3)
 #include <gdk/gdkkeysyms-compat.h>
 #endif
+#ifdef MOZ_X11
 #include <X11/XKBlib.h>
+#endif
 #include "WidgetUtils.h"
 #include "keysym2ucs.h"
 #include "nsContentUtils.h"
@@ -171,8 +175,10 @@ KeymapWrapper::KeymapWrapper() :
     g_signal_connect(mGdkKeymap, "direction-changed",
                      (GCallback)OnDirectionChanged, this);
 
+#ifdef MOZ_X11
     if (GDK_IS_X11_DISPLAY(gdk_display_get_default()))
         InitXKBExtension();
+#endif
 
     Init();
 }
@@ -192,8 +198,10 @@ KeymapWrapper::Init()
     mModifierKeys.Clear();
     memset(mModifierMasks, 0, sizeof(mModifierMasks));
 
+#ifdef MOZ_X11
     if (GDK_IS_X11_DISPLAY(gdk_display_get_default()))
         InitBySystemSettings();
+#endif
 
     gdk_window_add_filter(nullptr, FilterEvents, this);
 
@@ -215,6 +223,7 @@ KeymapWrapper::InitXKBExtension()
 {
     PodZero(&mKeyboardState);
 
+#ifdef MOZ_X11
     int xkbMajorVer = XkbMajorVersion;
     int xkbMinorVer = XkbMinorVersion;
     if (!XkbLibraryVersion(&xkbMajorVer, &xkbMinorVer)) {
@@ -267,6 +276,7 @@ KeymapWrapper::InitXKBExtension()
              this, display));
         return;
     }
+#endif // MOZ_X11
 
     MOZ_LOG(gKeymapWrapperLog, LogLevel::Info,
         ("%p InitXKBExtension, Succeeded", this));
@@ -279,6 +289,7 @@ KeymapWrapper::InitBySystemSettings()
         ("%p InitBySystemSettings, mGdkKeymap=%p",
          this, mGdkKeymap));
 
+#ifdef MOZ_X11
     Display* display =
         gdk_x11_display_get_xdisplay(gdk_display_get_default());
 
@@ -435,6 +446,7 @@ KeymapWrapper::InitBySystemSettings()
 
     XFreeModifiermap(xmodmap);
     XFree(xkeymap);
+#endif // MOZ_X11
 }
 
 KeymapWrapper::~KeymapWrapper()
@@ -454,6 +466,7 @@ KeymapWrapper::FilterEvents(GdkXEvent* aXEvent,
                             GdkEvent* aGdkEvent,
                             gpointer aData)
 {
+#ifdef MOZ_X11
     XEvent* xEvent = static_cast<XEvent*>(aXEvent);
     switch (xEvent->type) {
         case KeyPress: {
@@ -516,6 +529,7 @@ KeymapWrapper::FilterEvents(GdkXEvent* aXEvent,
             break;
         }
     }
+#endif // MOZ_X11
 
     return GDK_FILTER_CONTINUE;
 }
@@ -917,6 +931,7 @@ KeymapWrapper::InitKeyEvent(WidgetKeyboardEvent& aKeyEvent,
     // state.  It means if there're some pending modifier key press or
     // key release events, the result isn't what we want.
     guint modifierState = aGdkKeyEvent->state;
+#ifdef MOZ_X11
     GdkDisplay* gdkDisplay = gdk_display_get_default();
     if (aGdkKeyEvent->is_modifier && GDK_IS_X11_DISPLAY(gdkDisplay)) {
         Display* display =
@@ -935,6 +950,7 @@ KeymapWrapper::InitKeyEvent(WidgetKeyboardEvent& aKeyEvent,
             }
         }
     }
+#endif // MOZ_X11
     InitInputEvent(aKeyEvent, modifierState);
 
     switch (aGdkKeyEvent->keyval) {
@@ -1174,11 +1190,15 @@ KeymapWrapper::IsLatinGroup(guint8 aGroup)
 bool
 KeymapWrapper::IsAutoRepeatableKey(guint aHardwareKeyCode)
 {
+#ifdef MOZ_X11
     uint8_t indexOfArray = aHardwareKeyCode / 8;
     MOZ_ASSERT(indexOfArray < ArrayLength(mKeyboardState.auto_repeats),
                "invalid index");
     char bitMask = 1 << (aHardwareKeyCode % 8);
     return (mKeyboardState.auto_repeats[indexOfArray] & bitMask) != 0;
+#else
+    return false;
+#endif
 }
 
 /* static */ bool

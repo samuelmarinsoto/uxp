@@ -43,6 +43,7 @@
 #include <X11/Xatom.h>
 #include <X11/extensions/XShm.h>
 #include <X11/extensions/shape.h>
+#endif /* MOZ_X11 */
 #if (MOZ_WIDGET_GTK == 3)
 #include <gdk/gdkkeysyms-compat.h>
 #endif
@@ -50,7 +51,6 @@
 #if (MOZ_WIDGET_GTK == 2) && defined(MOZ_ENABLE_NPAPI)
 #include "gtk2xtbin.h"
 #endif
-#endif /* MOZ_X11 */
 #include <gdk/gdkkeysyms.h>
 #if (MOZ_WIDGET_GTK == 2)
 #include <gtk/gtkprivate.h>
@@ -79,7 +79,9 @@
 #include "GLContext.h"
 #include "gfx2DGlue.h"
 #ifdef MOZ_ENABLE_NPAPI
+#ifdef MOZ_X11
 #include "nsPluginNativeWindowGtk.h"
+#endif
 #endif
 
 #ifdef ACCESSIBILITY
@@ -303,11 +305,16 @@ public:
 
     guint32 GetCurrentTime() const
     {
+#ifdef MOZ_X11
         return gdk_x11_get_server_time(mWindow);
+#else
+        return 0;
+#endif
     }
 
     void GetTimeAsyncForPossibleBackwardsSkew(const TimeStamp& aNow)
     {
+#ifdef MOZ_X11
         // Check for in-flight request
         if (!mAsyncUpdateStart.IsNull()) {
             return;
@@ -321,11 +328,13 @@ public:
         XChangeProperty(xDisplay, xWindow, timeStampPropAtom,
                         timeStampPropAtom, 8, PropModeReplace, &c, 1);
         XFlush(xDisplay);
+#endif
     }
 
     gboolean PropertyNotifyHandler(GtkWidget* aWidget,
                                    GdkEventProperty* aEvent)
     {
+#ifdef MOZ_X11
         if (aEvent->atom !=
             gdk_x11_xatom_to_atom(TimeStampPropAtom())) {
             return FALSE;
@@ -337,13 +346,18 @@ public:
         TimeConverter().CompensateForBackwardsSkew(eventTime, lowerBound);
         mAsyncUpdateStart = TimeStamp();
         return TRUE;
+#else
+        return FALSE;
+#endif
     }
 
 private:
+#ifdef MOZ_X11
     static Atom TimeStampPropAtom() {
         return gdk_x11_get_xatom_by_name_for_display(
             gdk_display_get_default(), "GDK_TIMESTAMP_PROP");
     }
+#endif
 
     // This is safe because this class is stored as a member of mWindow and
     // won't outlive it.
@@ -435,7 +449,11 @@ nsWindow::nsWindow()
     mHandleTouchEvent    = false;
 #endif
     mIsDragPopup         = false;
+#ifdef MOZ_X11
     mIsX11Display        = GDK_IS_X11_DISPLAY(gdk_display_get_default());
+#else
+    mIsX11Display        = false;
+#endif
 
     mContainer           = nullptr;
     mGdkWindow           = nullptr;
@@ -1181,7 +1199,7 @@ nsWindow::Resize(double aX, double aY, double aWidth, double aHeight,
     return NS_OK;
 }
 
-#ifdef MOZ_ENABLE_NPAPI
+#if defined(MOZ_ENABLE_NPAPI) && defined(MOZ_X11)
 void
 nsWindow::ResizePluginSocketWidget()
 {
@@ -1405,8 +1423,12 @@ nsWindow::GetLastUserInputTime()
     // drags, WM_DELETE_WINDOW delete events, but not usually mouse motion nor
     // button and key releases.  Therefore use the most recent of
     // gdk_x11_display_get_user_time and the last time that we have seen.
+#ifdef MOZ_X11
     guint32 timestamp =
             gdk_x11_display_get_user_time(gdk_display_get_default());
+#else
+    guint32 timestamp = sLastUserInputTime;
+#endif
     if (sLastUserInputTime != GDK_CURRENT_TIME &&
         TimestampIsNewerThan(sLastUserInputTime, timestamp)) {
         return sLastUserInputTime;
@@ -1561,6 +1583,7 @@ nsWindow::UpdateClientOffset()
         return;
     }
 
+#ifdef MOZ_X11
     GdkAtom cardinal_atom = gdk_x11_xatom_to_atom(XA_CARDINAL);
 
     GdkAtom type_returned;
@@ -1590,6 +1613,7 @@ nsWindow::UpdateClientOffset()
     g_free(frame_extents);
 
     mClientOffset = nsIntPoint(left, top);
+#endif // MOZ_X11
 }
 
 LayoutDeviceIntPoint
@@ -1741,7 +1765,7 @@ nsWindow::GetNativeData(uint32_t aDataType)
     case NS_NATIVE_PLUGIN_PORT:
         return SetupPluginPort();
 
-#ifdef MOZ_ENABLE_NPAPI
+#if defined(MOZ_ENABLE_NPAPI) && defined(MOZ_X11)
     case NS_NATIVE_PLUGIN_ID:
         if (!mPluginNativeWindow) {
           NS_WARNING("no native plugin instance!");
@@ -1764,7 +1788,11 @@ nsWindow::GetNativeData(uint32_t aDataType)
         return GetToplevelWidget();
 
     case NS_NATIVE_SHAREABLE_WINDOW:
+#ifdef MOZ_X11
         return (void *) GDK_WINDOW_XID(gdk_window_get_toplevel(mGdkWindow));
+#else
+        return nullptr;
+#endif
 #ifdef MOZ_ENABLE_NPAPI
     case NS_NATIVE_PLUGIN_OBJECT_PTR:
         return (void *) mPluginNativeWindow;
@@ -2108,9 +2136,6 @@ ExtractExposeRegion(LayoutDeviceIntRegion& aRegion, GdkEventExpose* aEvent)
 }
 
 #else
-# ifdef cairo_copy_clip_rectangle_list
-#  error "Looks like we're including Mozilla's cairo instead of system cairo"
-# endif
 static bool
 ExtractExposeRegion(LayoutDeviceIntRegion& aRegion, cairo_t* cr)
 {
@@ -2201,9 +2226,14 @@ nsWindow::OnExposeEvent(cairo_t *cr)
       clientLayers->SetNeedsComposite(false);
     }
 
+#ifdef MOZ_X11
     LOGDRAW(("sending expose event [%p] %p 0x%lx (rects follow):\n",
              (void *)this, (void *)mGdkWindow,
              gdk_x11_window_get_xid(mGdkWindow)));
+#else
+    LOGDRAW(("sending expose event [%p] %p (rects follow):\n",
+             (void *)this, (void *)mGdkWindow));
+#endif
 
     // Our bounds may have changed after calling WillPaintWindow.  Clip
     // to the new bounds here.  The region is relative to this
@@ -4011,9 +4041,14 @@ nsWindow::Create(nsIWidget* aParent,
 
     LOG(("nsWindow [%p]\n", (void *)this));
     if (mShell) {
+#ifdef MOZ_X11
         LOG(("\tmShell %p mContainer %p mGdkWindow %p 0x%lx\n",
              mShell, mContainer, mGdkWindow,
              gdk_x11_window_get_xid(mGdkWindow)));
+#else
+        LOG(("\tmShell %p mContainer %p mGdkWindow %p\n",
+             mShell, mContainer, mGdkWindow));
+#endif
     } else if (mContainer) {
         LOG(("\tmContainer %p mGdkWindow %p\n", mContainer, mGdkWindow));
     }
@@ -4813,12 +4848,12 @@ nsWindow::SetupPluginPort(void)
     if (gdk_window_is_destroyed(mGdkWindow) == TRUE)
         return nullptr;
 
+#ifdef MOZ_X11
     Window window = gdk_x11_window_get_xid(mGdkWindow);
 
     // we have to flush the X queue here so that any plugins that
     // might be running on separate X connections will be able to use
     // this window in case it was just created
-#ifdef MOZ_X11
     XWindowAttributes xattrs;
     Display *display = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
     XGetWindowAttributes(display, window, &xattrs);
@@ -4829,9 +4864,11 @@ nsWindow::SetupPluginPort(void)
     gdk_window_add_filter(mGdkWindow, plugin_window_filter_func, this);
 
     XSync(display, False);
-#endif /* MOZ_X11 */
 
     return (void *)window;
+#else
+    return nullptr;
+#endif /* MOZ_X11 */
 }
 
 void
@@ -6609,14 +6646,20 @@ nsWindow::GetDrawTargetForGdkDrawable(GdkDrawable* aDrawable,
 already_AddRefed<DrawTarget>
 nsWindow::StartRemoteDrawingInRegion(LayoutDeviceIntRegion& aInvalidRegion, BufferMode* aBufferMode)
 {
+#ifdef MOZ_X11
   return mSurfaceProvider.StartRemoteDrawingInRegion(aInvalidRegion, aBufferMode);
+#else
+  return nullptr;
+#endif
 }
 
 void
 nsWindow::EndRemoteDrawingInRegion(DrawTarget* aDrawTarget,
                                    LayoutDeviceIntRegion& aInvalidRegion)
 {
+#ifdef MOZ_X11
   mSurfaceProvider.EndRemoteDrawingInRegion(aDrawTarget, aInvalidRegion);
+#endif
 }
 
 // Code shared begin BeginMoveDrag and BeginResizeDrag
@@ -6656,6 +6699,7 @@ nsWindow::GetDragInfo(WidgetMouseEvent* aMouseEvent,
     }
 
     if (mIsX11Display) {
+#ifdef MOZ_X11
       // Workaround for https://bugzilla.gnome.org/show_bug.cgi?id=789054
       // To avoid crashes disable double-click on WM without _NET_WM_MOVERESIZE.
       // See _should_perform_ewmh_drag() at gdkwindow-x11.c
@@ -6669,6 +6713,7 @@ nsWindow::GetDragInfo(WidgetMouseEvent* aMouseEvent,
               return false;
           }
       }
+#endif
     }
 
     // FIXME: It would be nice to have the widget position at the time

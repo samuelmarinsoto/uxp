@@ -7,6 +7,7 @@
 #define nsIdleServiceGTK_h__
 
 #include "nsIdleService.h"
+#ifdef MOZ_X11
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <gdk/gdkx.h>
@@ -19,6 +20,10 @@ typedef struct {
     unsigned long idle;         // milliseconds idle
     unsigned long event_mask;   // event stuff
 } XScreenSaverInfo;
+#else
+// Wayland-only builds have no X11 screen-saver introspection.
+typedef void XScreenSaverInfo;
+#endif
 
 class nsIdleServiceGTK : public nsIdleService
 {

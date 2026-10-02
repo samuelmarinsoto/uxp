@@ -10,7 +10,9 @@
 #include "mozilla/EventForwards.h"
 
 #include <gdk/gdk.h>
+#ifdef MOZ_X11
 #include <X11/XKBlib.h>
+#endif
 
 namespace mozilla {
 namespace widget {
@@ -226,7 +228,11 @@ protected:
      * See a call of XkbSelectEventDetails() with XkbControlsNotify in
      * InitXKBExtension().
      */
+#ifdef MOZ_X11
     XKeyboardState mKeyboardState;
+#else
+    uint32_t mKeyboardState;
+#endif
 
     /**
      * Pointer of the singleton instance.

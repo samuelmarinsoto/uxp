@@ -7,7 +7,6 @@
 #define widget_gtk_X11CompositorWidget_h
 
 #include "mozilla/widget/CompositorWidget.h"
-#include "WindowSurfaceProvider.h"
 
 class nsIWidget;
 class nsWindow;
@@ -20,6 +19,10 @@ class CompositorWidgetDelegate
 public:
   virtual void NotifyClientSizeChanged(const LayoutDeviceIntSize& aClientSize) = 0;
 };
+
+#ifdef MOZ_X11
+
+#include "WindowSurfaceProvider.h"
 
 class X11CompositorWidget
  : public CompositorWidget
@@ -62,6 +65,7 @@ private:
   Window   mXWindow;
   WindowSurfaceProvider mProvider;
 };
+#endif // MOZ_X11
 
 } // namespace widget
 } // namespace mozilla

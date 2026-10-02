@@ -6,6 +6,8 @@
 #ifndef widget_gtk_InProcessX11CompositorWidgetParent_h
 #define widget_gtk_InProcessX11CompositorWidgetParent_h
 
+#ifdef MOZ_X11
+
 #include "X11CompositorWidget.h"
 
 class nsWindow;
@@ -26,5 +28,7 @@ public:
 
 } // namespace widget
 } // namespace mozilla
+
+#endif // MOZ_X11
 
 #endif // widget_gtk_InProcessX11CompositorWidgetParent_h

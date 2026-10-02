@@ -10,7 +10,9 @@ namespace mozilla {
 namespace widget {
 
 CompositorWidgetParent::CompositorWidgetParent(const CompositorWidgetInitData& aInitData)
+#ifdef MOZ_X11
  : X11CompositorWidget(aInitData)
+#endif
 {
   MOZ_ASSERT(XRE_GetProcessType() == GeckoProcessType_GPU);
 }

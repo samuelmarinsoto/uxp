@@ -8,14 +8,18 @@
 #include "nsPluginNativeWindow.h"
 #include "npapi.h"
 #include <gtk/gtk.h>
+#ifdef MOZ_X11
 #include <gdk/gdkx.h>
+#endif
 #include <gdk/gdk.h>
 #if (GTK_MAJOR_VERSION == 3)
 #include <gtk/gtkx.h>
 #else
 #include "gtk2xtbin.h"
 #endif
+#ifdef MOZ_X11
 #include "mozilla/X11Util.h"
+#endif
 
 class nsPluginNativeWindowGtk : public nsPluginNativeWindow {
 public:
@@ -26,6 +30,7 @@ public:
   nsresult CreateXEmbedWindow(bool aEnableXtFocus);
   void SetAllocation();
 
+#ifdef MOZ_X11
   XID GetWindow() const
   {
     return static_cast<XID>(reinterpret_cast<uintptr_t>(window));
@@ -36,6 +41,9 @@ private:
   {
     window = reinterpret_cast<void*>(static_cast<uintptr_t>(aWindow));
   }
+#else
+private:
+#endif
 
   NPSetWindowCallbackStruct mWsInfo;
   /**

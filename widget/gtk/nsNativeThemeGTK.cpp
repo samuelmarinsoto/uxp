@@ -28,7 +28,6 @@
 #include "mozilla/EventStates.h"
 #include "mozilla/Services.h"
 
-#include <gdk/gdkprivate.h>
 #include <gtk/gtk.h>
 
 #include "gfxContext.h"

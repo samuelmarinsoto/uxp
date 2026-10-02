@@ -25,13 +25,17 @@
 #include <gtk/gtk.h>
 
 // For manipulation of the X event queue
+#ifdef MOZ_X11
 #include <X11/Xlib.h>
 #include <gdk/gdkx.h>
+#endif
 #include <sys/time.h>
 #include <sys/types.h>
 #include <errno.h>
 #include <unistd.h>
+#ifdef MOZ_X11
 #include "X11UndefineNone.h"
+#endif
 
 #include "mozilla/dom/EncodingUtils.h"
 #include "nsIUnicodeDecoder.h"
@@ -808,6 +812,7 @@ void GetHTMLCharset(guchar * data, int32_t dataLength, nsCString& str)
     str.AssignLiteral("UNKNOWN");
 }
 
+#ifdef MOZ_X11
 static void
 DispatchSelectionNotifyEvent(GtkWidget *widget, XEvent *xevent)
 {
@@ -868,6 +873,7 @@ checkEventProc(Display *display, XEvent *event, XPointer arg)
 
     return False;
 }
+#endif // MOZ_X11
 
 // Idle timeout for receiving selection and property notify events (microsec)
 static const int kClipboardTimeout = 500000;
@@ -932,6 +938,7 @@ RetrievalContext::Wait()
     }
 
     GdkDisplay *gdkDisplay = gdk_display_get_default();
+#ifdef MOZ_X11
     if (GDK_IS_X11_DISPLAY(gdkDisplay)) {
         Display *xDisplay = GDK_DISPLAY_XDISPLAY(gdkDisplay);
         checkEventContext context;
@@ -979,6 +986,7 @@ RetrievalContext::Wait()
         } while (select_result == 1 ||
                  (select_result == -1 && errno == EINTR));
     }
+#endif // MOZ_X11
 #ifdef DEBUG_CLIPBOARD
     printf("exceeded clipboard timeout\n");
 #endif
@@ -1028,6 +1036,7 @@ wait_for_text(GtkClipboard *clipboard)
     return static_cast<gchar*>(context->Wait());
 }
 
+#ifdef MOZ_X11
 static GdkFilterReturn
 selection_request_filter(GdkXEvent *gdk_xevent, GdkEvent *event, gpointer data)
 {
@@ -1050,3 +1059,4 @@ selection_request_filter(GdkXEvent *gdk_xevent, GdkEvent *event, gpointer data)
     }
     return GDK_FILTER_CONTINUE;
 }
+#endif // MOZ_X11

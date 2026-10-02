@@ -15,6 +15,7 @@ using mozilla::LogLevel;
 
 static PRLogModuleInfo* sIdleLog = nullptr;
 
+#ifdef MOZ_X11
 typedef bool (*_XScreenSaverQueryExtension_fn)(Display* dpy, int* event_base,
                                                  int* error_base);
 
@@ -22,14 +23,18 @@ typedef XScreenSaverInfo* (*_XScreenSaverAllocInfo_fn)(void);
 
 typedef void (*_XScreenSaverQueryInfo_fn)(Display* dpy, Drawable drw,
                                           XScreenSaverInfo *info);
+#endif
 
 static bool sInitialized = false;
+#ifdef MOZ_X11
 static _XScreenSaverQueryExtension_fn _XSSQueryExtension = nullptr;
 static _XScreenSaverAllocInfo_fn _XSSAllocInfo = nullptr;
 static _XScreenSaverQueryInfo_fn _XSSQueryInfo = nullptr;
+#endif
 
 NS_IMPL_ISUPPORTS_INHERITED0(nsIdleServiceGTK, nsIdleService)
 
+#ifdef MOZ_X11
 static void Initialize()
 {
     if (!GDK_IS_X11_DISPLAY(gdk_display_get_default()))
@@ -59,6 +64,7 @@ static void Initialize()
 
     sInitialized = true;
 }
+#endif // MOZ_X11
 
 nsIdleServiceGTK::nsIdleServiceGTK()
     : mXssInfo(nullptr)
@@ -66,13 +72,17 @@ nsIdleServiceGTK::nsIdleServiceGTK()
     if (!sIdleLog)
         sIdleLog = PR_NewLogModule("nsIIdleService");
 
+#ifdef MOZ_X11
     Initialize();
+#endif
 }
 
 nsIdleServiceGTK::~nsIdleServiceGTK()
 {
+#ifdef MOZ_X11
     if (mXssInfo)
         XFree(mXssInfo);
+#endif
 
 // It is not safe to unload libXScrnSaver until each display is closed because
 // the library registers callbacks through XESetCloseDisplay (Bug 397607).
@@ -88,6 +98,10 @@ nsIdleServiceGTK::~nsIdleServiceGTK()
 bool
 nsIdleServiceGTK::PollIdleTime(uint32_t *aIdleTime)
 {
+#ifndef MOZ_X11
+    // No X11 screen-saver introspection available.
+    return false;
+#else
     if (!sInitialized) {
         // For some reason, we could not find xscreensaver.
         return false;
@@ -121,6 +135,7 @@ nsIdleServiceGTK::PollIdleTime(uint32_t *aIdleTime)
     // If we get here, we couldn't get to XScreenSaver:
     MOZ_LOG(sIdleLog, LogLevel::Warning, ("XSSQueryExtension returned false!\n"));
     return false;
+#endif // MOZ_X11
 }
 
 bool

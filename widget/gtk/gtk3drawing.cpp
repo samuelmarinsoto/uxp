@@ -9,7 +9,6 @@
  */
 
 #include <gtk/gtk.h>
-#include <gdk/gdkprivate.h>
 #include <string.h>
 #include "gtkdrawing.h"
 #include "mozilla/Assertions.h"

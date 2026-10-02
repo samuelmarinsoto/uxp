@@ -7,6 +7,8 @@
 #ifndef _MOZILLA_WIDGET_GTK_WINDOW_SURFACE_PROVIDER_H
 #define _MOZILLA_WIDGET_GTK_WINDOW_SURFACE_PROVIDER_H
 
+#ifdef MOZ_X11
+
 #include "mozilla/widget/WindowSurface.h"
 #include "mozilla/gfx/Types.h"
 #include "mozilla/gfx/2D.h"
@@ -65,5 +67,7 @@ private:
 
 }  // namespace widget
 }  // namespace mozilla
+
+#endif // MOZ_X11
 
 #endif // _MOZILLA_WIDGET_GTK_WINDOW_SURFACE_PROVIDER_H

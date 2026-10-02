@@ -23,7 +23,9 @@
 #endif /* MOZ_X11 */
 
 #include "mozilla/widget/WindowSurface.h"
+#ifdef MOZ_X11
 #include "mozilla/widget/WindowSurfaceProvider.h"
+#endif /* MOZ_X11 */
 
 #ifdef ACCESSIBILITY
 #include "mozilla/a11y/Accessible.h"

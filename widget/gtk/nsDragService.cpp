@@ -21,12 +21,10 @@
 #include "prthread.h"
 #include <dlfcn.h>
 #include <gtk/gtk.h>
-#include <gdk/gdkx.h>
 #include "nsCRT.h"
 #include "mozilla/BasicEvents.h"
 #include "mozilla/Services.h"
 
-#include "gfxXlibSurface.h"
 #include "gfxContext.h"
 #include "nsImageToPixbuf.h"
 #include "nsPresContext.h"
@@ -464,7 +462,10 @@ nsDragService::SetAlphaPixmap(SourceSurface *aSurface,
     return true;
 #else
 #ifdef cairo_image_surface_create
-#error "Looks like we're including Mozilla's cairo instead of system cairo"
+    // The drag-icon path below requires the cairo gtk links (system cairo),
+    // but this build renames the tree cairo, so it cannot be used. Degrade
+    // exactly like the gtk >= 3.9.12 check below.
+    return false;
 #endif
     // Prior to GTK 3.9.12, cairo surfaces passed into gtk_drag_set_icon_surface
     // had their shape information derived from the alpha channel and used with
