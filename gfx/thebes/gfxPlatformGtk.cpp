@@ -34,11 +34,11 @@
 #include <gtk/gtk.h>
 
 #include "gfxImageSurface.h"
+#include "mozilla/Preferences.h"
 #ifdef MOZ_X11
 #include <gdk/gdkx.h>
 #include "gfxXlibSurface.h"
 #include "cairo-xlib.h"
-#include "mozilla/Preferences.h"
 #include "mozilla/X11Util.h"
 
 #ifdef GL_PROVIDER_GLX
@@ -117,9 +117,11 @@ gfxPlatformGtk::~gfxPlatformGtk()
 void
 gfxPlatformGtk::FlushContentDrawing()
 {
+#ifdef MOZ_X11
     if (gfxVars::UseXRender()) {
         XFlush(DefaultXDisplay());
     }
+#endif // MOZ_X11
 }
 
 already_AddRefed<gfxASurface>

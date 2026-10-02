@@ -30,7 +30,7 @@
 #endif
 #endif
 
-#ifdef CAIRO_HAS_XLIB_SURFACE
+#if defined(CAIRO_HAS_XLIB_SURFACE) && defined(MOZ_X11)
 #include "cairo-xlib.h"
 #include "cairo-xlib-xrender.h"
 #endif
@@ -700,7 +700,7 @@ GfxFormatForCairoSurface(cairo_surface_t* surface)
   if (type == CAIRO_SURFACE_TYPE_IMAGE) {
     return CairoFormatToGfxFormat(cairo_image_surface_get_format(surface));
   }
-#ifdef CAIRO_HAS_XLIB_SURFACE
+#if defined(CAIRO_HAS_XLIB_SURFACE) && defined(MOZ_X11)
   // xlib is currently the only Cairo backend that creates 16bpp surfaces
   if (type == CAIRO_SURFACE_TYPE_XLIB &&
       cairo_xlib_surface_get_depth(surface) == 16) {
@@ -1735,7 +1735,7 @@ DrawTargetCairo::CreateSourceSurfaceFromData(unsigned char *aData,
   return source_surf.forget();
 }
 
-#ifdef CAIRO_HAS_XLIB_SURFACE
+#if defined(CAIRO_HAS_XLIB_SURFACE) && defined(MOZ_X11)
 static cairo_user_data_key_t gDestroyPixmapKey;
 
 struct DestroyPixmapClosure {
@@ -1758,7 +1758,7 @@ already_AddRefed<SourceSurface>
 DrawTargetCairo::OptimizeSourceSurface(SourceSurface *aSurface) const
 {
   RefPtr<SourceSurface> surface(aSurface);
-#ifdef CAIRO_HAS_XLIB_SURFACE
+#if defined(CAIRO_HAS_XLIB_SURFACE) && defined(MOZ_X11)
   cairo_surface_type_t ctype = cairo_surface_get_type(mSurface);
   if (aSurface->GetType() == SurfaceType::CAIRO &&
       cairo_surface_get_type(
@@ -2094,7 +2094,7 @@ DrawTarget::Draw3DTransformedSurface(SourceSurface* aSurface, const Matrix4x4& a
 }
 #endif
 
-#ifdef CAIRO_HAS_XLIB_SURFACE
+#if defined(CAIRO_HAS_XLIB_SURFACE) && defined(MOZ_X11)
 static bool gXRenderInitialized = false;
 static bool gXRenderHasTransform = false;
 
@@ -2134,7 +2134,7 @@ SupportsXRender(cairo_surface_t* surface)
 bool
 DrawTargetCairo::Draw3DTransformedSurface(SourceSurface* aSurface, const Matrix4x4& aMatrix)
 {
-#if CAIRO_HAS_XLIB_SURFACE
+#if CAIRO_HAS_XLIB_SURFACE && defined(MOZ_X11)
   cairo_surface_t* srcSurf =
     aSurface->GetType() == SurfaceType::CAIRO ?
       static_cast<SourceSurfaceCairo*>(aSurface)->GetSurface() : nullptr;
@@ -2339,7 +2339,7 @@ BorrowedXlibDrawable::Init(DrawTarget* aDT)
   mDT = aDT;
   mDrawable = X11None;
 
-#ifdef CAIRO_HAS_XLIB_SURFACE
+#if defined(CAIRO_HAS_XLIB_SURFACE) && defined(MOZ_X11)
   if (aDT->GetBackendType() != BackendType::CAIRO ||
       aDT->IsDualDrawTarget() ||
       aDT->IsTiledDrawTarget()) {

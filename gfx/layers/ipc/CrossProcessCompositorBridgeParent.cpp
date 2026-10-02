@@ -49,7 +49,7 @@
 #include "mozilla/layout/RenderFrameParent.h"
 #include "mozilla/media/MediaSystemResourceService.h" // for MediaSystemResourceService
 #include "mozilla/mozalloc.h"           // for operator new, etc
-#ifdef MOZ_WIDGET_GTK
+#ifdef MOZ_X11
 #include "basic/X11BasicCompositor.h" // for X11BasicCompositor
 #endif
 #include "nsCOMPtr.h"                   // for already_AddRefed
