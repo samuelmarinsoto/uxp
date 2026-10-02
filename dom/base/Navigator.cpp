@@ -50,7 +50,7 @@
 #include "mozilla/ClearOnShutdown.h"
 #include "mozilla/SSE.h"
 #include "mozilla/StaticPtr.h"
-#include "Connection.h"
+#include "dom/network/Connection.h"
 #include "mozilla/dom/Event.h" // for nsIDOMEvent::InternalDOMEvent()
 #include "nsGlobalWindow.h"
 #include "nsIIdleObserver.h"
