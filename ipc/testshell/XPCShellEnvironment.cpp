@@ -247,7 +247,9 @@ typedef enum JSShellErrNum
 {
 #define MSG_DEF(name, number, count, exception, format) \
     name = number,
-#include "jsshell.msg"
+/* pin the xpconnect message file: both js/src and js/xpconnect/src carry a
+   jsshell.msg and the include must not depend on -I ordering (omoon) */
+#include "js/xpconnect/src/jsshell.msg"
 #undef MSG_DEF
     JSShellErr_Limit
 #undef MSGDEF
