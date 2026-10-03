@@ -200,7 +200,7 @@ NS_IMETHODIMP mozHunspell::SetDictionary(const char16_t *aDictionary)
   if (!mHunspell)
     return NS_ERROR_OUT_OF_MEMORY;
 
-  nsDependentCString label(mHunspell->get_dic_encoding());
+  nsDependentCString label(mHunspell->get_dict_encoding().data());
   nsAutoCString encoding;
   if (!EncodingUtils::FindEncodingForLabelNoReplacement(label, encoding)) {
     return NS_ERROR_UCONV_NOCONV;
@@ -522,7 +522,7 @@ NS_IMETHODIMP mozHunspell::Check(const char16_t *aWord, bool *aResult)
   nsresult rv = ConvertCharset(aWord, getter_Copies(charsetWord));
   NS_ENSURE_SUCCESS(rv, rv);
 
-  *aResult = !!mHunspell->spell(charsetWord);
+  *aResult = mHunspell->spell(std::string(charsetWord.get()));
 
 
   if (!*aResult && mPersonalDictionary)
@@ -544,8 +544,8 @@ NS_IMETHODIMP mozHunspell::Suggest(const char16_t *aWord, char16_t ***aSuggestio
   rv = ConvertCharset(aWord, getter_Copies(charsetWord));
   NS_ENSURE_SUCCESS(rv, rv);
 
-  char ** wlst;
-  *aSuggestionCount = mHunspell->suggest(&wlst, charsetWord);
+  std::vector<std::string> wlst = mHunspell->suggest(charsetWord.get());
+  *aSuggestionCount = static_cast<uint32_t>(wlst.size());
 
   if (*aSuggestionCount) {
     *aSuggestions  = (char16_t **)moz_xmalloc(*aSuggestionCount * sizeof(char16_t *));
@@ -553,15 +553,15 @@ NS_IMETHODIMP mozHunspell::Suggest(const char16_t *aWord, char16_t ***aSuggestio
       uint32_t index = 0;
       for (index = 0; index < *aSuggestionCount && NS_SUCCEEDED(rv); ++index) {
         // Convert the suggestion to utf16
-        int32_t inLength = strlen(wlst[index]);
+        int32_t inLength = wlst[index].length();
         int32_t outLength;
-        rv = mDecoder->GetMaxLength(wlst[index], inLength, &outLength);
+        rv = mDecoder->GetMaxLength(wlst[index].data(), inLength, &outLength);
         if (NS_SUCCEEDED(rv))
         {
           (*aSuggestions)[index] = (char16_t *) moz_xmalloc(sizeof(char16_t) * (outLength+1));
           if ((*aSuggestions)[index])
           {
-            rv = mDecoder->Convert(wlst[index], &inLength, (*aSuggestions)[index], &outLength);
+            rv = mDecoder->Convert(wlst[index].data(), &inLength, (*aSuggestions)[index], &outLength);
             if (NS_SUCCEEDED(rv))
               (*aSuggestions)[index][outLength] = 0;
           }
@@ -577,7 +577,6 @@ NS_IMETHODIMP mozHunspell::Suggest(const char16_t *aWord, char16_t ***aSuggestio
       rv = NS_ERROR_OUT_OF_MEMORY;
   }
 
-  NS_FREE_XPCOM_ALLOCATED_POINTER_ARRAY(*aSuggestionCount, wlst);
   return rv;
 }
 
