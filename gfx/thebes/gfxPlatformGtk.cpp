@@ -820,6 +820,7 @@ gfxPlatformGtk::CreateHardwareVsyncSource()
   }
   return gfxPlatform::CreateHardwareVsyncSource();
 }
+#endif /* GL_PROVIDER_GLX */
 
 bool
 gfxPlatformGtk::SupportsApzTouchInput() const
@@ -827,5 +828,3 @@ gfxPlatformGtk::SupportsApzTouchInput() const
   int value = gfxPrefs::TouchEventsEnabled();
   return value == 1 || value == 2;
 }
-
-#endif
