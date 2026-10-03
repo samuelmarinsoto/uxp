@@ -2551,9 +2551,16 @@ static const char* detectDisplay(void)
   }
 
   const char *display_name;
+#ifdef MOZ_X11
   if (tryX11 && (display_name = PR_GetEnv("DISPLAY"))) {
     return display_name;
   } else if (tryWayland && (display_name = PR_GetEnv("WAYLAND_DISPLAY"))) {
+#else
+  /* omoon: no X11 backend - a set DISPLAY (XWayland, legacy sessions)
+     must not shadow WAYLAND_DISPLAY, or the launcher hands ":0" to GTK
+     and dies at display open */
+  if (tryWayland && (display_name = PR_GetEnv("WAYLAND_DISPLAY"))) {
+#endif
     return display_name;
   } else if (tryBroadway && (display_name = PR_GetEnv("BROADWAY_DISPLAY"))) {
     return display_name;
