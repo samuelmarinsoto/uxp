@@ -238,10 +238,18 @@ public:
 #ifdef MOZ_ENABLE_NPAPI
   virtual bool RecvConnectPluginBridge(const uint32_t& aPluginId,
                                        nsresult* aRv) override;
+#else
+  virtual bool RecvConnectPluginBridge(const uint32_t& aPluginId,
+                                       nsresult* aRv) override;
 #endif
   virtual bool RecvGetBlocklistState(const uint32_t& aPluginId,
                                      uint32_t* aIsBlocklisted) override;
 #ifdef MOZ_ENABLE_NPAPI
+  virtual bool RecvFindPlugins(const uint32_t& aPluginEpoch,
+                               nsresult* aRv,
+                               nsTArray<PluginTag>* aPlugins,
+                               uint32_t* aNewPluginEpoch) override;
+#else
   virtual bool RecvFindPlugins(const uint32_t& aPluginEpoch,
                                nsresult* aRv,
                                nsTArray<PluginTag>* aPlugins,

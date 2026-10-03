@@ -577,6 +577,10 @@ public:
   bool DeallocPPluginWidgetChild(PPluginWidgetChild* aActor) override;
 
   nsresult CreatePluginWidget(nsIWidget* aParent, nsIWidget** aOut);
+#else
+  PPluginWidgetChild* AllocPPluginWidgetChild() override;
+
+  bool DeallocPPluginWidgetChild(PPluginWidgetChild* aActor) override;
 #endif
 
   LayoutDeviceIntPoint GetClientOffset() const { return mClientOffset; }

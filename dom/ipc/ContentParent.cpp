@@ -814,6 +814,13 @@ ContentParent::RecvConnectPluginBridge(const uint32_t& aPluginId, nsresult* aRv)
   uint32_t dummy = 0;
   return mozilla::plugins::SetupBridge(aPluginId, this, true, aRv, &dummy);
 }
+#else
+bool
+ContentParent::RecvConnectPluginBridge(const uint32_t& aPluginId, nsresult* aRv)
+{
+  *aRv = NS_ERROR_NOT_AVAILABLE;
+  return true;
+}
 #endif
 
 bool
@@ -851,6 +858,18 @@ ContentParent::RecvFindPlugins(const uint32_t& aPluginEpoch,
                                uint32_t* aNewPluginEpoch)
 {
   *aRv = mozilla::plugins::FindPluginsForContent(aPluginEpoch, aPlugins, aNewPluginEpoch);
+  return true;
+}
+#else
+bool
+ContentParent::RecvFindPlugins(const uint32_t& aPluginEpoch,
+                               nsresult* aRv,
+                               nsTArray<PluginTag>* aPlugins,
+                               uint32_t* aNewPluginEpoch)
+{
+  *aRv = NS_ERROR_NOT_AVAILABLE;
+  aPlugins->Clear();
+  *aNewPluginEpoch = aPluginEpoch;
   return true;
 }
 #endif

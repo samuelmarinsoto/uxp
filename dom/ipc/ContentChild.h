@@ -130,6 +130,10 @@ public:
   PPluginModuleParent *
   AllocPPluginModuleParent(mozilla::ipc::Transport* transport,
                            base::ProcessId otherProcess) override;
+#else
+  PPluginModuleParent *
+  AllocPPluginModuleParent(mozilla::ipc::Transport* transport,
+                           base::ProcessId otherProcess) override;
 #endif
   PContentBridgeParent*
   AllocPContentBridgeParent(mozilla::ipc::Transport* transport,
@@ -423,6 +427,12 @@ public:
                                       const nsCString& aTopic,
                                       const nsString& aData) override;
 #ifdef MOZ_ENABLE_NPAPI
+  virtual bool RecvAssociatePluginId(const uint32_t& aPluginId,
+                                     const base::ProcessId& aProcessId) override;
+
+  virtual bool RecvLoadPluginResult(const uint32_t& aPluginId,
+                                    const bool& aResult) override;
+#else
   virtual bool RecvAssociatePluginId(const uint32_t& aPluginId,
                                      const base::ProcessId& aProcessId) override;
 

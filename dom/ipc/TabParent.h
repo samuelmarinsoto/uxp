@@ -543,6 +543,11 @@ public:
 
   virtual bool
   DeallocPPluginWidgetParent(PPluginWidgetParent* aActor) override;
+#else
+  virtual PPluginWidgetParent* AllocPPluginWidgetParent() override;
+
+  virtual bool
+  DeallocPPluginWidgetParent(PPluginWidgetParent* aActor) override;
 #endif
 
   void SetInitedByParent() { mInitedByParent = true; }
