@@ -434,6 +434,11 @@ XPCOMGlueStartup(const char* aXPCOMFile)
   return NS_OK;
 }
 
+/* omoon: the frozen-API forwarders dispatch through xpcomFunctions and
+   collide with the real in-process implementations under the whole-archive
+   static link; the launcher never calls them */
+#if !defined(OMOON_NO_GLUE_FORWARDERS)
+
 XPCOM_API(nsresult)
 NS_InitXPCOM2(nsIServiceManager** aResult,
               nsIFile* aBinDirectory,
@@ -924,3 +929,5 @@ NS_CycleCollectorForget2(nsPurpleBufferEntry* aEntry)
 
   return xpcomFunctions.cycleForget2Func(aEntry);
 }
+
+#endif /* OMOON_NO_GLUE_FORWARDERS */
