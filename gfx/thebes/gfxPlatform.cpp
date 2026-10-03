@@ -2026,6 +2026,9 @@ gfxPlatform::InitAcceleration()
 #ifdef XP_WIN
     Preferences::GetBool("media.windows-media-foundation.use-dxva", true) &&
 #endif
+    /* omoon: the GfxInfo service is MOZ_X11-gated in the widget factory;
+       without it there is no verified hw decoding - skip the query */
+      gfxInfo &&
       NS_SUCCEEDED(gfxInfo->GetFeatureStatus(nsIGfxInfo::FEATURE_HARDWARE_VIDEO_DECODING,
                                                discardFailureId, &status))) {
       if (status == nsIGfxInfo::FEATURE_STATUS_OK || gfxPrefs::HardwareVideoDecodingForceEnabled()) {

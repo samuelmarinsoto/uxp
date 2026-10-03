@@ -1439,6 +1439,13 @@ gfxUtils::ThreadSafeGetFeatureStatus(const nsCOMPtr<nsIGfxInfo>& gfxInfo,
     return runnable->GetNSResult();
   }
 
+  /* omoon: the GfxInfo service is MOZ_X11-gated in the widget factory;
+     report unknown rather than crashing on the null service */
+  if (!gfxInfo) {
+    *status = nsIGfxInfo::FEATURE_STATUS_UNKNOWN;
+    return NS_OK;
+  }
+
   return gfxInfo->GetFeatureStatus(feature, failureId, status);
 }
 
