@@ -149,6 +149,7 @@ nsPluginArray::NamedItem(const nsAString& aName)
 void
 nsPluginArray::Refresh(bool aReloadDocuments)
 {
+#ifdef MOZ_ENABLE_NPAPI
   RefPtr<nsPluginHost> pluginHost = nsPluginHost::GetInst();
 
   if(!AllowPlugins() || !pluginHost) {
@@ -173,6 +174,7 @@ nsPluginArray::Refresh(bool aReloadDocuments)
       return;
     }
   }
+#endif
 
   mPlugins.Clear();
   mCTPPlugins.Clear();
@@ -338,6 +340,7 @@ PluginShouldBeHidden(nsCString aName) {
 void
 nsPluginArray::EnsurePlugins()
 {
+#ifdef MOZ_ENABLE_NPAPI
   if (!mPlugins.IsEmpty() || !mCTPPlugins.IsEmpty()) {
     // We already have an array of plugin elements.
     return;
@@ -406,6 +409,7 @@ nsPluginArray::EnsurePlugins()
   // Alphabetize the enumeration order of non-hidden plugins to reduce
   // fingerprintable entropy based on plugins' installation file times.
   mPlugins.Sort();
+#endif
 }
 
 // nsPluginElement implementation.

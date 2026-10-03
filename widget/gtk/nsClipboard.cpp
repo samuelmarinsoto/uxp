@@ -124,7 +124,9 @@ nsClipboard::Observe(nsISupports *aSubject, const char *aTopic, const char16_t *
     if (strcmp(aTopic, "quit-application") == 0) {
         // Application is going to quit, save clipboard content
         gtk_clipboard_store(gtk_clipboard_get(GDK_SELECTION_CLIPBOARD));
+#if (MOZ_WIDGET_GTK == 3) && defined(MOZ_X11)
         gdk_window_remove_filter(nullptr, selection_request_filter, nullptr);
+#endif
     }
     return NS_OK;
 }

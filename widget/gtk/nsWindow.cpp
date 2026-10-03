@@ -1155,7 +1155,7 @@ nsWindow::Resize(double aWidth, double aHeight, bool aRepaint)
     NativeResize();
 
     NotifyRollupGeometryChange();
-#ifdef MOZ_ENABLE_NPAPI
+#if defined(MOZ_ENABLE_NPAPI) && defined(MOZ_X11)
     ResizePluginSocketWidget();
 #endif
 
@@ -1188,7 +1188,7 @@ nsWindow::Resize(double aX, double aY, double aWidth, double aHeight,
     NativeMoveResize();
 
     NotifyRollupGeometryChange();
-#ifdef MOZ_ENABLE_NPAPI
+#if defined(MOZ_ENABLE_NPAPI) && defined(MOZ_X11)
     ResizePluginSocketWidget();
 #endif
 

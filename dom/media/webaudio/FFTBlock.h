@@ -28,10 +28,12 @@ class FFTBlock final
 public:
   static void MainThreadInit()
   {
+#ifdef MOZ_FFVPX
     FFVPXRuntimeLinker::Init();
     if (!sFFTFuncs.init) {
       FFVPXRuntimeLinker::GetFFTFuncs(&sFFTFuncs);
     }
+#endif
   }
 
   explicit FFTBlock(uint32_t aFFTSize, float aInverseScaling = 1.0f)

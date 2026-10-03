@@ -427,11 +427,12 @@ nsMenuBar::OnContentRemoved(nsIContent* aContainer, nsIContent* aChild) {
 }
 
 nsMenuBar::~nsMenuBar() {
+#ifdef MOZ_ENABLE_DBUSMENU
     nsNativeMenuService* service = nsNativeMenuService::GetSingleton();
     if (service) {
         service->NotifyNativeMenuBarDestroyed(this);
     }
-
+#endif
     if (ContentNode()) {
         SetShellShowingMenuBar(false);
     }

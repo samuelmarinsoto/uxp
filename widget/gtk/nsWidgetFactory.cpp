@@ -121,8 +121,10 @@ NS_GENERIC_FACTORY_CONSTRUCTOR_INIT(GfxInfo, Init)
 }
 #endif
 
+#ifdef MOZ_ENABLE_DBUSMENU
 NS_GENERIC_FACTORY_SINGLETON_CONSTRUCTOR(nsNativeMenuService,
                                          nsNativeMenuService::GetInstanceForServiceManager)
+#endif
 
 #ifdef NS_PRINTING
 NS_GENERIC_FACTORY_CONSTRUCTOR(nsDeviceContextSpecGTK)
@@ -262,7 +264,9 @@ static const mozilla::Module::CIDEntry kWidgetCIDs[] = {
     { &kNS_IDLE_SERVICE_CID, false, nullptr, nsIdleServiceGTKConstructor },
     { &kNS_GFXINFO_CID, false, nullptr, mozilla::widget::GfxInfoConstructor },
 #endif
+#ifdef MOZ_ENABLE_DBUSMENU
     { &kNS_NATIVEMENUSERVICE_CID, true, NULL, nsNativeMenuServiceConstructor },
+#endif
     { nullptr }
 };
 
