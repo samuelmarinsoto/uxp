@@ -42,8 +42,11 @@
 #include "nsImageToPixbuf.h"
 #include "nsPrintDialogGTK.h"
 
-#if defined(MOZ_X11)
+/* omoon: the GTK idle service is poll-based without X11 and is required
+   by the front-end (Places idle backup) - un-gate it; GfxInfoX11 stays
+   X11-only */
 #include "nsIdleServiceGTK.h"
+#if defined(MOZ_X11)
 #include "GfxInfoX11.h"
 #endif
 
@@ -70,8 +73,9 @@ NS_GENERIC_FACTORY_CONSTRUCTOR(nsChildWindow)
 NS_GENERIC_FACTORY_CONSTRUCTOR(nsTransferable)
 NS_GENERIC_FACTORY_CONSTRUCTOR(nsBidiKeyboard)
 NS_GENERIC_FACTORY_CONSTRUCTOR(nsHTMLFormatConverter)
-#ifdef MOZ_X11
+/* omoon: idle service un-gated (poll-based fallback without X11) */
 NS_GENERIC_FACTORY_SINGLETON_CONSTRUCTOR(nsIdleServiceGTK, nsIdleServiceGTK::GetInstance)
+#ifdef MOZ_X11
 NS_GENERIC_FACTORY_CONSTRUCTOR(nsClipboardHelper)
 NS_GENERIC_FACTORY_CONSTRUCTOR_INIT(nsClipboard, Init)
 NS_GENERIC_FACTORY_CONSTRUCTOR(nsDragService)
@@ -224,8 +228,8 @@ NS_DEFINE_NAMED_CID(NS_DEVICE_CONTEXT_SPEC_CID);
 NS_DEFINE_NAMED_CID(NS_PRINTDIALOGSERVICE_CID);
 #endif
 NS_DEFINE_NAMED_CID(NS_IMAGE_TO_PIXBUF_CID);
-#if defined(MOZ_X11)
 NS_DEFINE_NAMED_CID(NS_IDLE_SERVICE_CID);
+#if defined(MOZ_X11)
 NS_DEFINE_NAMED_CID(NS_GFXINFO_CID);
 #endif
 NS_DEFINE_NAMED_CID(NS_NATIVEMENUSERVICE_CID);
@@ -260,8 +264,9 @@ static const mozilla::Module::CIDEntry kWidgetCIDs[] = {
     { &kNS_PRINTDIALOGSERVICE_CID, false, nullptr, nsPrintDialogServiceGTKConstructor },
 #endif
     { &kNS_IMAGE_TO_PIXBUF_CID, false, nullptr, nsImageToPixbufConstructor },
-#if defined(MOZ_X11)
+    /* omoon: idle service un-gated (poll-based fallback without X11) */
     { &kNS_IDLE_SERVICE_CID, false, nullptr, nsIdleServiceGTKConstructor },
+#if defined(MOZ_X11)
     { &kNS_GFXINFO_CID, false, nullptr, mozilla::widget::GfxInfoConstructor },
 #endif
 #ifdef MOZ_ENABLE_DBUSMENU
