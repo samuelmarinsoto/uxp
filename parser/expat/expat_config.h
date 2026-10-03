@@ -32,7 +32,7 @@
 #  define XMLIMPORT __attribute__((visibility("hidden")))
 #endif
 
-#define XML_UNICODE
+/* #undef XML_UNICODE - omoon: 8-bit expat for the unprefixed API fontconfig uses */
 typedef char XML_LChar;
 /*
  * The char16_t type is only usable in C++ code, so we need this ugly hack to
