@@ -508,6 +508,13 @@ Navigator::GetPlugins(ErrorResult& aRv)
 
   return mPlugins;
 }
+#else
+/* omoon: no-plugin build; the generated NavigatorBinding still calls this */
+nsPluginArray*
+Navigator::GetPlugins(ErrorResult& aRv)
+{
+  return nullptr;
+}
 #endif
 
 Permissions*

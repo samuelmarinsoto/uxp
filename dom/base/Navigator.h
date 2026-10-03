@@ -19,9 +19,9 @@
 #include "nsTArray.h"
 #include "nsWeakPtr.h"
 
-#ifdef MOZ_ENABLE_NPAPI
+/* omoon: nsPluginArray fwd decl un-gated; the no-plugin GetPlugins stub
+   returns nullptr and the generated bindings still reference the type */
 class nsPluginArray;
-#endif
 class nsMimeTypeArray;
 class nsPIDOMWindowInner;
 class nsIDOMNavigatorSystemMessages;
@@ -129,9 +129,9 @@ public:
   void RegisterContentHandler(const nsAString& aMIMEType, const nsAString& aURL,
                               const nsAString& aTitle, ErrorResult& aRv);
   nsMimeTypeArray* GetMimeTypes(ErrorResult& aRv);
-#ifdef MOZ_ENABLE_NPAPI
+  /* omoon: un-gated for the generated bindings; no-plugin build returns
+     nullptr (navigator.plugins degrades to null/throwing) */
   nsPluginArray* GetPlugins(ErrorResult& aRv);
-#endif
   Permissions* GetPermissions(ErrorResult& aRv);
   bool GlobalPrivacyControl();
   Geolocation* GetGeolocation(ErrorResult& aRv);

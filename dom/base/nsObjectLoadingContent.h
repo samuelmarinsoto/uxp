@@ -227,12 +227,12 @@ class nsObjectLoadingContent : public nsImageLoadingContent
     {
       return mFallbackType;
     }
-#ifdef MOZ_ENABLE_NPAPI
+    /* omoon: un-gated for the generated bindings (R3 no-plugin build);
+       mInstanceOwner degenerates to bool in both configurations */
     bool HasRunningPlugin() const
     {
       return !!mInstanceOwner;
     }
-#endif
     void SwapFrameLoaders(mozilla::dom::HTMLIFrameElement& aOtherLoaderOwner,
                           mozilla::ErrorResult& aRv)
     {
