@@ -533,6 +533,10 @@ public:
 
     bool EnsureInitialized(bool forceAccel, nsACString* const out_failureId);
 
+#ifdef MOZ_STATIC_EGL
+    static PRFuncPtr StaticLookup(const char* name);
+#endif
+
     void DumpEGLConfig(EGLConfig cfg);
     void DumpEGLConfigs();
 
@@ -640,6 +644,19 @@ public:
 private:
     bool mInitialized;
     PRLibrary* mEGLLibrary;
+
+    // LoadSymbols must never consult PR_FindFunctionSymbol in a static
+    // build; a null library routes every lookup through the platform lookup
+    // function, which resolves against the statically linked symbol table.
+    PRLibrary* SymbolLookupLibrary() const
+    {
+#ifdef MOZ_STATIC_EGL
+        return nullptr;
+#else
+        return mEGLLibrary;
+#endif
+    }
+
     EGLDisplay mEGLDisplay;
     RefPtr<GLContext> mReadbackGL;
 
