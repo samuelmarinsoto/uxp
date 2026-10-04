@@ -1,7 +1,0 @@
-static-egl-test: OK (26 EGL symbols bound statically, 0 NSPR lookups)
---- undefined dynamic symbols in the static-pie binary (filtered) ---
-none (good)
---- call sites of NSPR lookup stubs (runtime-proven never executed) ---
-    1459:	67 e8 07 fb ff ff    	addr32 call f66 <PR_LoadLibraryWithFlags>
-    150f:	67 e8 fb f9 ff ff    	addr32 call f10 <PR_FindFunctionSymbol>
-    154d:	67 e8 df f9 ff ff    	addr32 call f32 <PR_FindFunctionSymbolAndLibrary>
