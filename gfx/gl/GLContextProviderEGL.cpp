@@ -469,20 +469,20 @@ GLContextEGL::CreateSurfaceForWindow(nsIWidget* aWidget)
 {
     nsCString discardFailureId;
     if (!sEGLLibrary.EnsureInitialized(false, &discardFailureId)) {
-        MOZ_CRASH("GFX: Failed to load EGL library!\n");
-        return nullptr;
+        NS_WARNING("GFX: EGL init failed, no window surface will be created.");
+        return EGL_NO_SURFACE;
     }
 
     EGLConfig config;
     if (!CreateConfig(&config, aWidget)) {
-        MOZ_CRASH("GFX: Failed to create EGLConfig!\n");
-        return nullptr;
+        NS_WARNING("GFX: Failed to create EGLConfig.");
+        return EGL_NO_SURFACE;
     }
 
     EGLSurface surface = mozilla::gl::CreateSurfaceForWindow(aWidget, config);
     if (!surface) {
-        MOZ_CRASH("GFX: Failed to create EGLSurface for window!\n");
-        return nullptr;
+        NS_WARNING("GFX: Failed to create EGLSurface for window.");
+        return EGL_NO_SURFACE;
     }
     return surface;
 }
@@ -698,7 +698,7 @@ GLContextProviderEGL::CreateWrappingExisting(void* aContext, void* aSurface)
 {
     nsCString discardFailureId;
     if (!sEGLLibrary.EnsureInitialized(false, &discardFailureId)) {
-        MOZ_CRASH("GFX: Failed to load EGL library 2!\n");
+        NS_WARNING("GFX: EGL init failed, cannot wrap existing context.");
         return nullptr;
     }
 
@@ -727,7 +727,7 @@ GLContextProviderEGL::CreateForWindow(nsIWidget* aWidget, bool aForceAccelerated
 {
     nsCString discardFailureId;
     if (!sEGLLibrary.EnsureInitialized(false, &discardFailureId)) {
-        MOZ_CRASH("GFX: Failed to load EGL library 3!\n");
+        NS_WARNING("GFX: EGL init failed, falling back to software layers.");
         return nullptr;
     }
 
@@ -735,13 +735,13 @@ GLContextProviderEGL::CreateForWindow(nsIWidget* aWidget, bool aForceAccelerated
 
     EGLConfig config;
     if (!CreateConfig(&config, aWidget)) {
-        MOZ_CRASH("GFX: Failed to create EGLConfig!\n");
+        NS_WARNING("GFX: Failed to create EGLConfig, falling back to software layers.");
         return nullptr;
     }
 
     EGLSurface surface = mozilla::gl::CreateSurfaceForWindow(aWidget, config);
     if (!surface) {
-        MOZ_CRASH("GFX: Failed to create EGLSurface!\n");
+        NS_WARNING("GFX: Failed to create EGLSurface, falling back to software layers.");
         return nullptr;
     }
 
@@ -750,7 +750,7 @@ GLContextProviderEGL::CreateForWindow(nsIWidget* aWidget, bool aForceAccelerated
                                                             caps, nullptr, false, config,
                                                             surface, &discardFailureId);
     if (!gl) {
-        MOZ_CRASH("GFX: Failed to create EGLContext!\n");
+        NS_WARNING("GFX: Failed to create EGLContext, falling back to software layers.");
         mozilla::gl::DestroySurface(surface);
         return nullptr;
     }
