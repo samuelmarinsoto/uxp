@@ -28,6 +28,9 @@
 #include "gfxPrefs.h"
 #include "ScopedGLHelpers.h"
 #include "GLReadTexImageHelper.h"
+#ifdef MOZ_STATIC_EGL
+#include "StaticEGLSymbols.h"
+#endif
 
 using namespace mozilla::gfx;
 using namespace mozilla::layers;
@@ -255,6 +258,18 @@ GLLibraryEGL::ReadbackEGLImage(EGLImage image, gfx::DataSourceSurface* out_surfa
     return true;
 }
 
+#ifdef MOZ_STATIC_EGL
+/* static */ PRFuncPtr
+GLLibraryEGL::StaticLookup(const char* name)
+{
+    PRFuncPtr ptr;
+    if (FindStaticEGLSymbol(name, &ptr)) {
+        return ptr;
+    }
+    return reinterpret_cast<PRFuncPtr>(eglGetProcAddress(name));
+}
+#endif
+
 bool
 GLLibraryEGL::EnsureInitialized(bool forceAccel, nsACString* const out_failureId)
 {
@@ -309,6 +324,14 @@ GLLibraryEGL::EnsureInitialized(bool forceAccel, nsACString* const out_failureId
     // On non-Windows we use system copies of libEGL. We look for
     // libEGL.so and libEGL.so.1 in that order.
 
+#ifdef MOZ_STATIC_EGL
+    // musl's static dlopen is a stub, so PR_LoadLibrary can never succeed.
+    // EGL symbols bind at link time to the statically linked libEGL instead;
+    // record a sentinel so the checks below see an available EGL provider.
+    if (!mEGLLibrary) {
+        mEGLLibrary = reinterpret_cast<PRLibrary*>(1);
+    }
+#else
     if (!mEGLLibrary) {
         mEGLLibrary = PR_LoadLibrary("libEGL.so");
     }
@@ -317,6 +340,7 @@ GLLibraryEGL::EnsureInitialized(bool forceAccel, nsACString* const out_failureId
         mEGLLibrary = PR_LoadLibrary("libEGL.so.1");
     }
 #endif
+#endif // MOZ_STATIC_EGL
 
     if (!mEGLLibrary) {
         NS_WARNING("Couldn't load EGL LIB.");
@@ -359,7 +383,12 @@ GLLibraryEGL::EnsureInitialized(bool forceAccel, nsACString* const out_failureId
         { nullptr, { nullptr } }
     };
 
-    if (!GLLibraryLoader::LoadSymbols(mEGLLibrary, &earlySymbols[0])) {
+#ifdef MOZ_STATIC_EGL
+    if (!GLLibraryLoader::LoadSymbols(SymbolLookupLibrary(), &earlySymbols[0],
+                                      &GLLibraryEGL::StaticLookup)) {
+#else
+    if (!GLLibraryLoader::LoadSymbols(SymbolLookupLibrary(), &earlySymbols[0])) {
+#endif
         NS_WARNING("Couldn't find required entry points in EGL library (early init)");
         *out_failureId = NS_LITERAL_CSTRING("FEATURE_FAILURE_EGL_SYM");
         return false;
@@ -379,7 +408,7 @@ GLLibraryEGL::EnsureInitialized(bool forceAccel, nsACString* const out_failureId
             { nullptr, { nullptr } }
         };
 
-        bool success = GLLibraryLoader::LoadSymbols(mEGLLibrary,
+        bool success = GLLibraryLoader::LoadSymbols(SymbolLookupLibrary(),
                                                     &d3dSymbols[0],
                                                     lookupFunction);
         if (!success) {
@@ -454,7 +483,7 @@ GLLibraryEGL::EnsureInitialized(bool forceAccel, nsACString* const out_failureId
             { nullptr, { nullptr } }
         };
 
-        bool success = GLLibraryLoader::LoadSymbols(mEGLLibrary,
+        bool success = GLLibraryLoader::LoadSymbols(SymbolLookupLibrary(),
                                                     &lockSymbols[0],
                                                     lookupFunction);
         if (!success) {
@@ -473,7 +502,7 @@ GLLibraryEGL::EnsureInitialized(bool forceAccel, nsACString* const out_failureId
             { nullptr, { nullptr } }
         };
 
-        bool success = GLLibraryLoader::LoadSymbols(mEGLLibrary,
+        bool success = GLLibraryLoader::LoadSymbols(SymbolLookupLibrary(),
                                                     &d3dSymbols[0],
                                                     lookupFunction);
         if (!success) {
@@ -494,7 +523,7 @@ GLLibraryEGL::EnsureInitialized(bool forceAccel, nsACString* const out_failureId
             { nullptr, { nullptr } }
         };
 
-        bool success = GLLibraryLoader::LoadSymbols(mEGLLibrary,
+        bool success = GLLibraryLoader::LoadSymbols(SymbolLookupLibrary(),
                                                     &syncSymbols[0],
                                                     lookupFunction);
         if (!success) {
@@ -516,7 +545,7 @@ GLLibraryEGL::EnsureInitialized(bool forceAccel, nsACString* const out_failureId
             { nullptr, { nullptr } }
         };
 
-        bool success = GLLibraryLoader::LoadSymbols(mEGLLibrary,
+        bool success = GLLibraryLoader::LoadSymbols(SymbolLookupLibrary(),
                                                     &imageSymbols[0],
                                                     lookupFunction);
         if (!success) {
